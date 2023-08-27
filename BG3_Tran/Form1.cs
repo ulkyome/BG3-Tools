@@ -105,31 +105,32 @@ namespace BG3_Tran
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             //<LSTag Type="Spell" Tooltip="Target_HealingSpirit_Heal">
-            if (e.ColumnIndex == 2 && e.RowIndex >= 2) // проверяем, что это нужная колонка и строка
-            {
-                string cellText = e.Value.ToString(); // получаем текст ячейки
+            /*if (e.ColumnIndex == 2 && e.RowIndex >= 2) // проверяем, что это нужная колонка и строка
+             {
+                 string cellText = e.Value.ToString(); // получаем текст ячейки
 
-                string pattern = @"<LSTag (.*)<\/LSTag>";
-            
-                RegexOptions options = RegexOptions.Multiline;
+                 string pattern = @"<LSTag (.*)<\/LSTag>";
 
-                foreach (Match m in Regex.Matches(cellText, pattern, options))
-                {
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All); // отрисовываем ячейку
-                    using (Brush brush = new SolidBrush(Color.Red)) // создаем кисть для красного цвета
-                    {
-                        //MessageBox.Show($"{m.Value} found.");
-                        SizeF size = e.Graphics.MeasureString(string.Join(" ", m.Value, 0, 0), e.CellStyle.Font); // вычисляем размер предыдущих словw
-                        //MessageBox.Show($"{size} test.");
-                        Point location = new Point(e.CellBounds.X + (int)size.Width+3, e.CellBounds.Y); // вычисляем координаты начала слова
-                    }
-                        
-                }
+                 RegexOptions options = RegexOptions.Multiline;
 
-                /*
+                 foreach (Match m in Regex.Matches(cellText, pattern, options))
+                 {
+                     e.Paint(e.CellBounds, DataGridViewPaintParts.All); // отрисовываем ячейку
+                     using (Brush brush = new SolidBrush(Color.Red)) // создаем кисть для красного цвета
+                     {
+                         //MessageBox.Show($"{m.Value} found.");
+                         SizeF size = e.Graphics.MeasureString(string.Join(" ", m.Value, 0, 0), e.CellStyle.Font); // вычисляем размер предыдущих словw
+                         //MessageBox.Show($"{size} test.");
+                         Point location = new Point(e.CellBounds.X + (int)size.Width+3, e.CellBounds.Y); // вычисляем координаты начала слова
+                     }
+
+                 }
+
+             }*/
+            /*
                 if (cellText.Contains("<LSTag")) // проверяем, что нужное слово есть в тексте
                 {
-                
+
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All); // отрисовываем ячейку
 
                     using (Brush brush = new SolidBrush(Color.Red)) // создаем кисть для красного цвета
@@ -154,10 +155,9 @@ namespace BG3_Tran
                             }
                         }
                     }
-                
+
                     e.Handled = true; // отменяем стандартную отрисовку ячейки
                 }*/
-            }
         }
     }
 }
