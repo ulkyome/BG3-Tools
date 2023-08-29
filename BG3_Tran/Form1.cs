@@ -34,6 +34,7 @@ namespace BG3_Tran
 
         public void open_xml()
         {
+            dataGridView1.Rows.Clear();
             XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
             using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
