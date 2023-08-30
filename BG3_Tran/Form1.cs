@@ -34,17 +34,56 @@ namespace BG3_Tran
 
         public void open_xml()
         {
-            dataGridView1.Rows.Clear();
-            XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
-
-            using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
+            try
             {
-                var test = (ContentList)serializer.Deserialize(fs);
+                dataGridView1.Rows.Clear();
+                XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
-                foreach (var c in test.Content)
+                using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
                 {
-                    dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
+                    var test = (ContentList)serializer.Deserialize(fs);
+
+                    foreach (var c in test.Content)
+                    {
+                        dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
+                    }
                 }
+            }
+            catch(Exception e) {
+                MessageBox.Show("ERROR OPEN XML (Markup error or invalid format)");
+            }
+        }
+        public void open_xml2()
+        {
+            //dataGridView1.Rows[0].Cells[2].Value = "текст!";
+            try
+            {
+                //dataGridView1.Rows.Clear();
+                XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
+
+                using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
+                {
+                    var test = (ContentList)serializer.Deserialize(fs);
+
+                    foreach (var c in test.Content)
+                    {
+
+                        //dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
+
+                        for (int i = 1; i < dataGridView1.Rows.Count; i++)
+                        {
+                            if (dataGridView1.Rows[i].Cells[0].Value.ToString() == c.Contentuid)
+                            {
+                                dataGridView1.Rows[i].Cells[3].Value = c.Text;
+                            }
+                                
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ERROR OPEN XML (Markup error or invalid format)");
             }
         }
 
@@ -159,6 +198,24 @@ namespace BG3_Tran
 
                     e.Handled = true; // отменяем стандартную отрисовку ячейки
                 }*/
+        }
+
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dialog = openFileDialog1.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                FileOpenL = openFileDialog1.FileName;
+                open_xml2();
+            }
+            else if (dialog == DialogResult.Cancel)
+            {
+                //
+            }
+            else
+            {
+                MessageBox.Show("ERROR#O_01");
+            }
         }
     }
 }
