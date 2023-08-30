@@ -69,18 +69,20 @@ namespace BG3_Tran
                     int count = dataGridView1.Rows.Count;
                     foreach (var c in test.Content)
                     {
+                        bool isnew = true;
                         for (int i = 0; i < count; i++)
                         {
-                            if (dataGridView1.Rows[i].Cells[0].Value.ToString() == c.Contentuid)
+                            var val = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                            if (val == c.Contentuid)
                             {
                                 dataGridView1.Rows[i].Cells[3].Value = c.Text;
-                            }
-                            else
-                            {
-                                dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test"); // если ее оставляю вот память жрет 
+                                isnew = false;
                             }
                                 
                         }
+                        if (isnew)
+                            dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test"); // если ее оставляю вот память жрет 
+
                     }
                 }
             }
