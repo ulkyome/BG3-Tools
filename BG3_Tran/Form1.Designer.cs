@@ -153,14 +153,14 @@
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem1});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.testToolStripMenuItem.Text = "line matching";
             // 
             // testToolStripMenuItem1
             // 
             this.testToolStripMenuItem1.Name = "testToolStripMenuItem1";
             this.testToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.testToolStripMenuItem1.Text = "test";
+            this.testToolStripMenuItem1.Text = "Open";
             this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
             // 
             // Form1
