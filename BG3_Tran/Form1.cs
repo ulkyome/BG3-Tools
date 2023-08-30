@@ -43,9 +43,13 @@ namespace BG3_Tran
                 {
                     var test = (ContentList)serializer.Deserialize(fs);
 
+                    int index = 0;
                     foreach (var c in test.Content)
                     {
+                        
                         dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
+                        dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
+                        index++;
                     }
                 }
             }
@@ -55,26 +59,25 @@ namespace BG3_Tran
         }
         public void open_xml2()
         {
-            //dataGridView1.Rows[0].Cells[2].Value = "текст!";
             try
             {
-                //dataGridView1.Rows.Clear();
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
                 using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
                 {
                     var test = (ContentList)serializer.Deserialize(fs);
-
+                    int count = dataGridView1.Rows.Count;
                     foreach (var c in test.Content)
                     {
-
-                        //dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
-
-                        for (int i = 1; i < dataGridView1.Rows.Count; i++)
+                        for (int i = 0; i < count; i++)
                         {
                             if (dataGridView1.Rows[i].Cells[0].Value.ToString() == c.Contentuid)
                             {
                                 dataGridView1.Rows[i].Cells[3].Value = c.Text;
+                            }
+                            else
+                            {
+                                dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test"); // если ее оставляю вот память жрет 
                             }
                                 
                         }

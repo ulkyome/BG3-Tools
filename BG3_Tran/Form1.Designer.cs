@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.uid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textTrans = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +38,10 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textTrans = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,38 +69,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // uid
-            // 
-            this.uid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.uid.FillWeight = 20F;
-            this.uid.HeaderText = "uID";
-            this.uid.MinimumWidth = 20;
-            this.uid.Name = "uid";
-            this.uid.ReadOnly = true;
-            // 
-            // ver
-            // 
-            this.ver.FillWeight = 1F;
-            this.ver.HeaderText = "ver";
-            this.ver.Name = "ver";
-            this.ver.ReadOnly = true;
-            this.ver.Visible = false;
-            // 
-            // text
-            // 
-            this.text.FillWeight = 300F;
-            this.text.HeaderText = "text";
-            this.text.MinimumWidth = 20;
-            this.text.Name = "text";
-            // 
-            // textTrans
-            // 
-            this.textTrans.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.textTrans.FillWeight = 365F;
-            this.textTrans.HeaderText = "text translation";
-            this.textTrans.MinimumWidth = 365;
-            this.textTrans.Name = "textTrans";
             // 
             // menuStrip1
             // 
@@ -163,6 +131,39 @@
             this.testToolStripMenuItem1.Text = "Open";
             this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
             // 
+            // uid
+            // 
+            this.uid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.uid.FillWeight = 20F;
+            this.uid.HeaderText = "uID";
+            this.uid.MinimumWidth = 32;
+            this.uid.Name = "uid";
+            this.uid.ReadOnly = true;
+            this.uid.Width = 32;
+            // 
+            // ver
+            // 
+            this.ver.FillWeight = 1F;
+            this.ver.HeaderText = "ver";
+            this.ver.Name = "ver";
+            this.ver.ReadOnly = true;
+            this.ver.Visible = false;
+            // 
+            // text
+            // 
+            this.text.FillWeight = 300F;
+            this.text.HeaderText = "text";
+            this.text.MinimumWidth = 20;
+            this.text.Name = "text";
+            // 
+            // textTrans
+            // 
+            this.textTrans.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.textTrans.FillWeight = 365F;
+            this.textTrans.HeaderText = "text translation";
+            this.textTrans.MinimumWidth = 365;
+            this.textTrans.Name = "textTrans";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,12 +194,12 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn uid;
         private System.Windows.Forms.DataGridViewTextBoxColumn ver;
         private System.Windows.Forms.DataGridViewTextBoxColumn text;
         private System.Windows.Forms.DataGridViewTextBoxColumn textTrans;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
     }
 }
 
