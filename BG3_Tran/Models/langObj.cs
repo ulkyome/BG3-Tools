@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace BG3_Tran
+namespace BG3_Tools.Models
 {
     [XmlRoot(ElementName = "content")]
     public class Content

@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BG3_Tools
+{
+    public partial class Loading : Form
+    {
+        public static Translation TranslationF;
+        public static Main MainF;
+        public Loading()
+        {
+            InitializeComponent();
+            MainF = new Main();
+            
+        }
+
+        private void Loading_Shown(object sender, EventArgs e)
+        {
+            //Thread.Sleep(500);
+            MainF.Show();
+
+            this.Hide();
+
+        }
+
+        private void Loading_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Loading_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+    }
+}

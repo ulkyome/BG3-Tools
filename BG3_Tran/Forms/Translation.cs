@@ -6,12 +6,15 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using BG3_Tools.Models;
+using BG3_Tools.Helpers;
+using System.Drawing;
 
-namespace BG3_Tran
+namespace BG3_Tools
 {
-    public partial class Form1 : Form
+    public partial class Translation : Form
     {
-        public Form1()
+        public Translation()
         {
             InitializeComponent();
         }
@@ -23,7 +26,8 @@ namespace BG3_Tran
         public static ContentList data = new ContentList();
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //MessageBox.Show(Generate.GuID(false));
+            tBoxUID.Text = Generate.GuID(false);
             bool fileExist = File.Exists(string.Format("{0}{1}", FolderTemp,lastFileFolder(FolderTemp)));
             if (fileExist)
             {
@@ -241,6 +245,51 @@ namespace BG3_Tran
             else
             {
                 MessageBox.Show("ERROR#O_01");
+            }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+           
+            dataGridView1.Rows.Add(tBoxUID.Text, tBoxVer.Text, tBoxText.Text, tBoxText.Text);
+            tBoxUID.Text = Generate.GuID(false);
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dialog = openFileDialog1.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                open_xml2(openFileDialog1.FileName);
+            }
+            else if (dialog == DialogResult.Cancel)
+            {
+                //
+            }
+            else
+            {
+                MessageBox.Show("ERROR#O_01");
+            }
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
+            {
+                /*dgvBookmarks.Rows[e.RowIndex].Selected = true;
+                Rectangle r = dgvBookmarks.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                contextMenu.Show((Control)sender, r.Left + e.X, r.Top + e.Y);*/
             }
         }
     }

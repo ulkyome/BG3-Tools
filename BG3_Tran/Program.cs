@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BG3_Tran
+namespace BG3_Tools
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace BG3_Tran
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Loading());
         }
     }
 }
