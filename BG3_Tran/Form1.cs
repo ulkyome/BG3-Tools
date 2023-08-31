@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -19,27 +16,31 @@ namespace BG3_Tran
             InitializeComponent();
         }
 
-        public static string FileOpenL = @".\temp\temporary.xml";
-        public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        public static string FolderTemp = string.Format(@"{0}\temp\", Environment.CurrentDirectory);
+        public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
+        public static string FileNameOpen = "none";
 
         public static ContentList data = new ContentList();
         private void Form1_Load(object sender, EventArgs e)
         {
-            bool fileExist = File.Exists(FileOpenL);
+            
+            bool fileExist = File.Exists(string.Format("{0}{1}", FolderTemp,lastFileFolder(FolderTemp)));
             if (fileExist)
             {
-                open_xml();
+                open_xml(string.Format("{0}{1}", FolderTemp, lastFileFolder(FolderTemp)));
             }
         }
 
-        public void open_xml()
+        public void open_xml(string file)
         {
+            FileNameOpen = Path.GetFileNameWithoutExtension(file);
             try
             {
+                
                 dataGridView1.Rows.Clear();
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
-                using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
                 {
                     var test = (ContentList)serializer.Deserialize(fs);
 
@@ -47,7 +48,7 @@ namespace BG3_Tran
                     foreach (var c in test.Content)
                     {
                         
-                        dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, c.Text);
+                        dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "");
                         dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
                         index++;
                     }
@@ -57,13 +58,13 @@ namespace BG3_Tran
                 MessageBox.Show("ERROR OPEN XML (Markup error or invalid format)");
             }
         }
-        public void open_xml2()
+        public void open_xml2(string file)
         {
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
-                using (FileStream fs = new FileStream(FileOpenL, FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
                 {
                     var test = (ContentList)serializer.Deserialize(fs);
                     int count = dataGridView1.Rows.Count;
@@ -81,7 +82,7 @@ namespace BG3_Tran
                                 
                         }
                         if (isnew)
-                            dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test"); // если ее оставляю вот память жрет 
+                            dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test");
 
                     }
                 }
@@ -90,6 +91,26 @@ namespace BG3_Tran
             {
                 MessageBox.Show("ERROR OPEN XML (Markup error or invalid format)");
             }
+        }
+
+        public string lastFileFolder(string Dir)
+        {
+            DateTime dt = new DateTime(1990, 1, 1);
+            string fileName = "null";
+            
+            FileSystemInfo[] fileSystemInfo = new DirectoryInfo(Dir).GetFileSystemInfos();
+            foreach (FileSystemInfo fileSI in fileSystemInfo)
+            {
+                if (fileSI.Extension == ".xml" | fileSI.Extension == ".loc")
+                {
+                    if (dt < Convert.ToDateTime(fileSI.CreationTime))
+                    {
+                        dt = Convert.ToDateTime(fileSI.CreationTime);
+                        fileName = fileSI.Name;
+                    }
+                }
+            }
+            return fileName;
         }
 
         public void save_xml(string fileSave)
@@ -108,8 +129,8 @@ namespace BG3_Tran
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-                FileOpenL = openFileDialog1.FileName;
-                open_xml();
+
+                open_xml(openFileDialog1.FileName);
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -144,7 +165,8 @@ namespace BG3_Tran
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             Directory.CreateDirectory(@".\temp\");
-            save_xml(@".\temp\temporary.xml");
+           // save_xml(@".\temp\temporary.xml");
+            save_xml(string.Format(@".\temp\{0}_temporary_{1}.xml", dataTimeN, FileNameOpen));
         }
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -210,8 +232,7 @@ namespace BG3_Tran
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-                FileOpenL = openFileDialog1.FileName;
-                open_xml2();
+                open_xml2(openFileDialog1.FileName);
             }
             else if (dialog == DialogResult.Cancel)
             {

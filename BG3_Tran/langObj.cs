@@ -13,6 +13,9 @@ namespace BG3_Tran
         [XmlAttribute(AttributeName = "version")]
         public int Version;
 
+        [XmlAttribute(AttributeName = "text_o")]
+        public string text_o;
+
         [XmlText]
         public string Text;
     }
