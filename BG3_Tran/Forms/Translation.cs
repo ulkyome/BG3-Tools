@@ -99,6 +99,7 @@ namespace BG3_Tools
 
         public string lastFileFolder(string Dir)
         {
+            Directory.CreateDirectory(@".\temp\");
             DateTime dt = new DateTime(1990, 1, 1);
             string fileName = "null";
             
@@ -154,7 +155,7 @@ namespace BG3_Tools
             {
                 //FileSaveL = saveFileDialog1.FileName;
                 save_xml(saveFileDialog1.FileName);
-                Directory.Delete(@".\temp\", true);
+                //Directory.Delete(@".\temp\", true);
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -291,6 +292,11 @@ namespace BG3_Tools
 
                 contextMenu.Show((Control)sender, r.Left + e.X, r.Top + e.Y);*/
             }
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
