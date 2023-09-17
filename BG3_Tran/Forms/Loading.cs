@@ -1,8 +1,10 @@
-﻿using System;
+﻿using BG3_Tools.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -15,11 +17,12 @@ namespace BG3_Tools
     {
         public static Translation TranslationF;
         public static Main MainF;
+        public static genGuID genGuIDF;
         public Loading()
         {
             InitializeComponent();
             MainF = new Main();
-            
+            Directory.CreateDirectory(@".\temp\");
         }
 
         private void Loading_Shown(object sender, EventArgs e)

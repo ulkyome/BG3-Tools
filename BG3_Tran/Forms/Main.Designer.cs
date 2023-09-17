@@ -32,13 +32,16 @@
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.translationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xMLToolStripMenuItem});
+            this.xMLToolStripMenuItem,
+            this.genToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1588, 24);
@@ -56,9 +59,24 @@
             // translationToolStripMenuItem
             // 
             this.translationToolStripMenuItem.Name = "translationToolStripMenuItem";
-            this.translationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.translationToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.translationToolStripMenuItem.Text = "Translation";
             this.translationToolStripMenuItem.Click += new System.EventHandler(this.translationToolStripMenuItem_Click);
+            // 
+            // genToolStripMenuItem
+            // 
+            this.genToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uIDToolStripMenuItem});
+            this.genToolStripMenuItem.Name = "genToolStripMenuItem";
+            this.genToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.genToolStripMenuItem.Text = "Tools";
+            // 
+            // uIDToolStripMenuItem
+            // 
+            this.uIDToolStripMenuItem.Name = "uIDToolStripMenuItem";
+            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uIDToolStripMenuItem.Text = "uID generate";
+            this.uIDToolStripMenuItem.Click += new System.EventHandler(this.uIDToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -86,5 +104,7 @@
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem translationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uIDToolStripMenuItem;
     }
 }

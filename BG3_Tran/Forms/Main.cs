@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BG3_Tools.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,12 +23,22 @@ namespace BG3_Tools
             Loading.TranslationF = new Translation();
             Loading.TranslationF.MdiParent = this;
             Loading.TranslationF.Show();
+
             
+
+
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void uIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Loading.genGuIDF = new genGuID();
+            Loading.genGuIDF.MdiParent = this;
+            Loading.genGuIDF.Show();
         }
     }
 }
