@@ -19,6 +19,7 @@ namespace BG3_Tools
         public static Main MainF;
         public static genGuID genGuIDF;
         public static editLineTrans editLineT;
+        public static About about;
         public Loading()
         {
             InitializeComponent();

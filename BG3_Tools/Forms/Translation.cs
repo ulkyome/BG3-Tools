@@ -15,6 +15,8 @@ using System.Text.RegularExpressions;
 using BG3_Tools.Forms;
 using LSLib.LS;
 using LSLib.LS.Enums;
+using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BG3_Tools
 {
@@ -37,11 +39,12 @@ namespace BG3_Tools
         //public static ContentList data = new ContentList();
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             if (panelLastOpen.Visible)
             {
                 lastFileOpenToolStripMenuItem.Checked = true;
             }
-
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.DataSource = _data;
 
             dataGridView1.Columns["Contentuid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -80,9 +83,6 @@ namespace BG3_Tools
            */
             tBoxUID.Text = Generate.GuID(false);
 
-
-            //open_xml(string.Format("{0}{1}", FolderTemp, lastFileFolder(FolderTemp)));
-            //listViewLastFile = lastFileFolder(FolderTemp);
             lastFileFolder($@"{FolderTemp}\json\");
         }
 
@@ -130,10 +130,7 @@ namespace BG3_Tools
             FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
             try
             {
-               
-
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
-
 
                 using (FileStream fs = new FileStream(fileO, FileMode.OpenOrCreate))
                 {
@@ -141,7 +138,6 @@ namespace BG3_Tools
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-
                         c.TextT = c.Text;
 
                         if (c.Contentuid == "")
@@ -149,30 +145,103 @@ namespace BG3_Tools
                             uIDNUl++;
                             FileOpenUser.Content.Remove(c);
                         }
-
                     }
 
                     if( uIDNUl > 0) {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
                     }
-                   
                     //MessageBox.Show($"add rows {FileOpenUser.Content.Count}");
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
-
-                    
 
                     foreach (var test in _data)
                     {
                         dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
                         index++;
                     }
+
+                    findDuplicate_uID();
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {e.Message}");
+            }
+        }
+
+        public void findDuplicate_uID()
+        {
+            Dictionary<string, int> freqMap = _data.GroupBy(x => x.Contentuid).Where(g => g.Count() > 1).ToDictionary(x => x.Key, x => x.Count());
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                foreach (var test in freqMap)
+                {
+                    //Console.WriteLine($"key: {test.Key}  value: {test.Value}");
+                    if (row.Cells[0].Value.ToString().Equals(test.Key))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                        row.Cells[0].ErrorText = "Duplicate uID";
+
+                        break;
+                    }
+
+                }
+
+
+            }
+            findNull_row();
+        }
+
+        public void findNull_row()
+        {
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+
+                if (row.Cells[0].Value.ToString().Equals(""))
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[0].ErrorText = "null uID";
+
+                    break;
+                }
+                else if(row.Cells[0].Value == null)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[0].ErrorText = "null uID";
+
+                    break;
+                }
+                else if (row.Cells[2].Value == null)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[2].ErrorText = "null text";
+
+                    break;
+                }
+                else if (row.Cells[2].Value.ToString().Equals(""))
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[2].ErrorText = "null text";
+
+                    break;
+                }
+                else if (row.Cells[3].Value == null)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[3].ErrorText = "null textT";
+
+                    break;
+                }
+                else if (row.Cells[3].Value.ToString().Equals(""))
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    row.Cells[3].ErrorText = "null textT";
+
+                    break;
+                }
             }
         }
 
@@ -202,7 +271,6 @@ namespace BG3_Tools
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-
                         c.TextT = c.Text;
 
                         if (c.Contentuid == "")
@@ -210,34 +278,30 @@ namespace BG3_Tools
                             uIDNUl++;
                             FileOpenUser.Content.Remove(c);
                         }
-
                     }
 
                     if (uIDNUl > 0)
                     {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
                     }
-
                     //MessageBox.Show($"add rows {FileOpenUser.Content.Count}");
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
-
-
 
                     foreach (var test in _data)
                     {
                         dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
                         index++;
                     }
+
+                    findDuplicate_uID();
                 }
             }
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
         }
 
         public void open_xmlMatch(string file)
@@ -260,13 +324,12 @@ namespace BG3_Tools
                             {
                                 dataGridView1.Rows[i].Cells[3].Value = c.Text;
                                 isnew = false;
-                            }
-                                
+                            } 
                         }
                         if (isnew)
                             _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
-
                     }
+                    findDuplicate_uID();
                 }
             }
             catch (Exception e)
@@ -302,12 +365,11 @@ namespace BG3_Tools
                                 dataGridView1.Rows[i].Cells[3].Value = c.Text;
                                 isnew = false;
                             }
-
                         }
                         if (isnew)
                             _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
-
                     }
+                    findDuplicate_uID();
                 }
             }
             catch (Exception exc)
@@ -318,9 +380,6 @@ namespace BG3_Tools
 
         public void lastFileFolder(string Dir)
         {
-
-
-            //Directory.CreateDirectory(@".\temp\");
             DateTime dt = new DateTime(1990, 1, 1);
             string fileName = "null";
             
@@ -332,19 +391,15 @@ namespace BG3_Tools
                 {
          
                     listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), "999" }));
-
                 }
             }
-  
         }
 
         public void saveTempJson()
         {
-            
             string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
 
-            System.IO.File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
-
+            File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
         }
 
         public void save_xml(string fileSave)
@@ -364,13 +419,10 @@ namespace BG3_Tools
             {
                 MessageBox.Show(e.Message);
             }
-            
-            
         }
 
         public void save_loca(string fileSave)
         {
-            
             try
             {
                 XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
@@ -396,9 +448,7 @@ namespace BG3_Tools
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -462,37 +512,46 @@ namespace BG3_Tools
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            //var finded = FileOpenUser.Content.Find(item => item.Contentuid == dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-            // добавить проверку на пустоту 
             if (dataGridView1.Rows[e.RowIndex].Cells[2].Value == null)
             {
-                
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
+                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "null value";
             }
             else if(dataGridView1.Rows[e.RowIndex].Cells[3].Value == null)
             {
-
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
+                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "null value";
             }
             else if(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() == dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString())
             {
                 dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
+                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
             }
             else
             {
+                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
+                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
                 dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
-            }
 
-            if (autoSaveToolStripMenuItem.Checked)
-            {
-                saveTempJson();
+                if (autoSaveToolStripMenuItem.Checked)
+                {
+                    saveTempJson();
+                }
+
+                findDuplicate_uID();
             }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
             _data.Add(new Content { Contentuid = tBoxUID.Text, Version = Convert.ToInt32(tBoxVer.Text), Text = tBoxText.Text, TextT = tBoxText.Text });
             //dataGridView1.Rows.Add(tBoxUID.Text, tBoxVer.Text, tBoxText.Text, tBoxText.Text);
+            findDuplicate_uID();
+            if (autoSaveToolStripMenuItem.Checked)
+            {
+                saveTempJson();
+            }
             tBoxUID.Text = Generate.GuID(false);
         }
 
@@ -518,7 +577,6 @@ namespace BG3_Tools
                         MessageBox.Show("ERROR FORMAT SAVE");
                         break;
                 }
-
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -576,7 +634,6 @@ namespace BG3_Tools
                 panelAddLineTool.Visible = false;
                 panelAddLineToolStripMenuItem.Checked = false;
             }
-            
         }
 
         private void autoSaveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -608,9 +665,7 @@ namespace BG3_Tools
 
         private void listViewLastFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-
-            
+         
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
@@ -639,7 +694,6 @@ namespace BG3_Tools
 
         private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
-           
             //MessageBox.Show(e.RowIndex.ToString());
         }
 
@@ -650,9 +704,21 @@ namespace BG3_Tools
 
         private void openRowToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DataGridViewRow currentRow = this.dataGridView1.CurrentRow;
+
+            editLineTrans.uID = currentRow.Cells[0].Value.ToString();
+            editLineTrans.text = currentRow.Cells[2].Value.ToString();
+            editLineTrans.textT = currentRow.Cells[3].Value.ToString();
+            editLineTrans.currentRow = currentRow;
             //добавить открыть 
             Loading.editLineT = new editLineTrans();
-            
+            Loading.editLineT.MdiParent = Loading.MainF;
+            Loading.editLineT.Show();
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

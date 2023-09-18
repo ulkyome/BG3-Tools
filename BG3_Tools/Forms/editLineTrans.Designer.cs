@@ -28,42 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.textBoxUID = new System.Windows.Forms.TextBox();
+            this.richTextBoxText = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxTextT = new System.Windows.Forms.RichTextBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxUID
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(776, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxUID.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxUID.Location = new System.Drawing.Point(0, 0);
+            this.textBoxUID.Name = "textBoxUID";
+            this.textBoxUID.Size = new System.Drawing.Size(800, 20);
+            this.textBoxUID.TabIndex = 0;
             // 
-            // richTextBox1
+            // richTextBoxText
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 55);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 359);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.richTextBoxText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBoxText.Location = new System.Drawing.Point(0, 20);
+            this.richTextBoxText.Name = "richTextBoxText";
+            this.richTextBoxText.Size = new System.Drawing.Size(800, 359);
+            this.richTextBoxText.TabIndex = 1;
+            this.richTextBoxText.Text = "";
             // 
-            // richTextBox2
+            // richTextBoxTextT
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 420);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(776, 359);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "";
+            this.richTextBoxTextT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBoxTextT.Location = new System.Drawing.Point(0, 379);
+            this.richTextBoxTextT.Name = "richTextBoxTextT";
+            this.richTextBoxTextT.Size = new System.Drawing.Size(800, 359);
+            this.richTextBoxTextT.TabIndex = 2;
+            this.richTextBoxTextT.Text = "";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.Location = new System.Drawing.Point(713, 744);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 43);
+            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(632, 744);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 43);
+            this.buttonSave.TabIndex = 4;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // editLineTrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 840);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(800, 795);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.richTextBoxTextT);
+            this.Controls.Add(this.richTextBoxText);
+            this.Controls.Add(this.textBoxUID);
             this.Name = "editLineTrans";
             this.Text = "editLineTrans";
             this.ResumeLayout(false);
@@ -73,8 +102,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.TextBox textBoxUID;
+        private System.Windows.Forms.RichTextBox richTextBoxText;
+        private System.Windows.Forms.RichTextBox richTextBoxTextT;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

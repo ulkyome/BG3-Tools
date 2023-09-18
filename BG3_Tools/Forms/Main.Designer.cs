@@ -30,20 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
-            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.translationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.genToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutTheApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metaEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.translationEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xMLToolStripMenuItem,
             this.genToolStripMenuItem,
+            this.settingToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
@@ -51,25 +53,13 @@
             this.menuStripMain.TabIndex = 1;
             this.menuStripMain.Text = "menuStrip1";
             // 
-            // xMLToolStripMenuItem
-            // 
-            this.xMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.translationToolStripMenuItem});
-            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.xMLToolStripMenuItem.Text = "XML";
-            // 
-            // translationToolStripMenuItem
-            // 
-            this.translationToolStripMenuItem.Name = "translationToolStripMenuItem";
-            this.translationToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.translationToolStripMenuItem.Text = "Translation";
-            this.translationToolStripMenuItem.Click += new System.EventHandler(this.translationToolStripMenuItem_Click);
-            // 
             // genToolStripMenuItem
             // 
             this.genToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uIDToolStripMenuItem});
+            this.uIDToolStripMenuItem,
+            this.translationEditorToolStripMenuItem,
+            this.metaEditorToolStripMenuItem,
+            this.pACToolStripMenuItem});
             this.genToolStripMenuItem.Name = "genToolStripMenuItem";
             this.genToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.genToolStripMenuItem.Text = "Tools";
@@ -77,7 +67,7 @@
             // uIDToolStripMenuItem
             // 
             this.uIDToolStripMenuItem.Name = "uIDToolStripMenuItem";
-            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uIDToolStripMenuItem.Text = "uID generate";
             this.uIDToolStripMenuItem.Click += new System.EventHandler(this.uIDToolStripMenuItem_Click);
             // 
@@ -96,6 +86,33 @@
             this.aboutTheApplicationToolStripMenuItem.Text = "About the application";
             this.aboutTheApplicationToolStripMenuItem.Click += new System.EventHandler(this.aboutTheApplicationToolStripMenuItem_Click);
             // 
+            // metaEditorToolStripMenuItem
+            // 
+            this.metaEditorToolStripMenuItem.Name = "metaEditorToolStripMenuItem";
+            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.metaEditorToolStripMenuItem.Text = "Meta editor";
+            this.metaEditorToolStripMenuItem.Click += new System.EventHandler(this.metaEditorToolStripMenuItem_Click);
+            // 
+            // translationEditorToolStripMenuItem
+            // 
+            this.translationEditorToolStripMenuItem.Name = "translationEditorToolStripMenuItem";
+            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.translationEditorToolStripMenuItem.Text = "Translation editor";
+            this.translationEditorToolStripMenuItem.Click += new System.EventHandler(this.translationEditorToolStripMenuItem_Click);
+            // 
+            // pACToolStripMenuItem
+            // 
+            this.pACToolStripMenuItem.Name = "pACToolStripMenuItem";
+            this.pACToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pACToolStripMenuItem.Text = "PAC editor";
+            this.pACToolStripMenuItem.Click += new System.EventHandler(this.pACToolStripMenuItem_Click);
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.settingToolStripMenuItem.Text = "Setting";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,6 +126,7 @@
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "Main";
             this.Text = "BG3 Tools";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
@@ -120,11 +138,13 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStripMain;
-        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem translationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem genToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uIDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutTheApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem metaEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem translationEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pACToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
     }
 }

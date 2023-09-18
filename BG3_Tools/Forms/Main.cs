@@ -18,17 +18,6 @@ namespace BG3_Tools
             InitializeComponent();
         }
 
-        private void translationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Loading.TranslationF = new Translation();
-            Loading.TranslationF.MdiParent = this;
-            Loading.TranslationF.Show();
-
-            
-
-
-        }
-
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -44,7 +33,26 @@ namespace BG3_Tools
         private void aboutTheApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //test
-            MessageBox.Show("test build by Ulkyome");
+            Loading.about = new About();
+            Loading.about.MdiParent = this;
+            Loading.about.Show();
+        }
+
+        private void translationEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Loading.TranslationF = new Translation();
+            Loading.TranslationF.MdiParent = this;
+            Loading.TranslationF.Show();
+        }
+
+        private void pACToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon");
+        }
+
+        private void metaEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon");
         }
     }
 }

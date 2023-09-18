@@ -93,6 +93,8 @@
             this.Controls.Add(this.checkBoxIsHandle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxUID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "genGuID";
             this.Text = "genGuID";
             this.ResumeLayout(false);
