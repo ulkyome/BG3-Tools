@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
@@ -8,7 +9,7 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "content")]
     public class Content
     {
-        public int index { get; set; }
+       // [JsonIgnore]
         [XmlAttribute(AttributeName = "contentuid")]
         public string Contentuid { get; set; }
 

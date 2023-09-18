@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>BG3_Tools</RootNamespace>
     <AssemblyName>BG3_Tools</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -30,7 +30,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\editLineTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\editLineTrans.Designer.cs">
+      <DependentUpon>editLineTrans.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\genGuID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\editLineTrans.resx">
+      <DependentUpon>editLineTrans.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\genGuID.resx">
       <DependentUpon>genGuID.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +175,16 @@
   <ItemGroup>
     <Content Include="i6MICch.ico" />
     <None Include="Resources\bg_load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LSLib\LSLib.csproj">
+      <Project>{46372c50-4288-4b8e-af21-c934560600e0}</Project>
+      <Name>LSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenTK\OpenTK.csproj">
+      <Project>{abb9db44-14f2-46e0-a4b8-b46c300ca982}</Project>
+      <Name>OpenTK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

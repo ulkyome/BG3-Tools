@@ -11,9 +11,10 @@ using BG3_Tools.Helpers;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.ComponentModel;
-using static System.Net.WebRequestMethods;
-using System.Reflection;
 using System.Text.RegularExpressions;
+using BG3_Tools.Forms;
+using LSLib.LS;
+using LSLib.LS.Enums;
 
 namespace BG3_Tools
 {
@@ -40,17 +41,8 @@ namespace BG3_Tools
             {
                 lastFileOpenToolStripMenuItem.Checked = true;
             }
-            
-
 
             dataGridView1.DataSource = _data;
-            dataGridView1.Columns["index"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridView1.Columns["index"].FillWeight = 20;
-            dataGridView1.Columns["index"].MinimumWidth = 36;
-            dataGridView1.Columns["index"].Width = 36;
-            dataGridView1.Columns["index"].ReadOnly = true;
-            dataGridView1.Columns["index"].Resizable = DataGridViewTriState.True;
-            dataGridView1.Columns["index"].HeaderText = "index";
 
             dataGridView1.Columns["Contentuid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.Columns["Contentuid"].FillWeight = 20;
@@ -91,7 +83,7 @@ namespace BG3_Tools
 
             //open_xml(string.Format("{0}{1}", FolderTemp, lastFileFolder(FolderTemp)));
             //listViewLastFile = lastFileFolder(FolderTemp);
-            lastFileFolder(FolderTemp);
+            lastFileFolder($@"{FolderTemp}\json\");
         }
 
         public void open_json(string fileO)
@@ -106,9 +98,6 @@ namespace BG3_Tools
 
 
             FileNameOpen = m.Groups[2].Value;
-
-            
-
 
             try
             {
@@ -133,13 +122,16 @@ namespace BG3_Tools
             panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
+            int uIDNUl = 0;
+            int index = 0;
+
             _data.Clear();
 
             FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
             try
             {
-                int uIDNUl = 0;
-                int index = 0;
+               
+
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
 
@@ -149,7 +141,7 @@ namespace BG3_Tools
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-                        c.index = index;
+
                         c.TextT = c.Text;
 
                         if (c.Contentuid == "")
@@ -158,7 +150,6 @@ namespace BG3_Tools
                             FileOpenUser.Content.Remove(c);
                         }
 
-                        index++;
                     }
 
                     if( uIDNUl > 0) {
@@ -169,6 +160,14 @@ namespace BG3_Tools
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
+
+                    
+
+                    foreach (var test in _data)
+                    {
+                        dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
+                        index++;
+                    }
                 }
             }
             catch (Exception e)
@@ -176,7 +175,71 @@ namespace BG3_Tools
                 MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {e.Message}");
             }
         }
-        
+
+        public void open_loca(string fileO)
+        {
+            panelLastOpen.Visible = false;
+            lastFileOpenToolStripMenuItem.Checked = false;
+
+            int uIDNUl = 0;
+            int index = 0;
+
+            _data.Clear();
+
+            FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
+
+            try
+            {
+                var resource = LocaUtils.Load(fileO);
+                var format = LocaUtils.ExtensionToFileFormat($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                LocaUtils.Save(resource, $@"{FolderTemp}\xml\{FileNameOpen}.xml", format);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
+
+                using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
+                {
+                    FileOpenUser = (ContentList)serializer.Deserialize(fs);
+
+                    foreach (var c in FileOpenUser.Content.ToList())
+                    {
+
+                        c.TextT = c.Text;
+
+                        if (c.Contentuid == "")
+                        {
+                            uIDNUl++;
+                            FileOpenUser.Content.Remove(c);
+                        }
+
+                    }
+
+                    if (uIDNUl > 0)
+                    {
+                        MessageBox.Show($"deletet null rows {uIDNUl} !");
+                    }
+
+                    //MessageBox.Show($"add rows {FileOpenUser.Content.Count}");
+                    this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
+                    _data = new BindingList<Content>(FileOpenUser.Content);
+                    dataGridView1.DataSource = _data;
+
+
+
+                    foreach (var test in _data)
+                    {
+                        dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
+                        index++;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
         public void open_xmlMatch(string file)
         {
             try
@@ -201,14 +264,55 @@ namespace BG3_Tools
                                 
                         }
                         if (isnew)
-                            dataGridView1.Rows.Add(c.Contentuid, c.Version, c.Text, "test");
+                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
 
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("ERROR OPEN XML (Markup error or invalid format)");
+                MessageBox.Show("ERROR OPEN FILE (Markup error or invalid format)");
+            }
+        }
+
+        public void open_locaMatch(string file)
+        {
+            FileNameOpen = Path.GetFileNameWithoutExtension(file);
+
+            try
+            {
+                var resource = LocaUtils.Load(file);
+                var format = LocaUtils.ExtensionToFileFormat($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                LocaUtils.Save(resource, $@"{FolderTemp}\xml\{FileNameOpen}.xml", format);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
+
+                using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
+                {
+                    FileOpenSoft = (ContentList)serializer.Deserialize(fs);
+                    int count = dataGridView1.Rows.Count;
+                    foreach (var c in FileOpenSoft.Content)
+                    {
+                        bool isnew = true;
+                        for (int i = 0; i < count; i++)
+                        {
+                            var val = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                            if (val == c.Contentuid)
+                            {
+                                dataGridView1.Rows[i].Cells[3].Value = c.Text;
+                                isnew = false;
+                            }
+
+                        }
+                        if (isnew)
+                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
+
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -228,13 +332,7 @@ namespace BG3_Tools
                 {
          
                     listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), "999" }));
-                    /*
-                    if (dt < Convert.ToDateTime(fileSI.CreationTime))
-                    {
-                        dt = Convert.ToDateTime(fileSI.CreationTime);
-                        fileName = fileSI.Name;
-                    }
-                    */
+
                 }
             }
   
@@ -242,10 +340,10 @@ namespace BG3_Tools
 
         public void saveTempJson()
         {
+            
+            string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
 
-            string json = JsonConvert.SerializeObject(dataGridView1.DataSource, Formatting.Indented);
-
-            System.IO.File.WriteAllText(string.Format(@".\temp\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
+            System.IO.File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
 
         }
 
@@ -270,13 +368,56 @@ namespace BG3_Tools
             
         }
 
+        public void save_loca(string fileSave)
+        {
+            
+            try
+            {
+                XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
+                XElement contentList = new XElement("contentList", new XAttribute("date", dataTimeN));
+                try
+                {
+                    List<XElement> content = dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Select(row => new XElement("content", row.Cells[3].Value.ToString(), new XAttribute("contentuid", row.Cells[0].Value.ToString()), new XAttribute("version", row.Cells[1].Value.ToString()))).ToList();
+                    contentList.Add(content);
+                    doc.Add(contentList);
+                    doc.Save($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+                var resource = LocaUtils.Load($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                var format = LocaUtils.ExtensionToFileFormat(fileSave);
+                LocaUtils.Save(resource, fileSave, format);
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-
-                open_xml(openFileDialog1.FileName);
+                switch (openFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        open_xml(openFileDialog1.FileName);
+                        break;
+                    case 2:
+                        open_loca(openFileDialog1.FileName);
+                        break;
+                    default:
+                        MessageBox.Show("ERROR FORMAT");
+                        break;
+                }
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -290,13 +431,24 @@ namespace BG3_Tools
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = FileNameOpen;
             var dialog = saveFileDialog1.ShowDialog();
-
+            //MessageBox.Show($" (LSLib v{Common.LibraryVersion()})");
             if (dialog == DialogResult.OK)
             {
-                //FileSaveL = saveFileDialog1.FileName;
-                save_xml(saveFileDialog1.FileName);
-                //Directory.Delete(@".\temp\", true);
+                switch (saveFileDialog1.FilterIndex)
+                {
+                    case 1:
+                            save_xml(saveFileDialog1.FileName);
+                        break;
+                    case 2:
+                            save_loca(saveFileDialog1.FileName);
+                        break;
+                    default:
+                            MessageBox.Show("ERROR FORMAT SAVE");
+                        break;
+                }
+
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -336,68 +488,10 @@ namespace BG3_Tools
             }
         }
 
-        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            //<LSTag Type="Spell" Tooltip="Target_HealingSpirit_Heal">
-            /*if (e.ColumnIndex == 2 && e.RowIndex >= 2) // проверяем, что это нужная колонка и строка
-             {
-                 string cellText = e.Value.ToString(); // получаем текст ячейки
-
-                 string pattern = @"<LSTag (.*)<\/LSTag>";
-
-                 RegexOptions options = RegexOptions.Multiline;
-
-                 foreach (Match m in Regex.Matches(cellText, pattern, options))
-                 {
-                     e.Paint(e.CellBounds, DataGridViewPaintParts.All); // отрисовываем ячейку
-                     using (Brush brush = new SolidBrush(Color.Red)) // создаем кисть для красного цвета
-                     {
-                         //MessageBox.Show($"{m.Value} found.");
-                         SizeF size = e.Graphics.MeasureString(string.Join(" ", m.Value, 0, 0), e.CellStyle.Font); // вычисляем размер предыдущих словw
-                         //MessageBox.Show($"{size} test.");
-                         Point location = new Point(e.CellBounds.X + (int)size.Width+3, e.CellBounds.Y); // вычисляем координаты начала слова
-                     }
-
-                 }
-
-             }*/
-            /*
-                if (cellText.Contains("<LSTag")) // проверяем, что нужное слово есть в тексте
-                {
-
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All); // отрисовываем ячейку
-
-                    using (Brush brush = new SolidBrush(Color.Red)) // создаем кисть для красного цвета
-                    {
-                        string[] words = cellText.Split(' '); // разбиваем текст на слова
-
-                        for (int i = 0; i < words.Length; i++) // перебираем слова
-                        {
-                            if (words[i] == "</LSTag>") // если это нужное слово, рисуем его красным цветом
-                            {
-                                SizeF size = e.Graphics.MeasureString(string.Join(" ", words, 0, i), e.CellStyle.Font); // вычисляем размер предыдущих словw
-                                Point location = new Point(e.CellBounds.X + (int)size.Width, e.CellBounds.Y); // вычисляем координаты начала слова
-
-                                e.Graphics.DrawString(words[i], e.CellStyle.Font, brush, location); // рисуем слово красным цветом
-                            }
-                            else // если это не нужное слово, рисуем его обычным цветом
-                            {
-                                SizeF size = e.Graphics.MeasureString(string.Join(" ", words, 0, i), e.CellStyle.Font); // вычисляем размер предыдущих слов
-                                Point location = new Point(e.CellBounds.X + (int)size.Width, e.CellBounds.Y); // вычисляем координаты начала слова
-
-                                //e.Graphics.DrawString(words[i], e.CellStyle.Font, e.CellStyle.ForeColor, location); // рисуем слово обычным цветом
-                            }
-                        }
-                    }
-
-                    e.Handled = true; // отменяем стандартную отрисовку ячейки
-                }*/
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
 
-            _data.Add(new Content { Text = "tet", Contentuid="testID", Version = 1});
+            _data.Add(new Content { Contentuid = tBoxUID.Text, Version = Convert.ToInt32(tBoxVer.Text), Text = tBoxText.Text, TextT = tBoxText.Text });
             //dataGridView1.Rows.Add(tBoxUID.Text, tBoxVer.Text, tBoxText.Text, tBoxText.Text);
             tBoxUID.Text = Generate.GuID(false);
         }
@@ -412,7 +506,19 @@ namespace BG3_Tools
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-                open_xmlMatch(openFileDialog1.FileName);
+                switch (openFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        open_xmlMatch(openFileDialog1.FileName);
+                        break;
+                    case 2:
+                        open_locaMatch(openFileDialog1.FileName);
+                        break;
+                    default:
+                        MessageBox.Show("ERROR FORMAT SAVE");
+                        break;
+                }
+
             }
             else if (dialog == DialogResult.Cancel)
             {
@@ -424,19 +530,20 @@ namespace BG3_Tools
             }
         }
 
-        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.Button == MouseButtons.Right)
             {
-                /*dgvBookmarks.Rows[e.RowIndex].Selected = true;
-                Rectangle r = dgvBookmarks.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                if (e.ColumnIndex < dataGridView1.ColumnCount && e.RowIndex < dataGridView1.RowCount)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                }
 
-                contextMenu.Show((Control)sender, r.Left + e.X, r.Top + e.Y);*/
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+                Rectangle r = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                contextMenuStrip1.Show((Control)sender, r.Left + e.X, r.Top + e.Y);
             }
         }
 
@@ -515,7 +622,37 @@ namespace BG3_Tools
             }
             string nameFile = this.listViewLastFile.SelectedItems[0].Text;
 
-            open_json($"{FolderTemp}{nameFile}");
+            open_json($@"{FolderTemp}\json\{nameFile}");
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dataGridView1.Rows[0].HeaderCell.Value = 1;
+            dataGridView1.Rows[e.RowIndex].HeaderCell.Value = 1;
+            //MessageBox.Show(_data.Count.ToString());
+        }
+
+        private void dataGridView1_Paint(object sender, PaintEventArgs e)
+        {
+            //MessageBox.Show("test");
+        }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+           
+            //MessageBox.Show(e.RowIndex.ToString());
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Добавить удалить строку
+        }
+
+        private void openRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //добавить открыть 
+            Loading.editLineT = new editLineTrans();
+            
         }
     }
 }

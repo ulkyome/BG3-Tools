@@ -40,5 +40,11 @@ namespace BG3_Tools
             Loading.genGuIDF.MdiParent = this;
             Loading.genGuIDF.Show();
         }
+
+        private void aboutTheApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //test
+            MessageBox.Show("test build by Ulkyome");
+        }
     }
 }

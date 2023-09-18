@@ -18,11 +18,13 @@ namespace BG3_Tools
         public static Translation TranslationF;
         public static Main MainF;
         public static genGuID genGuIDF;
+        public static editLineTrans editLineT;
         public Loading()
         {
             InitializeComponent();
             MainF = new Main();
-            Directory.CreateDirectory(@".\temp\");
+            Directory.CreateDirectory(@".\temp\json\");
+            Directory.CreateDirectory(@".\temp\xml\");
         }
 
         private void Loading_Shown(object sender, EventArgs e)

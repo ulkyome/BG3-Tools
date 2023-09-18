@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +39,9 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAddLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastFileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelAddLineTool = new System.Windows.Forms.Panel();
@@ -51,15 +54,13 @@
             this.tBoxUID = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLastOpen = new System.Windows.Forms.Panel();
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.listViewLastFile = new System.Windows.Forms.ListView();
-            this.lastFileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nameFile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonOpen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelAddLineTool.SuspendLayout();
@@ -80,15 +81,14 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 20;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1129, 803);
@@ -96,7 +96,6 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // menuStrip1
             // 
@@ -125,7 +124,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -134,20 +133,20 @@
             this.lineMatchingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem1});
             this.lineMatchingToolStripMenuItem.Name = "lineMatchingToolStripMenuItem";
-            this.lineMatchingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lineMatchingToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.lineMatchingToolStripMenuItem.Text = "line matching";
             // 
             // openToolStripMenuItem1
             // 
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem1.Text = "Open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -163,20 +162,44 @@
             // panelAddLineToolStripMenuItem
             // 
             this.panelAddLineToolStripMenuItem.Name = "panelAddLineToolStripMenuItem";
-            this.panelAddLineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.panelAddLineToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.panelAddLineToolStripMenuItem.Text = "panel add line";
             this.panelAddLineToolStripMenuItem.Click += new System.EventHandler(this.panelAddLineToolStripMenuItem_Click);
             // 
+            // lastFileOpenToolStripMenuItem
+            // 
+            this.lastFileOpenToolStripMenuItem.Name = "lastFileOpenToolStripMenuItem";
+            this.lastFileOpenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.lastFileOpenToolStripMenuItem.Text = "last file open";
+            this.lastFileOpenToolStripMenuItem.Click += new System.EventHandler(this.lastFileOpenToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoSaveToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // autoSaveToolStripMenuItem
+            // 
+            this.autoSaveToolStripMenuItem.Checked = true;
+            this.autoSaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSaveToolStripMenuItem.Name = "autoSaveToolStripMenuItem";
+            this.autoSaveToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.autoSaveToolStripMenuItem.Text = "Auto Save";
+            this.autoSaveToolStripMenuItem.Click += new System.EventHandler(this.autoSaveToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            this.openFileDialog1.FileName = "file";
+            this.openFileDialog1.Filter = "(*.xml)|*.xml|(*.loca)|*.loca";
             this.openFileDialog1.Title = "open localization file";
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.FileName = "u file name";
-            this.saveFileDialog1.Filter = "xml files (*.xml)|*.xml";
+            this.saveFileDialog1.FileName = "file";
+            this.saveFileDialog1.Filter = "(*.xml)|*.xml|(*.loca)|*.loca";
             this.saveFileDialog1.Title = "save localization file";
             // 
             // panelAddLineTool
@@ -261,9 +284,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DeleteToolStripMenuItem});
+            this.DeleteToolStripMenuItem,
+            this.openRowToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 48);
             // 
             // DeleteToolStripMenuItem
             // 
@@ -272,22 +296,12 @@
             this.DeleteToolStripMenuItem.Text = "Delete row";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
-            // settingsToolStripMenuItem
+            // openRowToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoSaveToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // autoSaveToolStripMenuItem
-            // 
-            this.autoSaveToolStripMenuItem.Checked = true;
-            this.autoSaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoSaveToolStripMenuItem.Name = "autoSaveToolStripMenuItem";
-            this.autoSaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.autoSaveToolStripMenuItem.Text = "Auto Save";
-            this.autoSaveToolStripMenuItem.Click += new System.EventHandler(this.autoSaveToolStripMenuItem_Click);
+            this.openRowToolStripMenuItem.Name = "openRowToolStripMenuItem";
+            this.openRowToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.openRowToolStripMenuItem.Text = "Open row";
+            this.openRowToolStripMenuItem.Click += new System.EventHandler(this.openRowToolStripMenuItem_Click);
             // 
             // panelLastOpen
             // 
@@ -298,6 +312,17 @@
             this.panelLastOpen.Name = "panelLastOpen";
             this.panelLastOpen.Size = new System.Drawing.Size(1129, 803);
             this.panelLastOpen.TabIndex = 4;
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOpen.Location = new System.Drawing.Point(984, 624);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(133, 55);
+            this.buttonOpen.TabIndex = 1;
+            this.buttonOpen.Text = "Open";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // listViewLastFile
             // 
@@ -317,13 +342,6 @@
             this.listViewLastFile.View = System.Windows.Forms.View.Details;
             this.listViewLastFile.SelectedIndexChanged += new System.EventHandler(this.listViewLastFile_SelectedIndexChanged);
             // 
-            // lastFileOpenToolStripMenuItem
-            // 
-            this.lastFileOpenToolStripMenuItem.Name = "lastFileOpenToolStripMenuItem";
-            this.lastFileOpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lastFileOpenToolStripMenuItem.Text = "last file open";
-            this.lastFileOpenToolStripMenuItem.Click += new System.EventHandler(this.lastFileOpenToolStripMenuItem_Click);
-            // 
             // nameFile
             // 
             this.nameFile.Text = "Name";
@@ -340,17 +358,6 @@
             this.size.Text = "Size";
             this.size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.size.Width = 98;
-            // 
-            // buttonOpen
-            // 
-            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpen.Location = new System.Drawing.Point(984, 624);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(133, 55);
-            this.buttonOpen.TabIndex = 1;
-            this.buttonOpen.Text = "Open";
-            this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // Translation
             // 
@@ -387,7 +394,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Panel panelAddLineTool;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox tBoxText;
@@ -411,6 +417,8 @@
         private System.Windows.Forms.ColumnHeader dateTime;
         private System.Windows.Forms.ColumnHeader size;
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.ToolStripMenuItem openRowToolStripMenuItem;
+        public System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
