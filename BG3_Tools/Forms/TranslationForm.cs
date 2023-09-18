@@ -17,6 +17,7 @@ using LSLib.LS;
 using LSLib.LS.Enums;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
+using System.Reflection;
 
 namespace BG3_Tools
 {
@@ -111,6 +112,8 @@ namespace BG3_Tools
                 panelLastOpen.Visible = false;
                 lastFileOpenToolStripMenuItem.Checked = false;
 
+                indexTableAdd();
+                findDuplicate_uID();
             }
             catch (Exception e)
             {
@@ -123,7 +126,7 @@ namespace BG3_Tools
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
-            int index = 0;
+            
 
             _data.Clear();
 
@@ -155,18 +158,23 @@ namespace BG3_Tools
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
 
-                    foreach (var test in _data)
-                    {
-                        dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
-                        index++;
-                    }
-
+                    indexTableAdd();
                     findDuplicate_uID();
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {e.Message}");
+            }
+        }
+
+        public void indexTableAdd()
+        {
+            int index = 0;
+            foreach (var test in _data)
+            {
+                dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
+                index++;
             }
         }
 
@@ -251,7 +259,6 @@ namespace BG3_Tools
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
-            int index = 0;
 
             _data.Clear();
 
@@ -289,11 +296,7 @@ namespace BG3_Tools
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
 
-                    foreach (var test in _data)
-                    {
-                        dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
-                        index++;
-                    }
+                    indexTableAdd();
 
                     findDuplicate_uID();
                 }
@@ -327,8 +330,9 @@ namespace BG3_Tools
                             } 
                         }
                         if (isnew)
-                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
+                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = c.Text });
                     }
+                    indexTableAdd();
                     findDuplicate_uID();
                 }
             }
@@ -367,8 +371,9 @@ namespace BG3_Tools
                             }
                         }
                         if (isnew)
-                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = "newLine" });
+                            _data.Add(new Content { Contentuid = c.Contentuid, Version = c.Version, Text = c.Text, TextT = c.Text });
                     }
+                    indexTableAdd();
                     findDuplicate_uID();
                 }
             }
@@ -546,7 +551,7 @@ namespace BG3_Tools
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             _data.Add(new Content { Contentuid = tBoxUID.Text, Version = Convert.ToInt32(tBoxVer.Text), Text = tBoxText.Text, TextT = tBoxText.Text });
-            //dataGridView1.Rows.Add(tBoxUID.Text, tBoxVer.Text, tBoxText.Text, tBoxText.Text);
+            indexTableAdd();
             findDuplicate_uID();
             if (autoSaveToolStripMenuItem.Checked)
             {

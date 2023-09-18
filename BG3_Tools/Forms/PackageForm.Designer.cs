@@ -188,6 +188,7 @@
             this.packageVersion.Name = "packageVersion";
             this.packageVersion.Size = new System.Drawing.Size(237, 21);
             this.packageVersion.TabIndex = 68;
+            this.packageVersion.Visible = false;
             // 
             // label8
             // 
@@ -197,6 +198,7 @@
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 67;
             this.label8.Text = "Version:";
+            this.label8.Visible = false;
             // 
             // compressionMethod
             // 
