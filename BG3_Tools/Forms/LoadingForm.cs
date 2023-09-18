@@ -13,17 +13,20 @@ using System.Windows.Forms;
 
 namespace BG3_Tools
 {
-    public partial class Loading : Form
+    public partial class LoadingForm : Form
     {
-        public static Translation TranslationF;
-        public static Main MainF;
-        public static genGuID genGuIDF;
-        public static editLineTrans editLineT;
-        public static About about;
-        public Loading()
+        public static TranslationForm TranslationF;
+        public static MainForm MainF;
+        public static genGuIDForm genGuIDF;
+        public static editLineTransForm editLineT;
+        public static AboutForm aboutF;
+        public static PackageForm packageF;
+        public static metaEditForm metaEditF;
+        public static settingForm settingF;
+        public LoadingForm()
         {
             InitializeComponent();
-            MainF = new Main();
+            MainF = new MainForm();
             Directory.CreateDirectory(@".\temp\json\");
             Directory.CreateDirectory(@".\temp\xml\");
         }

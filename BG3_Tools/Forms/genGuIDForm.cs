@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BG3_Tools.Forms
 {
-    public partial class genGuID : Form
+    public partial class genGuIDForm : Form
     {
-        public genGuID()
+        public genGuIDForm()
         {
             InitializeComponent();
         }

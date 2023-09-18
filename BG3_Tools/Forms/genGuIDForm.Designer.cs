@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools.Forms
 {
-    partial class genGuID
+    partial class genGuIDForm
     {
         /// <summary>
         /// Required designer variable.

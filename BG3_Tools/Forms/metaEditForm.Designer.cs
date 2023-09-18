@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools.Forms
 {
-    partial class Meta
+    partial class metaEditForm
     {
         /// <summary>
         /// Required designer variable.

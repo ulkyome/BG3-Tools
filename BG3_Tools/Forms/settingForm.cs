@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BG3_Tools.Forms
 {
-    public partial class Meta : Form
+    public partial class settingForm : Form
     {
-        public Meta()
+        public settingForm()
         {
             InitializeComponent();
         }

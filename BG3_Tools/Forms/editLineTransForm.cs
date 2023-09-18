@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace BG3_Tools.Forms
 {
-    public partial class editLineTrans : Form
+    public partial class editLineTransForm : Form
     {
         public static DataGridViewRow currentRow;
         public static string uID;
         public static string text;
         public static string textT;
-        public editLineTrans()
+        public editLineTransForm()
         {
             InitializeComponent();
             this.Text = uID;
@@ -34,7 +34,7 @@ namespace BG3_Tools.Forms
         {
             //Translation._data[currentRow.Index].Contentuid = textBoxUID.Text;
             //Translation._data[currentRow.Index].Text = richTextBoxText.Text;
-            Translation._data[currentRow.Index].TextT = richTextBoxTextT.Text;
+            TranslationForm._data[currentRow.Index].TextT = richTextBoxTextT.Text;
             //currentCell.Cells[0].Value 
             //currentCell.Cells[2].Value
             //currentCell.Cells[3].Value

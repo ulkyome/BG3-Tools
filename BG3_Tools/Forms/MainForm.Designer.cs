@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.genToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutTheApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metaEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.translationEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metaEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutTheApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,9 +67,37 @@
             // uIDToolStripMenuItem
             // 
             this.uIDToolStripMenuItem.Name = "uIDToolStripMenuItem";
-            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.uIDToolStripMenuItem.Text = "uID generate";
             this.uIDToolStripMenuItem.Click += new System.EventHandler(this.uIDToolStripMenuItem_Click);
+            // 
+            // translationEditorToolStripMenuItem
+            // 
+            this.translationEditorToolStripMenuItem.Name = "translationEditorToolStripMenuItem";
+            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.translationEditorToolStripMenuItem.Text = "Translation editor";
+            this.translationEditorToolStripMenuItem.Click += new System.EventHandler(this.translationEditorToolStripMenuItem_Click);
+            // 
+            // metaEditorToolStripMenuItem
+            // 
+            this.metaEditorToolStripMenuItem.Name = "metaEditorToolStripMenuItem";
+            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.metaEditorToolStripMenuItem.Text = "Meta editor";
+            this.metaEditorToolStripMenuItem.Click += new System.EventHandler(this.metaEditorToolStripMenuItem_Click);
+            // 
+            // pACToolStripMenuItem
+            // 
+            this.pACToolStripMenuItem.Name = "pACToolStripMenuItem";
+            this.pACToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.pACToolStripMenuItem.Text = "PAC editor";
+            this.pACToolStripMenuItem.Click += new System.EventHandler(this.pACToolStripMenuItem_Click);
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.settingToolStripMenuItem.Text = "Setting";
+            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -86,34 +114,7 @@
             this.aboutTheApplicationToolStripMenuItem.Text = "About the application";
             this.aboutTheApplicationToolStripMenuItem.Click += new System.EventHandler(this.aboutTheApplicationToolStripMenuItem_Click);
             // 
-            // metaEditorToolStripMenuItem
-            // 
-            this.metaEditorToolStripMenuItem.Name = "metaEditorToolStripMenuItem";
-            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.metaEditorToolStripMenuItem.Text = "Meta editor";
-            this.metaEditorToolStripMenuItem.Click += new System.EventHandler(this.metaEditorToolStripMenuItem_Click);
-            // 
-            // translationEditorToolStripMenuItem
-            // 
-            this.translationEditorToolStripMenuItem.Name = "translationEditorToolStripMenuItem";
-            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.translationEditorToolStripMenuItem.Text = "Translation editor";
-            this.translationEditorToolStripMenuItem.Click += new System.EventHandler(this.translationEditorToolStripMenuItem_Click);
-            // 
-            // pACToolStripMenuItem
-            // 
-            this.pACToolStripMenuItem.Name = "pACToolStripMenuItem";
-            this.pACToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pACToolStripMenuItem.Text = "PAC editor";
-            this.pACToolStripMenuItem.Click += new System.EventHandler(this.pACToolStripMenuItem_Click);
-            // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.settingToolStripMenuItem.Text = "Setting";
-            // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +125,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripMain;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "BG3 Tools";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);

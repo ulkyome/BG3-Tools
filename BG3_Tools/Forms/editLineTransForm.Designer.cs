@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools.Forms
 {
-    partial class editLineTrans
+    partial class editLineTransForm
     {
         /// <summary>
         /// Required designer variable.

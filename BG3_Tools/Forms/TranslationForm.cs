@@ -20,9 +20,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace BG3_Tools
 {
-    public partial class Translation : Form
+    public partial class TranslationForm : Form
     {
-        public Translation()
+        public TranslationForm()
         {
             InitializeComponent();
         }
@@ -706,14 +706,14 @@ namespace BG3_Tools
         {
             DataGridViewRow currentRow = this.dataGridView1.CurrentRow;
 
-            editLineTrans.uID = currentRow.Cells[0].Value.ToString();
-            editLineTrans.text = currentRow.Cells[2].Value.ToString();
-            editLineTrans.textT = currentRow.Cells[3].Value.ToString();
-            editLineTrans.currentRow = currentRow;
+            editLineTransForm.uID = currentRow.Cells[0].Value.ToString();
+            editLineTransForm.text = currentRow.Cells[2].Value.ToString();
+            editLineTransForm.textT = currentRow.Cells[3].Value.ToString();
+            editLineTransForm.currentRow = currentRow;
             //добавить открыть 
-            Loading.editLineT = new editLineTrans();
-            Loading.editLineT.MdiParent = Loading.MainF;
-            Loading.editLineT.Show();
+            LoadingForm.editLineT = new editLineTransForm();
+            LoadingForm.editLineT.MdiParent = LoadingForm.MainF;
+            LoadingForm.editLineT.Show();
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)

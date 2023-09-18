@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools
 {
-    partial class Translation
+    partial class TranslationForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
