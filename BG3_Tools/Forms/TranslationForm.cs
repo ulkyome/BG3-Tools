@@ -90,28 +90,17 @@ namespace BG3_Tools
         public void open_json(string fileO)
         {
             _data.Clear();
-
-            string pattern = @"(.*)_temporary_(.*)";
-
-            RegexOptions options = RegexOptions.Multiline;
-
-            Match m = Regex.Match(Path.GetFileNameWithoutExtension(fileO), pattern, options);
-
-
+            Match m = Regex.Match(Path.GetFileNameWithoutExtension(fileO), @"(.*)_temporary_(.*)", RegexOptions.Multiline);
             FileNameOpen = m.Groups[2].Value;
 
             try
             {
-                _data.Clear();
-                var json = System.IO.File.ReadAllText(fileO);
-                _data = JsonConvert.DeserializeObject<BindingList<Content>>(json);
+                _data = JsonConvert.DeserializeObject<BindingList<Content>>(File.ReadAllText(fileO));
                 dataGridView1.DataSource = _data;
-
                 this.Text = $"{FileNameOpen} | rows {_data.Count}";
 
                 panelLastOpen.Visible = false;
                 lastFileOpenToolStripMenuItem.Checked = false;
-
                 indexTableAdd();
                 findDuplicate_uID();
             }
@@ -126,7 +115,6 @@ namespace BG3_Tools
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
-            
 
             _data.Clear();
 
@@ -146,14 +134,14 @@ namespace BG3_Tools
                         if (c.Contentuid == "")
                         {
                             uIDNUl++;
-                            FileOpenUser.Content.Remove(c);
+                            FileOpenUser.Content.Remove(c); //чистим строки с пустыми Contentuid
                         }
                     }
 
                     if( uIDNUl > 0) {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
                     }
-                    //MessageBox.Show($"add rows {FileOpenUser.Content.Count}");
+
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
                     _data = new BindingList<Content>(FileOpenUser.Content);
                     dataGridView1.DataSource = _data;
