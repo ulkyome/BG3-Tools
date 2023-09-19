@@ -129,7 +129,7 @@ namespace BG3_Tools
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-                        c.TextT = c.Text;
+                        c.TextT = c.Text; //добавляем в строку translate тот же оригинальный текст
 
                         if (c.Contentuid == "")
                         {
