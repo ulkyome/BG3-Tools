@@ -3,4 +3,4 @@
 <img src="https://cdn.discordapp.com/attachments/1125796988479361054/1153568382499700757/BG3_Tools_hIbGEbVOSH.png"/>
 
 
-В проекте используется https://github.com/Norbyte/lslib
+В проекте используется библиотеки https://github.com/Norbyte/lslib
