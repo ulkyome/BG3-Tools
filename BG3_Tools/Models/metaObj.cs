@@ -72,7 +72,7 @@ namespace BG3_Tools.Models
     }
 
     [XmlRoot(ElementName = "save")]
-    public class Save
+    public class MetaModel
     {
 
         [XmlElement(ElementName = "version")]

@@ -83,7 +83,7 @@
             this.listBoxHistory.TabIndex = 5;
             this.listBoxHistory.SelectedIndexChanged += new System.EventHandler(this.listBoxHistory_SelectedIndexChanged);
             // 
-            // genGuID
+            // genGuIDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,8 +95,8 @@
             this.Controls.Add(this.textBoxUID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "genGuID";
-            this.Text = "genGuID";
+            this.Name = "genGuIDForm";
+            this.Text = "Unique Identifier Number Generate";
             this.ResumeLayout(false);
             this.PerformLayout();
 

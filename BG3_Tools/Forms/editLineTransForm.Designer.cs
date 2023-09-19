@@ -83,7 +83,7 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // editLineTrans
+            // editLineTransForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,8 +93,8 @@
             this.Controls.Add(this.richTextBoxTextT);
             this.Controls.Add(this.richTextBoxText);
             this.Controls.Add(this.textBoxUID);
-            this.Name = "editLineTrans";
-            this.Text = "editLineTrans";
+            this.Name = "editLineTransForm";
+            this.Text = "Editor Row";
             this.ResumeLayout(false);
             this.PerformLayout();
 

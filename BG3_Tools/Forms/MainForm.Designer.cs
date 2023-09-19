@@ -67,29 +67,29 @@
             // uIDToolStripMenuItem
             // 
             this.uIDToolStripMenuItem.Name = "uIDToolStripMenuItem";
-            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.uIDToolStripMenuItem.Text = "uID generate";
+            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uIDToolStripMenuItem.Text = "uID Generate";
             this.uIDToolStripMenuItem.Click += new System.EventHandler(this.uIDToolStripMenuItem_Click);
             // 
             // translationEditorToolStripMenuItem
             // 
             this.translationEditorToolStripMenuItem.Name = "translationEditorToolStripMenuItem";
-            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.translationEditorToolStripMenuItem.Text = "Translation editor";
+            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.translationEditorToolStripMenuItem.Text = "Translation Editor";
             this.translationEditorToolStripMenuItem.Click += new System.EventHandler(this.translationEditorToolStripMenuItem_Click);
             // 
             // metaEditorToolStripMenuItem
             // 
             this.metaEditorToolStripMenuItem.Name = "metaEditorToolStripMenuItem";
-            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.metaEditorToolStripMenuItem.Text = "Meta editor";
+            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.metaEditorToolStripMenuItem.Text = "Meta Editor";
             this.metaEditorToolStripMenuItem.Click += new System.EventHandler(this.metaEditorToolStripMenuItem_Click);
             // 
             // pACToolStripMenuItem
             // 
             this.pACToolStripMenuItem.Name = "pACToolStripMenuItem";
-            this.pACToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.pACToolStripMenuItem.Text = "PAC editor";
+            this.pACToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pACToolStripMenuItem.Text = "PAK Editor";
             this.pACToolStripMenuItem.Click += new System.EventHandler(this.pACToolStripMenuItem_Click);
             // 
             // settingToolStripMenuItem

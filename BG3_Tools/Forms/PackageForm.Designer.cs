@@ -397,7 +397,7 @@
             this.Controls.Add(this.packageProgress);
             this.Controls.Add(this.label5);
             this.Name = "PackageForm";
-            this.Text = "PAC Tools";
+            this.Text = "PAK Tools";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagePriority)).EndInit();
