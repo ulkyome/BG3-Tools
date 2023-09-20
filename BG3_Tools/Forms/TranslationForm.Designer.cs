@@ -57,15 +57,17 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataSet1 = new System.Data.DataSet();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.contentuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contentuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelAddLineTool.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -328,9 +330,35 @@
             this.openRowToolStripMenuItem.Text = "Open row";
             this.openRowToolStripMenuItem.Click += new System.EventHandler(this.openRowToolStripMenuItem_Click);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Content);
+            // 
+            // textTDataGridViewTextBoxColumn
+            // 
+            this.textTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.textTDataGridViewTextBoxColumn.DataPropertyName = "TextT";
+            this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textTDataGridViewTextBoxColumn.HeaderText = "TextT";
+            this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
+            // 
+            // textDataGridViewTextBoxColumn
+            // 
+            this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
+            this.textDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textDataGridViewTextBoxColumn.HeaderText = "Text";
+            this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
+            // 
+            // versionDataGridViewTextBoxColumn
+            // 
+            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
+            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
+            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
+            this.versionDataGridViewTextBoxColumn.Visible = false;
             // 
             // contentuidDataGridViewTextBoxColumn
             // 
@@ -342,28 +370,6 @@
             this.contentuidDataGridViewTextBoxColumn.Name = "contentuidDataGridViewTextBoxColumn";
             this.contentuidDataGridViewTextBoxColumn.ReadOnly = true;
             this.contentuidDataGridViewTextBoxColumn.Width = 232;
-            // 
-            // versionDataGridViewTextBoxColumn
-            // 
-            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
-            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
-            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
-            this.versionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // textDataGridViewTextBoxColumn
-            // 
-            this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
-            this.textDataGridViewTextBoxColumn.FillWeight = 8.835089F;
-            this.textDataGridViewTextBoxColumn.HeaderText = "Text";
-            this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
-            // 
-            // textTDataGridViewTextBoxColumn
-            // 
-            this.textTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.textTDataGridViewTextBoxColumn.DataPropertyName = "TextT";
-            this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
-            this.textTDataGridViewTextBoxColumn.HeaderText = "TextT";
-            this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
             // 
             // TranslationForm
             // 
@@ -385,6 +391,7 @@
             this.panelAddLineTool.ResumeLayout(false);
             this.panelAddLineTool.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -421,6 +428,7 @@
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem lastFileOpenToolStripMenuItem;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Data.DataSet dataSet1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentuidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;

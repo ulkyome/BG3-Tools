@@ -30,7 +30,6 @@ namespace BG3_Tools.Forms
         public static string FolderTemp = string.Format(@"{0}\temp\", Environment.CurrentDirectory);
         public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
         public static string FileNameOpen = "none";
-        //public static bool FileNameClose = "none";
 
         public static ContentList FileOpenUser = new ContentList();
         public static ContentList FileOpenSoft = new ContentList();
@@ -67,8 +66,47 @@ namespace BG3_Tools.Forms
                 MessageBox.Show($"ERROR OPEN JSON (Markup error or invalid format) {e.Message}");
             }
         }
+
+        public void open_xml_test(string fileO)
+        {
+            dataSet1.ReadXml(fileO);
+            dataGridView1.DataSource = dataSet1.Tables[1];
+            foreach (DataTable table in dataSet1.Tables)
+            {
+                Console.WriteLine(table);
+                for (int i = 0; i < table.Columns.Count; ++i)
+                    Console.Write("\t" + table.Columns[i].ColumnName.Substring(0, Math.Min(6, table.Columns[i].ColumnName.Length)));
+                Console.WriteLine();
+                foreach (var row in table.AsEnumerable())
+                {
+                    for (int i = 0; i < table.Columns.Count; ++i)
+                    {
+                        Console.Write("\t" + row[i]);
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+
         public void open_xml(string fileO)
         {
+            dataSet1.ReadXml(fileO);
+
+            foreach (DataTable table in dataSet1.Tables)
+            {
+                Console.WriteLine(table);
+                for (int i = 0; i < table.Columns.Count; ++i)
+                    Console.Write("\t" + table.Columns[i].ColumnName.Substring(0, Math.Min(6, table.Columns[i].ColumnName.Length)));
+                Console.WriteLine();
+                foreach (var row in table.AsEnumerable())
+                {
+                    for (int i = 0; i < table.Columns.Count; ++i)
+                    {
+                        Console.Write("\t" + row[i]);
+                    }
+                    Console.WriteLine();
+                }
+            }
             //panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
@@ -96,7 +134,8 @@ namespace BG3_Tools.Forms
                         }
                     }
 
-                    if( uIDNUl > 0) {
+                    if (uIDNUl > 0)
+                    {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
                     }
 
