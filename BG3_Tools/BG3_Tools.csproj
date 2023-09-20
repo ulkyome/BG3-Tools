@@ -110,6 +110,12 @@
     <Compile Include="Forms\TranslationForm.Designer.cs">
       <DependentUpon>TranslationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TranslationLastOpenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TranslationLastOpenForm.Designer.cs">
+      <DependentUpon>TranslationLastOpenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Generate.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -159,6 +165,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TranslationLastOpenForm.resx">
+      <DependentUpon>TranslationLastOpenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -174,6 +183,9 @@
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BG3_Tools.Models.Attribute.datasource" />
+    <None Include="Properties\DataSources\BG3_Tools.Models.Content.datasource" />
+    <None Include="Properties\DataSources\BG3_Tools.Models.MetaModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -213,5 +225,6 @@
       <Name>OpenTK</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,6 +44,11 @@ namespace BG3_Tools
             LoadingForm.TranslationF = new TranslationForm();
             LoadingForm.TranslationF.MdiParent = this;
             LoadingForm.TranslationF.Show();
+
+            LoadingForm.TranslationLastOpenF = new TranslationLastOpenForm();
+            LoadingForm.TranslationLastOpenF.MdiParent = this;
+            LoadingForm.TranslationLastOpenF.Show();
+            LoadingForm.TranslationLastOpenF.Focus();
         }
 
         private void pACToolStripMenuItem_Click(object sender, EventArgs e)

@@ -12,14 +12,13 @@ using System.Drawing;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
-using BG3_Tools.Forms;
 using LSLib.LS;
 using LSLib.LS.Enums;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 
-namespace BG3_Tools
+namespace BG3_Tools.Forms
 {
     public partial class TranslationForm : Form
     {
@@ -31,6 +30,7 @@ namespace BG3_Tools
         public static string FolderTemp = string.Format(@"{0}\temp\", Environment.CurrentDirectory);
         public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
         public static string FileNameOpen = "none";
+        //public static bool FileNameClose = "none";
 
         public static ContentList FileOpenUser = new ContentList();
         public static ContentList FileOpenSoft = new ContentList();
@@ -40,51 +40,9 @@ namespace BG3_Tools
         //public static ContentList data = new ContentList();
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            if (panelLastOpen.Visible)
-            {
-                lastFileOpenToolStripMenuItem.Checked = true;
-            }
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.DataSource = _data;
 
-            dataGridView1.Columns["Contentuid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridView1.Columns["Contentuid"].FillWeight = 20;
-            dataGridView1.Columns["Contentuid"].MinimumWidth = 32;
-            dataGridView1.Columns["Contentuid"].Width = 232;
-            dataGridView1.Columns["Contentuid"].ReadOnly = true;
-            dataGridView1.Columns["Contentuid"].Resizable = DataGridViewTriState.True;
-            dataGridView1.Columns["Contentuid"].HeaderText = "uID";
-
-            dataGridView1.Columns["Version"].Visible = false;
-
-            dataGridView1.Columns["Text"].HeaderText = "text";
-            dataGridView1.Columns["Text"].FillWeight = 300;
-            dataGridView1.Columns["Text"].MinimumWidth = 20;
-            dataGridView1.Columns["Text"].Width = 358;
-
-            dataGridView1.Columns["TextT"].HeaderText = "Text Translate";
-            dataGridView1.Columns["TextT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns["TextT"].FillWeight = 365;
-            dataGridView1.Columns["TextT"].MinimumWidth = 365;
-
-
-           /* DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
-            checkColumn.Name = "completed";
-            checkColumn.HeaderText = "completed";
-            checkColumn.FalseValue = "false";
-            checkColumn.IndeterminateValue = "false";
-            checkColumn.TrueValue = "true";
-            checkColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            checkColumn.FillWeight = 12;
-            checkColumn.MinimumWidth = 22;
-            checkColumn.Width = 60;
-
-            dataGridView1.Columns.Add(checkColumn);
-           */
             tBoxUID.Text = Generate.GuID(false);
-
-            lastFileFolder($@"{FolderTemp}\json\");
         }
 
         public void open_json(string fileO)
@@ -99,7 +57,7 @@ namespace BG3_Tools
                 dataGridView1.DataSource = _data;
                 this.Text = $"{FileNameOpen} | rows {_data.Count}";
 
-                panelLastOpen.Visible = false;
+                //panelLastOpen.Visible = false;
                 lastFileOpenToolStripMenuItem.Checked = false;
                 indexTableAdd();
                 findDuplicate_uID();
@@ -111,7 +69,7 @@ namespace BG3_Tools
         }
         public void open_xml(string fileO)
         {
-            panelLastOpen.Visible = false;
+            //panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
@@ -243,7 +201,7 @@ namespace BG3_Tools
 
         public void open_loca(string fileO)
         {
-            panelLastOpen.Visible = false;
+            //panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
@@ -371,7 +329,7 @@ namespace BG3_Tools
             }
         }
 
-        public void lastFileFolder(string Dir)
+        /*public void lastFileFolder(string Dir)
         {
             DateTime dt = new DateTime(1990, 1, 1);
             string fileName = "null";
@@ -382,11 +340,10 @@ namespace BG3_Tools
             {
                 if (fileSI.Extension == ".json" | fileSI.Extension == ".loc")
                 {
-         
                     listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), "999" }));
                 }
             }
-        }
+        }*/
 
         public void saveTempJson()
         {
@@ -646,31 +603,20 @@ namespace BG3_Tools
         {
             if (lastFileOpenToolStripMenuItem.Checked)
             {
-                panelLastOpen.Visible = false;
+                //panelLastOpen.Visible = false;
+                LoadingForm.TranslationLastOpenF.Hide();
                 lastFileOpenToolStripMenuItem.Checked = false;
             }
             else
             {
-                panelLastOpen.Visible = true;
-                lastFileOpenToolStripMenuItem.Checked = true;
+               LoadingForm.TranslationLastOpenF.Show();
+               lastFileOpenToolStripMenuItem.Checked = true;
             }
         }
 
         private void listViewLastFile_SelectedIndexChanged(object sender, EventArgs e)
         {
          
-        }
-
-        private void buttonOpen_Click(object sender, EventArgs e)
-        {
-            if (this.listViewLastFile.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("please select a file");
-                return;
-            }
-            string nameFile = this.listViewLastFile.SelectedItems[0].Text;
-
-            open_json($@"{FolderTemp}\json\{nameFile}");
         }
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -712,6 +658,19 @@ namespace BG3_Tools
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lastFileOpenToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lastFileOpenToolStripMenuItem.Checked)
+            {
+                LoadingForm.TranslationLastOpenF.Show();
+
+            }
+            else
+            {
+                LoadingForm.TranslationLastOpenF.Hide();
+            }
         }
     }
 }

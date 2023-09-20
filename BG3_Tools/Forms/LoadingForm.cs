@@ -23,6 +23,7 @@ namespace BG3_Tools
         public static PackageForm packageF;
         public static metaEditForm metaEditF;
         public static settingForm settingF;
+        public static TranslationLastOpenForm TranslationLastOpenF;
         public LoadingForm()
         {
             InitializeComponent();

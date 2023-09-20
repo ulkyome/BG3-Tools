@@ -1,4 +1,4 @@
-﻿namespace BG3_Tools
+﻿namespace BG3_Tools.Forms
 {
     partial class TranslationForm
     {
@@ -57,25 +57,31 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelLastOpen = new System.Windows.Forms.Panel();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.listViewLastFile = new System.Windows.Forms.ListView();
-            this.nameFile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.contentuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelAddLineTool.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.panelLastOpen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.contentuidDataGridViewTextBoxColumn,
+            this.versionDataGridViewTextBoxColumn,
+            this.textDataGridViewTextBoxColumn,
+            this.textTDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -189,6 +195,7 @@
             this.lastFileOpenToolStripMenuItem.Name = "lastFileOpenToolStripMenuItem";
             this.lastFileOpenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.lastFileOpenToolStripMenuItem.Text = "last file open";
+            this.lastFileOpenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.lastFileOpenToolStripMenuItem_CheckedChanged);
             this.lastFileOpenToolStripMenuItem.Click += new System.EventHandler(this.lastFileOpenToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
@@ -321,68 +328,48 @@
             this.openRowToolStripMenuItem.Text = "Open row";
             this.openRowToolStripMenuItem.Click += new System.EventHandler(this.openRowToolStripMenuItem_Click);
             // 
-            // panelLastOpen
+            // bindingSource1
             // 
-            this.panelLastOpen.Controls.Add(this.buttonOpen);
-            this.panelLastOpen.Controls.Add(this.listViewLastFile);
-            this.panelLastOpen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLastOpen.Location = new System.Drawing.Point(0, 24);
-            this.panelLastOpen.Name = "panelLastOpen";
-            this.panelLastOpen.Size = new System.Drawing.Size(1129, 803);
-            this.panelLastOpen.TabIndex = 4;
+            this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Content);
             // 
-            // buttonOpen
+            // contentuidDataGridViewTextBoxColumn
             // 
-            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpen.Location = new System.Drawing.Point(984, 624);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(133, 55);
-            this.buttonOpen.TabIndex = 1;
-            this.buttonOpen.Text = "Open";
-            this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.contentuidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.contentuidDataGridViewTextBoxColumn.DataPropertyName = "Contentuid";
+            this.contentuidDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.contentuidDataGridViewTextBoxColumn.HeaderText = "Contentuid";
+            this.contentuidDataGridViewTextBoxColumn.MinimumWidth = 32;
+            this.contentuidDataGridViewTextBoxColumn.Name = "contentuidDataGridViewTextBoxColumn";
+            this.contentuidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contentuidDataGridViewTextBoxColumn.Width = 232;
             // 
-            // listViewLastFile
+            // versionDataGridViewTextBoxColumn
             // 
-            this.listViewLastFile.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.nameFile,
-            this.dateTime,
-            this.size});
-            this.listViewLastFile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listViewLastFile.HideSelection = false;
-            this.listViewLastFile.Location = new System.Drawing.Point(0, 0);
-            this.listViewLastFile.MultiSelect = false;
-            this.listViewLastFile.Name = "listViewLastFile";
-            this.listViewLastFile.ShowGroups = false;
-            this.listViewLastFile.Size = new System.Drawing.Size(1129, 618);
-            this.listViewLastFile.TabIndex = 0;
-            this.listViewLastFile.UseCompatibleStateImageBehavior = false;
-            this.listViewLastFile.View = System.Windows.Forms.View.Details;
-            this.listViewLastFile.SelectedIndexChanged += new System.EventHandler(this.listViewLastFile_SelectedIndexChanged);
+            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
+            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
+            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
+            this.versionDataGridViewTextBoxColumn.Visible = false;
             // 
-            // nameFile
+            // textDataGridViewTextBoxColumn
             // 
-            this.nameFile.Text = "Name";
-            this.nameFile.Width = 798;
+            this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
+            this.textDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textDataGridViewTextBoxColumn.HeaderText = "Text";
+            this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
             // 
-            // dateTime
+            // textTDataGridViewTextBoxColumn
             // 
-            this.dateTime.Text = "Date";
-            this.dateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dateTime.Width = 229;
-            // 
-            // size
-            // 
-            this.size.Text = "Size";
-            this.size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.size.Width = 98;
+            this.textTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.textTDataGridViewTextBoxColumn.DataPropertyName = "TextT";
+            this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textTDataGridViewTextBoxColumn.HeaderText = "TextT";
+            this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
             // 
             // TranslationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1129, 876);
-            this.Controls.Add(this.panelLastOpen);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panelAddLineTool);
@@ -398,7 +385,7 @@
             this.panelAddLineTool.ResumeLayout(false);
             this.panelAddLineTool.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panelLastOpen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,17 +415,16 @@
         private System.Windows.Forms.ToolStripMenuItem panelAddLineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoSaveToolStripMenuItem;
-        private System.Windows.Forms.Panel panelLastOpen;
-        private System.Windows.Forms.ListView listViewLastFile;
-        private System.Windows.Forms.ToolStripMenuItem lastFileOpenToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader nameFile;
-        private System.Windows.Forms.ColumnHeader dateTime;
-        private System.Windows.Forms.ColumnHeader size;
-        private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.ToolStripMenuItem openRowToolStripMenuItem;
         public System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem lastFileOpenToolStripMenuItem;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contentuidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textTDataGridViewTextBoxColumn;
     }
 }
 

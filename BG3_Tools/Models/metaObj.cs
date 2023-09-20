@@ -10,7 +10,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "version")]
     public class Version
     {
-
         [XmlAttribute(AttributeName = "major")]
         public int Major { get; set; }
 
@@ -27,7 +26,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "node")]
     public class Node
     {
-
         [XmlElement(ElementName = "attribute")]
         public List<Attribute> Attribute { get; set; }
 
@@ -41,7 +39,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "attribute")]
     public class Attribute
     {
-
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
 
@@ -55,7 +52,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "children")]
     public class Children
     {
-
         [XmlElement(ElementName = "node")]
         public List<Node> Node { get; set; }
     }
@@ -63,7 +59,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "region")]
     public class Region
     {
-
         [XmlElement(ElementName = "node")]
         public Node Node { get; set; }
 
@@ -74,7 +69,6 @@ namespace BG3_Tools.Models
     [XmlRoot(ElementName = "save")]
     public class MetaModel
     {
-
         [XmlElement(ElementName = "version")]
         public Version Version { get; set; }
 

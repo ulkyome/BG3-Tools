@@ -19,15 +19,19 @@ namespace BG3_Tools.Forms
     {
         public static string FileNameOpen = "none";
         public static MetaModel FileOpenUser = new MetaModel();
+        public static Node FileOpenUser2 = new Node();
+
+        public static BindingList<Models.Attribute> _data = new BindingList<Models.Attribute>();
 
         public metaEditForm()
         {
             InitializeComponent();
         }
 
+
         public void open_xml(string fileO)
         {
-            int uIDNUl = 0;
+
 
             FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
             try
@@ -38,13 +42,8 @@ namespace BG3_Tools.Forms
                 {
                     FileOpenUser = (MetaModel)serializer.Deserialize(fs);
 
-                    foreach (var c in FileOpenUser.Region.Node.Children.Node[1].Attribute)
-                    {
-                        //listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), "999" }));
-                        listView1.Items.Add(new ListViewItem(new string[] { c.Id, c.Value }));
-
-                    }
-                    //MessageBox.Show(FileOpenUser.Region.Node.Children.Node[1].Attribute[0].Value);
+                    _data = new BindingList<Models.Attribute>(FileOpenUser.Region.Node.Children.Node[1].Attribute);
+                    dataGridView1.DataSource = _data;
                 }
             }
             catch (Exception e)
@@ -69,5 +68,7 @@ namespace BG3_Tools.Forms
                 MessageBox.Show("ERROR#O_01");
             }
         }
+
+       
     }
 }

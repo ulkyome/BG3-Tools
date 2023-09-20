@@ -4,7 +4,7 @@
 
 // GPPG version 1.5.2
 // Machine:  ULKYOME-PC
-// DateTime: 19.09.2023 08:42:05
+// DateTime: 19.09.2023 11:38:18
 // UserName: Ulkyome
 // Input file <E:\source\repos\BG3_Tran\LSLib\\LS\Stats\Parser\StatProperty.yy - 18.08.2023 04:17:07>
 
