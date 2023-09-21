@@ -33,7 +33,7 @@ namespace BG3_Tools.Forms
         public void open_xml_test(string fileO)
         {
            
-            dataSetMeta.ReadXml(fileO, XmlReadMode.ReadSchema);
+            dataSetMeta.ReadXml(fileO, XmlReadMode.Auto);
             //dataGridView1.DataSource = dataSetMeta.Tables[1];
             foreach (DataTable table in dataSetMeta.Tables)
             {
@@ -50,6 +50,7 @@ namespace BG3_Tools.Forms
                     Console.WriteLine();
                 }
             }
+            dataGridView1.DataSource = dataSetMeta;
         }
 
         public void open_xml(string fileO)
@@ -115,6 +116,23 @@ namespace BG3_Tools.Forms
         private void buttonSave_Click(object sender, EventArgs e)
         {
             MessageBox.Show("test");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dialog = openFileDialog1.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                open_xml_test(openFileDialog1.FileName);
+            }
+            else if (dialog == DialogResult.Cancel)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("ERROR#O_01");
+            }
         }
     }
 }
