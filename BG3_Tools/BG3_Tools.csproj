@@ -134,8 +134,8 @@
     <Compile Include="Forms\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\langObj.cs" />
-    <Compile Include="Models\metaObj.cs" />
+    <Compile Include="Models\langModel.cs" />
+    <Compile Include="Models\metaModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
