@@ -74,7 +74,28 @@ namespace BG3_Tools.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void save_xml(string fileSave)
+        {
+
+            XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
+            XElement contentList = new XElement("contentList", new XAttribute("date", "0"));
+            try
+            {
+                List<XElement> content = dataGridView1.Rows.Cast<DataGridViewRow>()
+                .Select(row => new XElement("content", row.Cells[3].Value.ToString(), new XAttribute("contentuid", row.Cells[0].Value.ToString()), new XAttribute("version", row.Cells[1].Value.ToString()))).ToList();
+                contentList.Add(content);
+                doc.Add(contentList);
+                doc.Save(fileSave);
+                logger.Info("save xml file");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+            }
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
         {
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
@@ -91,6 +112,9 @@ namespace BG3_Tools.Forms
             }
         }
 
-       
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+        }
     }
 }

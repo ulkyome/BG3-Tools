@@ -111,6 +111,7 @@ namespace BG3_Tools.Forms
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Extraction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
             finally
             {
@@ -225,6 +226,7 @@ namespace BG3_Tools.Forms
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Package Build Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
             finally
             {
