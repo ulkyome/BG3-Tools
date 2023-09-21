@@ -35,11 +35,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataSetMeta = new System.Data.DataSet();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxUID = new System.Windows.Forms.TextBox();
+            this.checkBoxIsHandle = new System.Windows.Forms.CheckBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetMeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -96,6 +98,35 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(462, 516);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 32);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "generate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBoxUID
+            // 
+            this.textBoxUID.Location = new System.Drawing.Point(12, 521);
+            this.textBoxUID.Name = "textBoxUID";
+            this.textBoxUID.Size = new System.Drawing.Size(361, 20);
+            this.textBoxUID.TabIndex = 5;
+            // 
+            // checkBoxIsHandle
+            // 
+            this.checkBoxIsHandle.AutoSize = true;
+            this.checkBoxIsHandle.Checked = true;
+            this.checkBoxIsHandle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxIsHandle.Location = new System.Drawing.Point(379, 523);
+            this.checkBoxIsHandle.Name = "checkBoxIsHandle";
+            this.checkBoxIsHandle.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxIsHandle.TabIndex = 6;
+            this.checkBoxIsHandle.Text = "Is Handle?";
+            this.checkBoxIsHandle.UseVisualStyleBackColor = true;
+            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Attribute);
@@ -103,39 +134,39 @@
             // 
             // idDataGridViewTextBoxColumn
             // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.FillWeight = 160F;
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 120;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.idDataGridViewTextBoxColumn.Width = 160;
             // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 32;
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // valueDataGridViewTextBoxColumn
             // 
+            this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(695, 516);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "TEST";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // metaEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 558);
+            this.Controls.Add(this.checkBoxIsHandle);
+            this.Controls.Add(this.textBoxUID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
@@ -147,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetMeta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,9 +191,11 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Data.DataSet dataSetMeta;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxUID;
+        private System.Windows.Forms.CheckBox checkBoxIsHandle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
     }
 }
