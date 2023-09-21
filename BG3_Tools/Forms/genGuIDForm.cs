@@ -1,4 +1,5 @@
 ﻿using BG3_Tools.Helpers;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace BG3_Tools.Forms
 {
     public partial class genGuIDForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public genGuIDForm()
         {
             InitializeComponent();

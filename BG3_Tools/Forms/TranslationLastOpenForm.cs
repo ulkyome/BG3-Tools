@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace BG3_Tools.Forms
 {
     public partial class TranslationLastOpenForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public static ListViewItem data = new ListViewItem();
         public TranslationLastOpenForm()
         {

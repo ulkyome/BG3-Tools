@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace BG3_Tools.Forms
 {
     public partial class AboutForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public AboutForm()
         {
             InitializeComponent();

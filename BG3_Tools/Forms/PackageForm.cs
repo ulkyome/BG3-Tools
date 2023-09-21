@@ -1,5 +1,6 @@
 ﻿using LSLib.LS;
 using LSLib.LS.Enums;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace BG3_Tools.Forms
 {
     public partial class PackageForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private Stopwatch _displayTimer;
         public PackageForm()
         {

@@ -13,15 +13,13 @@ using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using LSLib.LS;
-using LSLib.LS.Enums;
-using System.Security.Cryptography;
-using static System.Net.Mime.MediaTypeNames;
-using System.Reflection;
+using NLog;
 
 namespace BG3_Tools.Forms
 {
     public partial class TranslationForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public TranslationForm()
         {
             InitializeComponent();
@@ -52,6 +50,7 @@ namespace BG3_Tools.Forms
 
             try
             {
+                logger.Info("Open json file");
                 _data = JsonConvert.DeserializeObject<BindingList<Content>>(File.ReadAllText(fileO));
                 dataGridView1.DataSource = _data;
                 this.Text = $"{FileNameOpen} | rows {_data.Count}";
@@ -64,6 +63,7 @@ namespace BG3_Tools.Forms
             catch (Exception e)
             {
                 MessageBox.Show($"ERROR OPEN JSON (Markup error or invalid format) {e.Message}");
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
 
@@ -90,23 +90,6 @@ namespace BG3_Tools.Forms
 
         public void open_xml(string fileO)
         {
-            dataSet1.ReadXml(fileO);
-
-            foreach (DataTable table in dataSet1.Tables)
-            {
-                Console.WriteLine(table);
-                for (int i = 0; i < table.Columns.Count; ++i)
-                    Console.Write("\t" + table.Columns[i].ColumnName.Substring(0, Math.Min(6, table.Columns[i].ColumnName.Length)));
-                Console.WriteLine();
-                foreach (var row in table.AsEnumerable())
-                {
-                    for (int i = 0; i < table.Columns.Count; ++i)
-                    {
-                        Console.Write("\t" + row[i]);
-                    }
-                    Console.WriteLine();
-                }
-            }
             //panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
@@ -121,6 +104,7 @@ namespace BG3_Tools.Forms
 
                 using (FileStream fs = new FileStream(fileO, FileMode.OpenOrCreate))
                 {
+                    logger.Info("Open xml file");
                     FileOpenUser = (ContentList)serializer.Deserialize(fs);
 
                     foreach (var c in FileOpenUser.Content.ToList())
@@ -137,6 +121,7 @@ namespace BG3_Tools.Forms
                     if (uIDNUl > 0)
                     {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
+                        logger.Info($"deletet null rows {uIDNUl}");
                     }
 
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
@@ -150,6 +135,7 @@ namespace BG3_Tools.Forms
             catch (Exception e)
             {
                 MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {e.Message}");
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
 
@@ -161,6 +147,7 @@ namespace BG3_Tools.Forms
                 dataGridView1.Rows[index].HeaderCell.Value = index.ToString();
                 index++;
             }
+            logger.Info($"index header cell add {index}");
         }
 
         public void findDuplicate_uID()
@@ -179,17 +166,15 @@ namespace BG3_Tools.Forms
 
                         break;
                     }
-
                 }
-
-
             }
+            logger.Info("market duplicate uID cells");
             findNull_row();
         }
 
         public void findNull_row()
         {
-
+            logger.Info("find null rows");
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
 
@@ -259,6 +244,7 @@ namespace BG3_Tools.Forms
 
                 using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
                 {
+                    logger.Info("Open loca file");
                     FileOpenUser = (ContentList)serializer.Deserialize(fs);
 
                     foreach (var c in FileOpenUser.Content.ToList())
@@ -275,6 +261,7 @@ namespace BG3_Tools.Forms
                     if (uIDNUl > 0)
                     {
                         MessageBox.Show($"deletet null rows {uIDNUl} !");
+                        logger.Info($"deletet null rows {uIDNUl}");
                     }
                     //MessageBox.Show($"add rows {FileOpenUser.Content.Count}");
                     this.Text = $"{FileNameOpen} | rows {FileOpenUser.Content.Count}";
@@ -289,6 +276,7 @@ namespace BG3_Tools.Forms
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -300,6 +288,7 @@ namespace BG3_Tools.Forms
 
                 using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
                 {
+                    logger.Info("Open xml match file");
                     FileOpenSoft = (ContentList)serializer.Deserialize(fs);
                     int count = dataGridView1.Rows.Count;
                     foreach (var c in FileOpenSoft.Content)
@@ -324,6 +313,7 @@ namespace BG3_Tools.Forms
             catch (Exception e)
             {
                 MessageBox.Show("ERROR OPEN FILE (Markup error or invalid format)");
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
 
@@ -341,6 +331,7 @@ namespace BG3_Tools.Forms
 
                 using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
                 {
+                    logger.Info("Open loca match file");
                     FileOpenSoft = (ContentList)serializer.Deserialize(fs);
                     int count = dataGridView1.Rows.Count;
                     foreach (var c in FileOpenSoft.Content)
@@ -365,6 +356,7 @@ namespace BG3_Tools.Forms
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -386,9 +378,18 @@ namespace BG3_Tools.Forms
 
         public void saveTempJson()
         {
-            string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
+            try
+            {
+                string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
 
-            File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
+                File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
+                logger.Info("save json file");
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+            }
         }
 
         public void save_xml(string fileSave)
@@ -403,10 +404,12 @@ namespace BG3_Tools.Forms
                 contentList.Add(content);
                 doc.Add(contentList);
                 doc.Save(fileSave);
+                logger.Info("save xml file");
             }
-            catch (Exception e)
+            catch (Exception exc)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(exc.Message);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -423,20 +426,24 @@ namespace BG3_Tools.Forms
                     contentList.Add(content);
                     doc.Add(contentList);
                     doc.Save($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                    logger.Info("save temp xml file");
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message);
+                    logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
                 }
 
                 var resource = LocaUtils.Load($@"{FolderTemp}\xml\{FileNameOpen}.xml");
                 var format = LocaUtils.ExtensionToFileFormat(fileSave);
                 LocaUtils.Save(resource, fileSave, format);
+                logger.Info("save loca file");
 
             }
             catch (Exception exc)
             {
                 MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -455,6 +462,7 @@ namespace BG3_Tools.Forms
                         break;
                     default:
                         MessageBox.Show("ERROR FORMAT");
+                        logger.Error($"Error format file select user");
                         break;
                 }
             }
@@ -465,6 +473,7 @@ namespace BG3_Tools.Forms
             else
             {
                 MessageBox.Show("ERROR#O_01");
+
             }
         }
 
@@ -485,6 +494,7 @@ namespace BG3_Tools.Forms
                         break;
                     default:
                             MessageBox.Show("ERROR FORMAT SAVE");
+                            logger.Error($"Error format save file select user");
                         break;
                 }
 
@@ -501,34 +511,42 @@ namespace BG3_Tools.Forms
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[2].Value == null)
+            try
             {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
-                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "null value";
-            }
-            else if(dataGridView1.Rows[e.RowIndex].Cells[3].Value == null)
-            {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
-                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "null value";
-            }
-            else if(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() == dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString())
-            {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
-                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
-            }
-            else
-            {
-                dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
-                dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
-
-                if (autoSaveToolStripMenuItem.Checked)
+                if (dataGridView1.Rows[e.RowIndex].Cells[2].Value == null)
                 {
-                    saveTempJson();
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
+                    dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "null value";
                 }
+                else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value == null)
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
+                    dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "null value";
+                }
+                else if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() == dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString())
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
+                    dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[2].ErrorText = "";
+                    dataGridView1.Rows[e.RowIndex].Cells[3].ErrorText = "";
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Beige;
 
-                findDuplicate_uID();
+                    if (autoSaveToolStripMenuItem.Checked)
+                    {
+                        saveTempJson();
+                    }
+
+                    findDuplicate_uID();
+                }
+            }
+            catch(Exception exc) 
+            {
+                MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "cell err", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -564,6 +582,7 @@ namespace BG3_Tools.Forms
                         break;
                     default:
                         MessageBox.Show("ERROR FORMAT SAVE");
+                        logger.Error($"Error format save file select user");
                         break;
                 }
             }

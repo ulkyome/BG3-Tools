@@ -1,4 +1,5 @@
 ﻿using BG3_Tools.Forms;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,15 @@ namespace BG3_Tools
         public static metaEditForm metaEditF;
         public static settingForm settingF;
         public static TranslationLastOpenForm TranslationLastOpenF;
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public LoadingForm()
         {
             InitializeComponent();
             MainF = new MainForm();
             Directory.CreateDirectory(@".\temp\json\");
             Directory.CreateDirectory(@".\temp\xml\");
+            logger.Info("Create dir temp");
         }
 
         private void Loading_Shown(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using BG3_Tools.Models;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace BG3_Tools.Forms
 {
     public partial class metaEditForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public static string FileNameOpen = "none";
         public static MetaModel FileOpenUser = new MetaModel();
         public static Node FileOpenUser2 = new Node();
@@ -28,11 +30,30 @@ namespace BG3_Tools.Forms
             InitializeComponent();
         }
 
+        public void open_xml_test(string fileO)
+        {
+           
+            dataSetMeta.ReadXml(fileO, XmlReadMode.ReadSchema);
+            //dataGridView1.DataSource = dataSetMeta.Tables[1];
+            foreach (DataTable table in dataSetMeta.Tables)
+            {
+                MessageBox.Show(table.ToString());
+                for (int i = 0; i < table.Columns.Count; ++i)
+                    Console.Write("\t" + table.Columns[i].ColumnName.Substring(0, Math.Min(6, table.Columns[i].ColumnName.Length)));
+                Console.WriteLine();
+                foreach (var row in table.AsEnumerable())
+                {
+                    for (int i = 0; i < table.Columns.Count; ++i)
+                    {
+                        Console.Write("\t" + row[i]);
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
 
         public void open_xml(string fileO)
         {
-
-
             FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
             try
             {
@@ -46,9 +67,10 @@ namespace BG3_Tools.Forms
                     dataGridView1.DataSource = _data;
                 }
             }
-            catch (Exception e)
+            catch (Exception exc)
             {
-                MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {e.Message}");
+                MessageBox.Show($"ERROR OPEN XML (Markup error or invalid format) {exc.Message}");
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -57,7 +79,7 @@ namespace BG3_Tools.Forms
             var dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.OK)
             {
-               open_xml(openFileDialog1.FileName);
+                open_xml(openFileDialog1.FileName);
             }
             else if (dialog == DialogResult.Cancel)
             {
