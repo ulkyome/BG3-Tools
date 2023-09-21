@@ -32,7 +32,6 @@ namespace BG3_Tools.Forms
 
         public void open_xml_test(string fileO)
         {
-           
             dataSetMeta.ReadXml(fileO, XmlReadMode.Auto);
             //dataGridView1.DataSource = dataSetMeta.Tables[1];
             foreach (DataTable table in dataSetMeta.Tables)
@@ -77,17 +76,16 @@ namespace BG3_Tools.Forms
 
         public void save_xml(string fileSave)
         {
+            FileOpenUser.Region.Node.Children.Node[1].Attribute = _data.ToList();
 
-            XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
-            XElement contentList = new XElement("contentList", new XAttribute("date", "0"));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(MetaModel));
             try
             {
-                List<XElement> content = dataGridView1.Rows.Cast<DataGridViewRow>()
-                .Select(row => new XElement("content", row.Cells[3].Value.ToString(), new XAttribute("contentuid", row.Cells[0].Value.ToString()), new XAttribute("version", row.Cells[1].Value.ToString()))).ToList();
-                contentList.Add(content);
-                doc.Add(contentList);
-                doc.Save(fileSave);
-                logger.Info("save xml file");
+                using (FileStream fs = new FileStream("test.xml", FileMode.OpenOrCreate))
+                {
+                    xmlSerializer.Serialize(fs, FileOpenUser);
+                }
+
             }
             catch (Exception exc)
             {
@@ -115,7 +113,21 @@ namespace BG3_Tools.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
+            saveFileDialog1.FileName = FileNameOpen;
+            var dialog = saveFileDialog1.ShowDialog();
+            //MessageBox.Show($" (LSLib v{Common.LibraryVersion()})");
+            if (dialog == DialogResult.OK)
+            {
+                save_xml(saveFileDialog1.FileName);
+            }
+            else if (dialog == DialogResult.Cancel)
+            {
+                //
+            }
+            else
+            {
+                MessageBox.Show("ERROR#S_01");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
