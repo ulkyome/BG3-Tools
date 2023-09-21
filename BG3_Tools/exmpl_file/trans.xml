@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Freshly baked localization file made with a tool from Ulkyome-->
+<contentList date="09.16.2023_11_30">
+  <content contentuid="h38acd02eg802eg4993g839cg5b02a0e776d6" version="1">Рыцарь Смерти</content>
+  <content contentuid="h47be9a2bg41d9g4efeg8d2cg79c7c65e58f7" version="1">Тысячи зверств запечатлены в глазах каждого Рыцаря Смерти, и враги, которые будут смотреть в них слишком долго, почувствуют, как тепло уходит из их тел, заменяясь холодной сталью. Мороз обостряет их удары; кровь укрепляет их тела; а нежить позволяет им извергаться в нечестивой ярости в пылу битвы.</content>
+  <content contentuid="hed8d0063g01ceg489fg980ag0c71854a29f4" version="1">Кровь</content>
+  <content contentuid="h935bf9ddg6c1eg4cb0gb1f5gb23f0cbe5a37" version="1">Кровавые рыцари смерти - темные защитники, который сдерживают натиск врагов, подпитывая себя за счет их жизненной энергии.</content>
+  <content contentuid="h7ae2f407ge2a6g4505g88e4g185a6c93e672" version="1">Лёд</content>
+  <content contentuid="h172b532cgc193g406fg92adg3e8366b73456" version="1">Рыцари ледяной смерти - вестники рока, использующие силу рун и наносящие молниеносные удары оружием.</content>
+  <content contentuid="hd469c347g283eg4cc2ga616g4f695f1e736e" version="1">Нечестивость</content>
+  <content contentuid="h098b66b1g1eb9g4629ga8e9g73c81c572498" version="1">Нечестивые рыцари смерти - властители смерти и разложения, распространяющие болезни и повеливающие прислужниками-нежитью.</content>
+  <content contentuid="hdc41e8acg2886g4e5dg97bag69c9bfa0688f" version="1">Руна крови</content>
+  <content contentuid="h2c657a02gc100g4268gb6ffgaa4cf355972f" version="1">Ледяная руна</content>
+  <content contentuid="h98494f64g6d68g428cgbc9age4220ad106b1" version="1">Нечестивая руна</content>
+  <content contentuid="h582b8572gee0fg452eg8a88g7d5c0dfe1b4f" version="1">Руны необходимы для использования большинства способностей рыцаря смерти. У рыцаря смерти есть различные средства для пополнения рун во время боя.</content>
+  <content contentuid="hc72b2413gdefcg41eeg8d3cgec4289600fbb" version="1">Сила рун</content>
+  <content contentuid="h654b203fg6e75g4a34g95c4gb406ba5e9b88" version="1">Силы рун используются для определенных способностей Рыцаря Смерти и могут быть восполнены с помощью большинства навыков Рыцаря Смерти. Если не изменена другими способностями, ваша атака ближнего боя имеет 15% шанс восполнить 20 сил рун.</content>
+  <content contentuid="h4511b6c3g53fdg4dd6g9b35g093e974c4f07" version="1">Руна крови: 1</content>
+  <content contentuid="h40119256g5387g402ag86adgb28403d35c1b" version="1">Ледяная Руна: 1</content>
+  <content contentuid="h2490ef9bgd26fg4605g9855g7bce2a3078d2" version="1">Нечестивая Руна: 1</content>
+  <content contentuid="hf2f0ccc0ge70eg4220gb5e8g987470389ebb" version="1">Вы получили руну рыцаря смерти и теперь обладаете способностью призывать заключенную в ней силу.</content>
+  <content contentuid="h3a255f33ga7dbg4f5cg8fa6gf4b0a0269ee5" version="1">Сила рун: [1]</content>
+  <content contentuid="h4cebb421gc469g46f2gb450g38fc543969b3" version="1">Теперь ваше оружие наполнено силой рун, что позволяет ему воплощать мощь рыцаря смерти.</content>
+  <content contentuid="hc61a2678g9f49g484eg80b9g79c48c0c15dd" version="1">Предвестник бедствия</content>
+  <content contentuid="ha4a55b39g25d7g4394gb29ag4db43fa16345" version="1">Вы приобретаете иммунитет ко всем болезням.</content>
+  <content contentuid="h5491d5a4gb718g4111ga06bgaf0e410336ad" version="1">Доминирует над целевой нежитью, заставляя её выполнять ваши приказы.</content>
+  <content contentuid="h33bd4dbeg3e49g4592g90e2gdbafbcc29cc1" version="1">Лик смерти</content>
+  <content contentuid="hb2d53718gccf1g49c2ga9dcgf9dcfea0a73f" version="1">Выпускает заряд нечестивой энергии в цель, нанося [1] врагу или исцеляя союзника-нежить на [2]. При сотворении лика смерти есть [3] шанс восстановить нечестивую руну в подклассе «Нечестивость».</content>
+  <content contentuid="h628f49b7g8380g40a9g95fcg8e25d9994e1e" version="1">Хватка смерти</content>
+  <content contentuid="h6fec1e8dg4371g40d7gae4bgc82cc74062c5" version="1">Использует энергию, которая окружает и связывает всю материю, притягивая цель к себе. Притянутое существо будет &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;оглушено&lt;/LSTag&gt; на 1 ход.</content>
+  <content contentuid="hd3ea1415g7473g4443gbf51gccf6b071c1b1" version="1">Воскрешение мертвых</content>
+  <content contentuid="h060d623dg899eg4f30g915agc0ddb393a2a7" version="1">Поднимает упыря, чтобы он сражался на вашей стороне. У вас может быть только один упырь.</content>
+  <content contentuid="hf5e80ff3ge3a7g4dbdgbbefg6ff8a5fb3144" version="1">Смертельный союз</content>
+  <content contentuid="hc08cc57bged78g46ebg8fc5g20aa232e4756" version="1">Приносит в жертву прислужника-нежить, исцеляя Рыцаря Смерти на [1] от максимума здоровья.</content>
+  <content contentuid="h70a0fc8bge807g4f26ga80ag2e576372f884" version="1">Ледяные цепи</content>
+  <content contentuid="he9c580c0g6c0dg4e4bgb724g95a6971cd3b4" version="1">Сковывает цель ледяными цепями. Уменьшает &lt;LSTag Tooltip="MovementSpeed"&gt;скорость перемещения&lt;/LSTag&gt; на [1] и поражает &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждением&lt;/LSTag&gt; на 2 хода. </content>
+  <content contentuid="h0a9a6ec3g3c58g4765gb777gcad5576758fd" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Скорость перемещения&lt;/LSTag&gt; уменьшается на [1]. </content>
+  <content contentuid="h943ad774g508dg43edgba40g9122790e7b8e" version="1">Антимагический барьер</content>
+  <content contentuid="h19a1aad0gcc22g4cd9ga8f9g50d900250bce" version="1">Окружает Рыцаря Смерти антимагическим панцирем, поглощающей 50% магического урона, наносимого вредоносными заклинаниями. Магический урон, поглощаемый антимагическим барьером, придает рыцарю смерти [1] дополнительную силу рун. Длится [2] хода. </content>
+  <content contentuid="h251a1707gb6beg46efg9793g8dd9da0650a2" version="1">Поглощает магический урон, наносимый вредоносными заклинаниями. Магический урон, поглощаемый антимагическим барьером, придает рыцарю смерти [1] дополнительную силу рун. </content>
+  <content contentuid="h3690a0d2g0321g4a50g8a16g2f8445b75446" version="1">Заморозка разума</content>
+  <content contentuid="hbb9952ecg6301g4be6g97e2g8dca58dc6eda" version="1">Поражайте холодом разум цели, предотвращая произнесение любых заклинаний в течение [1] хода. Также накладывается &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждение&lt;/LSTag&gt; на 2 хода. </content>
+  <content contentuid="hd87649ffg38bcg44f4ga695gc7799f146182" version="1">Это существо не может произносить заклинания. </content>
+  <content contentuid="h8052db13g8abbg4755gb435g3dad93e3bf4b" version="1">Захват рун</content>
+  <content contentuid="hbfce4365gc52bg4027g852dgf13c15f9591e" version="1">Немедленно преобразует [1] в [2] силы рун.</content>
+  <content contentuid="h29af5c3egdbabg4c88gb85ag9348ae60a86c" version="1">Тёмное воскрешение</content>
+  <content contentuid="h02c0683bg500dg427aga442g39a4720fd2e1" version="1">Вливает темную энергию в мертвую цель, воссоединяя дух и тело, чтобы позволить цели снова вступить в бой с [1] от максимальным запаса здоровья.</content>
+  <content contentuid="h858b38d5g4432g441cg9e35g192fe578b2d9" version="1">Наступление смерти</content>
+  <content contentuid="h863a9a1dg65dbg492bgb755g7d3091152e80" version="1">Воспользуйтесь силой Царства Теней и телепортируйтесь в выбранное место.</content>
+  <content contentuid="heaf2fccdg6787g4dbegbf5dg9ee53bb24a74" version="1">Смерть и разложение</content>
+  <content contentuid="h0388974egc388g4c5eg9196g7144f4e042e4" version="1">Наводит порчу на землю в выбранной области. Порча замедляет все цели и наносит урон в размере [1] от их максимального здоровья в течение 10 ходов.</content>
+  <content contentuid="h0e006184g8cbcg43afga35agb191845a425d" version="1">Рог зимы</content>
+  <content contentuid="h6cc29529g21acg47ddg80e2g8f275acf0c37" version="1">Рыцарь смерти трубит в Рог зимы, увеличивая общую силу и ловкость всех союзников в радиусе 12 метров на [1]. Длится 10 ходов.</content>
+  <content contentuid="h78fbe96eg0517g4addg9d42gfe1516d0810a" version="1">Увеличивает общую силу и ловкость на [1].</content>
+  <content contentuid="h697b11cfg67f4g4197g90b4g95685af75722" version="1">Кровавая чума</content>
+  <content contentuid="he441fd08gca3fg4373g9369gc075eebcb9be" version="1">Теневая болезнь, которая каждый ход отнимает у цели [1] и приводит её в бешенство, направляя её агрессию на вас.</content>
+  <content contentuid="h264dea53g23f5g4efegb887gb36b69a9b757" version="1">Морозная лихорадка</content>
+  <content contentuid="h445d7ef8g7549g4d39g9a69g02680d56e1f4" version="1">Болезнь наносит [1] каждый ход и снижает &lt;LSTag Tooltip="MovementSpeed"&gt;скорость перемещения&lt;/LSTag&gt; на 3 м.</content>
+  <content contentuid="ha07ec982g9593g4760g9e26gec5dc722075a" version="1">Смертоносная чума</content>
+  <content contentuid="h42094ecag234bg4952g8a9fg965c6d61a9d5" version="1">Болезнь, которая наносит [1] каждый ход. Она вырывается, когда зараженная цель умирает, и распространяется на ближайших врагов.</content>
+  <content contentuid="h6398213dg9b66g49b4gaa5ag0de6481886a2" version="1">Гнойная язва</content>
+  <content contentuid="h9584256egc030g4ae0g9303gff936f2ee3a7" version="1">Гнойники, которые накапливаются до 6 раз и лопающиеся при получении урона от определенных способностей. Лопнутые гнойники наносят [1] и генерируют [2] сил рун за количество накопившихся гнойников. Инфицированные враги, умершие с гнойной язвой, взрываются, нанося урон в области [3].</content>
+  <content contentuid="hf7103d1ag6b16g4b66ga205ga4b8e3e774d9" version="1">Искусность: Сердце изо льда</content>
+  <content contentuid="hc7e9e930g176ag4796ga262g742d4dbe8043" version="1">Ваши атаки имеют отдельный [1] шанс нанести &lt;LSTag Tooltip="CriticalHit"&gt;критический удар&lt;/LSTag&gt; по цели с &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждением&lt;/LSTag&gt;. Получив &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждение&lt;/LSTag&gt;, на цель также накладывается &lt;LSTag Type="Status" Tooltip="DK_FrostFever"&gt;Морозная лихорадка&lt;/LSTag&gt; на 2 хода.</content>
+  <content contentuid="h7ce94de9g4082g45b0gb557g9ea53b7e4c50" version="1">Усиливающее рунное оружие: холод</content>
+  <content contentuid="h8992b629g9342g4fb9gb2b0ge10339eef1ee" version="1">Сила рун в вашем оружии еще больше усиливается. Атаки оружием ближнего боя наносят дополнительные [1], а шанс пополнить силы рун увеличивается до [2].</content>
+  <content contentuid="hfb7a116ege6cdg41ecg9d7cg3b89d6eebeaf" version="1">Машина для убийства</content>
+  <content contentuid="h16f38c81g1cc1g4308ga57ag9f95d340d0d5" version="1">У вашей атаки оружием есть [1] шанс сделать ваше следующие применение &lt;LSTag Type="Spell" Tooltip="Target_Obliterate"&gt;Уничтожение&lt;/LSTag&gt; &lt;LSTag Tooltip="CriticalHit"&gt;критическим&lt;/LSTag&gt; или применение &lt;LSTag Type="Spell" Tooltip="Target_HowlingBlast_Cast"&gt;Воющий ветер&lt;/LSTag&gt; бесплатным.</content>
+  <content contentuid="hadfd0007ga318g4bf4g82b9gd32d26e4303a" version="1">Ваше следующее &lt;LSTag Type="Spell" Tooltip="Target_Obliterate"&gt;Уничтожение&lt;/LSTag&gt; - это &lt;LSTag Tooltip="CriticalHit"&gt;критический удар&lt;/LSTag&gt;, или ваш следующий &lt;LSTag Type="Spell" Tooltip="Target_HowlingBlast_Cast"&gt;Воющий ветер&lt;/LSTag&gt; будет бесплатным.</content>
+  <content contentuid="he5065463g63bfg4e5bg9697gc710822c40b4" version="1">Ледяной удар</content>
+  <content contentuid="hcd1e572cgfa9eg46b1g83b9g17049f50c5e6" version="1">Ледяной удар: реакция</content>
+  <content contentuid="h993fb5a8g1529g4dd7gb1f6g3ed9211245c2" version="1">При попадании оружием ближнего боя наносится дополнительные [1]. Ваш ледяной удар имеет шанс [2] восстановить одну ледяную руну, и этот шанс увеличивается до 100% при &lt;LSTag Tooltip="CriticalHit"&gt;критическом ударе&lt;/LSTag&gt;.</content>
+  <content contentuid="hf6460724g4e81g42b6g8585g7053aef69df0" version="1">Критический ледяной удар: реакция</content>
+  <content contentuid="h509b8b08g2a98g44b8g8241ga5c3955c3a81" version="1">При &lt;LSTag Tooltip="CriticalHit"&gt;критическом ударе&lt;/LSTag&gt; используя оружие ближнего боя, нанесите дополнительные [1] и восстановите одну ледяную руну.</content>
+  <content contentuid="h1c9ce109g8a51g49e6gb4bag07e6e240279e" version="1">Уничтожение</content>
+  <content contentuid="hf5f565cdg0c4eg4cd3g88a9g9bb31cab4fca" version="1">Проведите атаку в ближнем бою с помощью оружия во основной и во второй руке одновременно. Наносится [1] за каждый удар оружием + дополнительные [2]. &lt;LSTag Type="Spell" Tooltip="Target_Obliterate"&gt;Уничтожение&lt;/LSTag&gt; восстанавливает [3] сил рун при попадании, и этот эффект удваивается при критическом попадании.</content>
+  <content contentuid="hfbbedb73g8886g44bbg8282ge274ee157ba5" version="1">Воющий ветер</content>
+  <content contentuid="hf518f1a9g8890g481agbb26gff0ac93325bd" version="1">Поразите цель жестоким ветром, нанеся [1] этому врагу и &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждая&lt;/LSTag&gt; его на 2 хода. &lt;LSTag Type="Spell" Tooltip="Target_HowlingBlast_Cast"&gt;Воющий ветер&lt;/LSTag&gt; восстанавливает [2] сил рун при попадании.</content>
+  <content contentuid="h1ebb06c4g6fafg4d3dg8ed1g0cc964668b7d" version="1">Воющий ветер: реакция</content>
+  <content contentuid="h9ceedebcg7125g4bccga5deg00e09392cf35" version="1">Отреагируйте на следующего нападающего порывом жестокого ветра, нанося [1] этому врагу и &lt;LSTag Type="Status" Tooltip="CHILLED"&gt;охлаждая&lt;/LSTag&gt; на 2 хода. &lt;LSTag Type="Spell" Tooltip="Target_HowlingBlast_Cast"&gt;Воющий ветер&lt;/LSTag&gt; восстанавливает [2] сил рун при попадании</content>
+  <content contentuid="h5bb0d892gca84g4fd0g8dc7g97bcf9455c62" version="1">Дыхание Синдрагосы</content>
+  <content contentuid="h0a97c969g84a6g4ecfga3ebg4c25136c9b84" version="1">&lt;LSTag Type="Status" Tooltip="CHILLED"&gt;Охлаждает&lt;/LSTag&gt; и наносит [1] всем врагам в перед тобой. Вы можете произносить это заклинание повторно пока не закончатся силы рун. Создаёт 2 ледяные руны каждое произнесение.</content>
+  <content contentuid="h32085420g12ceg456ag9d67g56595a28e0be" version="1">Искусность: Клинок ужаса</content>
+  <content contentuid="h2a609fe8gb758g4e81gbee3ge36307ff62a8" version="1">Ваш упырь, вызванный &lt;LSTag Type="Spell" Tooltip="Target_DK_RaiseDead"&gt;Воскрешением мёртвых&lt;/LSTag&gt;, живет дольше и становится сильнее по мере повышения уровня. Атака вашего упыря теперь наносит дополнительные [1] и распространяет &lt;LSTag Type="Status" Tooltip="DK_UnholyFever"&gt;Смертоносную чуму&lt;/LSTag&gt;. У вас и вашего упыря, получившего некротические повреждения, есть [2] шанс вызвать &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойную язву&lt;/LSTag&gt;.</content>
+  <content contentuid="h45186395gedfag481cg8cb0gc5564fe78e57" version="1">Усиленное руническое оружие: нечестивое</content>
+  <content contentuid="hff108a5bga06bg43a6gb64aga2ed8346f505" version="1">Неумолимый рок</content>
+  <content contentuid="h967e2687gdacag4a5bgb6fcg6b7cc8c2212f" version="1">У вашей атаки оружием есть [1] шанс сделать ваше следующее применение &lt;LSTag Type="Spell" Tooltip="Projectile_DeathCoil"&gt;Лика смерти&lt;/LSTag&gt; бесплатным. Также, &lt;LSTag Type="Spell" Tooltip="Projectile_DeathCoil"&gt;Лик смерти&lt;/LSTag&gt; восстановит нечествиую руну и взорвёт &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойные язвы&lt;/LSTag&gt; у цели при попадании. </content>
+  <content contentuid="h862a6ed7g6266g4216gb167gc40ada5b71f3" version="1">Ваше следующее применение &lt;LSTag Type="Spell" Tooltip="Projectile_DeathCoil"&gt;Лика смерти&lt;/LSTag&gt; бесплатно. Взрывает &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойные язвы&lt;/LSTag&gt; у цели и восстанвливает нечистивую руну при попадании.</content>
+  <content contentuid="h45bde13bg14b4g4d0cg84d7ga35bc587c834" version="1">Удар Плети</content>
+  <content contentuid="h7b3ee3a6gb816g43d1g816bgbfac0d379d07" version="1">Удар Плети: реакция</content>
+  <content contentuid="h823cf181gf18eg4ed1ga179g73f8a30ed2ab" version="1">Нечестивый удар, который наносит [1] и дополнительные [2]. Вызывает взрыв одного заряда &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойной язвы&lt;/LSTag&gt;.  </content>
+  <content contentuid="ha801c1b2g608fg4bdag807bg12f37851b5ef" version="1">При попадании оружием ближнего боя наносит дополнительные [1] и вызывает взрыв одного заряда &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойной язвы&lt;/LSTag&gt;.</content>
+  <content contentuid="h3b1d3b99g05cdg4571g9f9eg613c647c3627" version="1">Критический удар Плети: реакция</content>
+  <content contentuid="h9b206a12gbe4bg40e3gae50g30de25452123" version="1">При &lt;LSTag Tooltip="CriticalHit"&gt;критическом ударе&lt;/LSTag&gt; с помощью оружия ближнего боя, наносит дополнительные [1] и вызывает взрыв одного заряда &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойной язвы&lt;/LSTag&gt;.</content>
+  <content contentuid="he606976dg3111g4e21g8f9cg000d4a5c9640" version="1">Вспышка</content>
+  <content contentuid="haf7c5df1gc0b2g42adga6dege34864ac40a0" version="1">Наносит [1] и заражает &lt;LSTag Type="Status" Tooltip="DK_UnholyFever"&gt;Смертоносной чумой&lt;/LSTag&gt; цель заклинания и всех ближайших к ней врагов.</content>
+  <content contentuid="h8878c57ag6194g42ccga4cegde6231394ecf" version="1">Лик смерти: реакция</content>
+  <content contentuid="h5205b430g8081g4ea9gbdb7gc9bbb7cd031c" version="1">Отреагируйте на следующего нападающего взрывом нечестивой энергии, нанеся [1] врагу или исцелив союзника-нежить на [2]. У &lt;LSTag Type="Spell" Tooltip="Projectile_DeathCoil"&gt;Лика смерти&lt;/LSTag&gt; есть [3] шанс восстановить нечестивую руну в подклассе «Нечестивость».</content>
+  <content contentuid="he88ce7c0g7f6bg41a1g95acg46be684223e2" version="1">Удар разложения</content>
+  <content contentuid="h6f2bf1e8g3881g46d6ga272gd16b7f5d33fd" version="1">Наносит 150% урона от оружия и дополнительные [1]. Заражает цель 2-3 зарядами &lt;LSTag Type="Status" Tooltip="DK_FesteringWound"&gt;Гнойной язвы&lt;/LSTag&gt;.</content>
+  <content contentuid="h0bba401bg5c0fg458agb0c6g4e647bbecabc" version="1">Царапает врага когтями, нанося [1] и заражая &lt;LSTag Type="Status" Tooltip="DK_UnholyFever"&gt;Смертоносной чумой&lt;/LSTag&gt; при попадании. У когтя есть [2] шанс заставить цель &lt;LSTag Type="Status" Tooltip="PRONE"&gt;упасть плашмя&lt;/LSTag&gt;.</content>
+  <content contentuid="he1604e00ga707g44a1g8dcagcc09326b563e" version="1">Армия мертвых</content>
+  <content contentuid="h328c5d00ga06dg4934gbe8fg68ab6ea76ab1" version="1">Призывает упырей, которые без разбора набрасываются на ваших врагов .</content>
+  <content contentuid="h2d96f2c9gd340g4815g8e74ge3609b996ff1" version="1">Искусность: Щит крови</content>
+  <content contentuid="h34b678adg345fg40c9ga6dcge4494488cbc8" version="1">Каждый раз, когда вы исцеляете себя с помощью &lt;LSTag Type="Spell" Tooltip="Target_DeathStrike"&gt;Удара смерти&lt;/LSTag&gt; или &lt;LSTag Type="Spell" Tooltip="Target_DeathPact"&gt;Смертельного союза&lt;/LSTag&gt;, вы получаете [1] от исцеленного количества в виде щита, поглощающего урон, который суммируется до 25% от максимального здоровья.</content>
+  <content contentuid="h25157383g45c3g4980g9645g80b56dcd568d" version="1">Получите &lt;LSTAg Tooltip="TemporaryHitPoints"&gt;временные очки жизни&lt;/LSTAg&gt;, эквивалентные сумме этого эффекта. При получении урона от врага, находясь под этим эффектом, вызывается небольшой взрыв в области [2].</content>
+  <content contentuid="h6ae7c7dfg81f1g467bg8bc4g0f3261cd7726" version="1">Усиление рунического оружия: кровь</content>
+  <content contentuid="h60b9882dg0e20g4984gaf6dg4d2f72eac083" version="1">Алая Плеть</content>
+  <content contentuid="h47b0c1abg045eg4c06ga3d6gc84a8b235adf" version="1">Ваши атаки оружием по целям имеют шанс [1] сделать ваше следующее &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt; или &lt;LSTag Type="Spell" Tooltip="Shout_BloodBoil"&gt;Вскипание крови&lt;/LSTag&gt; бесплатными, и вы сможете повторно применить &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt;.</content>
+  <content contentuid="h46a46a4eg2885g48dfg94ddg26e6fcfc5846" version="1">Ваше следующее применение &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt; или &lt;LSTag Type="Spell" Tooltip="Shout_BloodBoil"&gt;Вскипание крови&lt;/LSTag&gt; бесплатны. Альтернативно, ваше следующее применение &lt;LSTag Type="Spell" Tooltip="Target_DeathStrike"&gt;Удара смерти&lt;/LSTag&gt; наносит дополнительный урон силовым полем в зависимсти от заряда &lt;LSTag Type="Status" Tooltip="Buff_BloodShield"&gt;Щита крови&lt;/LSTag&gt; и создаёт дополнительную кровавую руну.</content>
+  <content contentuid="hb4377bf4g9274g4857g8633g3dc3134f6c7e" version="1">Удар в сердце</content>
+  <content contentuid="hddc65b1cg1e3ag4c1bg8cadgd5c9729249c2" version="1">Мгновенно поразите цель своим оружием, вызывая дополнительные [1]. Этот эффект поражает всех врагов рядом с целью и генерирует [2] силы рун за удар, пока вы находитесь на вас действует &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt;.</content>
+  <content contentuid="h2c4556abg2171g476egb852g3f668966687c" version="1">Удар в сердце: реакция</content>
+  <content contentuid="h4447f73ag19dbg4486g8d12g62a06ea65f12" version="1">При попадании оружием ближнего боя наносит дополнительно [1] по цели. Этот эффект поражает всех врагов рядом с целью и генерирует [2] силы рун за удар, пока вы находитесь под действием &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt;.</content>
+  <content contentuid="h09da9dacg3cb0g4001gb55cg2d01756502c4" version="1">Критический удар в сердце: реакция</content>
+  <content contentuid="h10e48e6eg720fg48fcgbd7dg6cbf60191592" version="1">При &lt;LSTAg Tooltip="CriticalHit"&gt;критическом ударе&lt;/LSTag&gt; вашим оружием наносится дополнительно [1] по цели. Этот эффект поражает всех врагов рядом с целью и генерирует [2] силы рун за удар, пока вы находитесь под действием &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt;.</content>
+  <content contentuid="hb459e29cg1638g42b6gb43cgfadb2005867d" version="1">Ответный критический удар в сердце: реакция</content>
+  <content contentuid="h562678c1gb985g4167ga9abga57d6ee3f7b8" version="1">Отреагируйте на следующего нападающего своей атакой оружием, нанеся дополнительно [1] по цели. Этот эффект поражает всех врагов рядом с целью и генерирует [2] силы рун за удар, пока вы находитесь в состоянии &lt;LSTag Type="Spell" Tooltip="Target_DeathDecay"&gt;Смерть и разложение&lt;/LSTag&gt;.</content>
+  <content contentuid="h5b560dc8gb6f8g44fdg9a7dgb64f4fe4119b" version="1">Вскипание крови</content>
+  <content contentuid="h6248a071g6b75g43dcgbe8fg9b975703a1b9" version="1">Наносит [1] и заражает всех врагов в пределах [2] &lt;LSTag Type="Status" Tooltip="DK_BloodFever"&gt;Кровавой чумой&lt;/LSTag&gt;.</content>
+  <content contentuid="he676fb57ge873g415bg87d0g360cb77cd15b" version="1">Удар смерти</content>
+  <content contentuid="h56115fc9g6af4g43f9g9262g2cefe7cb294e" version="1">Концентрирует темную силу в ударе, который наносит дополнительно [1] и исцеляет вас на 50% от недостающего здоровья, минимум на 10% от максимального здоровья. Удар смерти имеет шанс 60% восстановить кровавую руну при попадании.</content>
+  <content contentuid="h72fb89dbgb540g407fgb70ag3df90d12e934" version="1">Хватка Кровожада</content>
+  <content contentuid="hcd712244g7ea8g4b8cg8709ga116f6969916" version="1">Теневые усики обвивают всех врагов внутри области [1], притягивая их к вам и нанося [2]. Обвитые враги будут &lt;LSTAg Type="Status" Tooltip="STUNNED"&gt;оглушены&lt;/LSTAg&gt; на 1 ход.</content>
+  <content contentuid="hd8a0685cg7929g40b0ga1d5g5b90babf00ef" version="1">Не тратит руны крови.</content>
+  <content contentuid="h1de2fac8g7417g492agb035gc31a10e6f9b9" version="1">Не тратит ледяные руны.</content>
+  <content contentuid="h73fcc3e4g28f2g4229g922dg20944b57a2e0" version="1">Не тратит нечестивые руны.</content>
+  <content contentuid="h379e1010g094dg48e9ga544g5cedf141833c" version="1">Не тратит силу рун.</content>
+  <content contentuid="hb6e79070g3d03g4b31gab44g5c15977e14cc" version="1">Урон от оружия в основной руке увеличивается до 100%, если вы не владеете двумя оружиями.</content>
+</contentList>
