@@ -33,17 +33,15 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataSetMeta = new System.Data.DataSet();
             this.buttonSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxUID = new System.Windows.Forms.TextBox();
             this.checkBoxIsHandle = new System.Windows.Forms.CheckBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetMeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,10 +80,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(956, 510);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // dataSetMeta
-            // 
-            this.dataSetMeta.DataSetName = "NewDataSetMeta";
             // 
             // buttonSave
             // 
@@ -127,11 +121,6 @@
             this.checkBoxIsHandle.Text = "Is Handle?";
             this.checkBoxIsHandle.UseVisualStyleBackColor = true;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Attribute);
-            this.bindingSource1.Filter = "";
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -160,6 +149,11 @@
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Attribute);
+            this.bindingSource1.Filter = "";
+            // 
             // metaEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +169,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meta Editor";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetMeta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,7 +182,6 @@
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Data.DataSet dataSetMeta;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxUID;

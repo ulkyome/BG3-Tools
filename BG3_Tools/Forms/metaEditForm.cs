@@ -22,35 +22,12 @@ namespace BG3_Tools.Forms
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static string FileNameOpen = "none";
         public static MetaModel FileOpenUser = new MetaModel();
-        public static Node FileOpenUser2 = new Node();
 
         public static BindingList<Models.Attribute> _data = new BindingList<Models.Attribute>();
 
         public metaEditForm()
         {
             InitializeComponent();
-        }
-
-        public void open_xml_test(string fileO)
-        {
-            dataSetMeta.ReadXml(fileO, XmlReadMode.Auto);
-            //dataGridView1.DataSource = dataSetMeta.Tables[1];
-            foreach (DataTable table in dataSetMeta.Tables)
-            {
-                MessageBox.Show(table.ToString());
-                for (int i = 0; i < table.Columns.Count; ++i)
-                    Console.Write("\t" + table.Columns[i].ColumnName.Substring(0, Math.Min(6, table.Columns[i].ColumnName.Length)));
-                Console.WriteLine();
-                foreach (var row in table.AsEnumerable())
-                {
-                    for (int i = 0; i < table.Columns.Count; ++i)
-                    {
-                        Console.Write("\t" + row[i]);
-                    }
-                    Console.WriteLine();
-                }
-            }
-            dataGridView1.DataSource = dataSetMeta;
         }
 
         public void open_xml(string fileO)
