@@ -4,9 +4,9 @@
 
 // GPPG version 1.5.2
 // Machine:  ULKYOME-PC
-// DateTime: 22.09.2023 02:19:23
+// DateTime: 22.09.2023 03:36:09
 // UserName: Ulkyome
-// Input file <E:\source\repos\BG3_Tran\LSLib\\LS\Stats\Parser\Stat.yy - 18.08.2023 04:17:07>
+// Input file <E:\source\repos\BG3_Tran\LSLib\\LS\Stats\Parser\Stat.yy - 18.09.2023 11:46:58>
 
 // options: lines
 

@@ -241,6 +241,10 @@
     <None Include="Resources\bg_load.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LSLibNative\LSLibNative.vcxproj">
+      <Project>{d8b26b12-e45c-47ea-88f7-56628eb2ccd1}</Project>
+      <Name>LSLibNative</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LSLib\LSLib.csproj">
       <Project>{46372c50-4288-4b8e-af21-c934560600e0}</Project>
       <Name>LSLib</Name>
