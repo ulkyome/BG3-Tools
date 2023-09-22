@@ -16,6 +16,8 @@ namespace BG3_Tools
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoadingForm());
+
+            
         }
     }
 }

@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NameApp = new System.Windows.Forms.Label();
+            this.verApp = new System.Windows.Forms.Label();
+            this.labelBName = new System.Windows.Forms.Label();
+            this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,32 +40,65 @@
             // 
             this.pictureBox1.BackgroundImage = global::BG3_Tools.Resource.bg_load;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(698, 396);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // NameApp
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 411);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 42);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Beta app By Ulkyome";
+            this.NameApp.BackColor = System.Drawing.Color.Transparent;
+            this.NameApp.Cursor = System.Windows.Forms.Cursors.No;
+            this.NameApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameApp.Location = new System.Drawing.Point(5, 9);
+            this.NameApp.Name = "NameApp";
+            this.NameApp.Size = new System.Drawing.Size(690, 42);
+            this.NameApp.TabIndex = 1;
+            this.NameApp.Text = "Title";
+            this.NameApp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // About
+            // verApp
+            // 
+            this.verApp.AutoSize = true;
+            this.verApp.Location = new System.Drawing.Point(8, 635);
+            this.verApp.Name = "verApp";
+            this.verApp.Size = new System.Drawing.Size(49, 13);
+            this.verApp.TabIndex = 2;
+            this.verApp.Text = "ver 0000";
+            // 
+            // labelBName
+            // 
+            this.labelBName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelBName.Location = new System.Drawing.Point(9, 51);
+            this.labelBName.Name = "labelBName";
+            this.labelBName.Size = new System.Drawing.Size(686, 23);
+            this.labelBName.TabIndex = 3;
+            this.labelBName.Text = "by Name";
+            // 
+            // richTextBoxDesc
+            // 
+            this.richTextBoxDesc.Enabled = false;
+            this.richTextBoxDesc.Location = new System.Drawing.Point(0, 394);
+            this.richTextBoxDesc.Name = "richTextBoxDesc";
+            this.richTextBoxDesc.ReadOnly = true;
+            this.richTextBoxDesc.Size = new System.Drawing.Size(698, 235);
+            this.richTextBoxDesc.TabIndex = 4;
+            this.richTextBoxDesc.Text = "";
+            // 
+            // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 739);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(698, 654);
+            this.Controls.Add(this.richTextBoxDesc);
+            this.Controls.Add(this.labelBName);
+            this.Controls.Add(this.verApp);
+            this.Controls.Add(this.NameApp);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.Name = "About";
+            this.Name = "AboutForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -74,6 +110,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NameApp;
+        private System.Windows.Forms.Label verApp;
+        private System.Windows.Forms.Label labelBName;
+        private System.Windows.Forms.RichTextBox richTextBoxDesc;
     }
 }

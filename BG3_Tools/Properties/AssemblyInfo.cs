@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("BG3 Translation Tools")]
-[assembly: AssemblyDescription("BG3 Translation Tools")]
+[assembly: AssemblyDescription("Приложение для работы с файлами игры BG3 разработано Ulkyome")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("MMZEROSIX")]
+[assembly: AssemblyCompany("MMZEROSIX Team")]
 [assembly: AssemblyProduct("BG3 Translation Tools")]
-[assembly: AssemblyCopyright("Copyright by Ulkyome ©  2023")]
+[assembly: AssemblyCopyright("Copyright by MMZEROSIX ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,5 @@ using System.Runtime.InteropServices;
 //
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.2.0.*")]
+[assembly: AssemblyFileVersion("1.2.0.0")]

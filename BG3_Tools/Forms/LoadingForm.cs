@@ -19,9 +19,13 @@ namespace BG3_Tools
         public static TranslationLastOpenForm TranslationLastOpenF;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        public static Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         public LoadingForm()
         {
             InitializeComponent();
+
+            verApp.Text = Version.ToString();
+
             MainF = new MainForm();
             Directory.CreateDirectory(@".\temp\json\");
             Directory.CreateDirectory(@".\temp\xml\");
