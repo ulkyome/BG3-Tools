@@ -35,7 +35,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBoxUID = new System.Windows.Forms.TextBox();
             this.checkBoxIsHandle = new System.Windows.Forms.CheckBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +56,7 @@
             // buttonOpen
             // 
             this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpen.Location = new System.Drawing.Point(869, 516);
+            this.buttonOpen.Location = new System.Drawing.Point(776, 516);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(75, 32);
             this.buttonOpen.TabIndex = 0;
@@ -78,13 +77,13 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(956, 510);
+            this.dataGridView1.Size = new System.Drawing.Size(863, 510);
             this.dataGridView1.TabIndex = 2;
             // 
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(788, 516);
+            this.buttonSave.Location = new System.Drawing.Point(695, 516);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 32);
             this.buttonSave.TabIndex = 3;
@@ -94,27 +93,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(462, 516);
+            this.button1.Location = new System.Drawing.Point(95, 516);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 32);
+            this.button1.Size = new System.Drawing.Size(97, 32);
             this.button1.TabIndex = 4;
-            this.button1.Text = "generate";
+            this.button1.Text = "Generate ID";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBoxUID
-            // 
-            this.textBoxUID.Location = new System.Drawing.Point(12, 521);
-            this.textBoxUID.Name = "textBoxUID";
-            this.textBoxUID.Size = new System.Drawing.Size(361, 20);
-            this.textBoxUID.TabIndex = 5;
             // 
             // checkBoxIsHandle
             // 
             this.checkBoxIsHandle.AutoSize = true;
             this.checkBoxIsHandle.Checked = true;
             this.checkBoxIsHandle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxIsHandle.Location = new System.Drawing.Point(379, 523);
+            this.checkBoxIsHandle.Location = new System.Drawing.Point(12, 525);
             this.checkBoxIsHandle.Name = "checkBoxIsHandle";
             this.checkBoxIsHandle.Size = new System.Drawing.Size(77, 17);
             this.checkBoxIsHandle.TabIndex = 6;
@@ -158,9 +150,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 558);
+            this.ClientSize = new System.Drawing.Size(863, 555);
             this.Controls.Add(this.checkBoxIsHandle);
-            this.Controls.Add(this.textBoxUID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
@@ -184,7 +175,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBoxUID;
         private System.Windows.Forms.CheckBox checkBoxIsHandle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;

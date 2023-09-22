@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace BG3_Tools.Forms
@@ -105,7 +106,17 @@ namespace BG3_Tools.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBoxUID.Text = Generate.GuID(checkBoxIsHandle.Checked);
+            var New_uID  = Generate.GuID(checkBoxIsHandle.Checked);
+
+            foreach (var c in _data)
+            {
+                if(c.Id == "UUID")
+                {
+                    c.Value = New_uID;
+
+                    dataGridView1.Refresh();
+                }
+            }
         }
     }
 }
