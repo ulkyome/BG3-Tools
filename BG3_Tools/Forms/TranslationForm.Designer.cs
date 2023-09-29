@@ -59,10 +59,10 @@
             this.openRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataSet1 = new System.Data.DataSet();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.textTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contentuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelAddLineTool.SuspendLayout();
@@ -338,28 +338,6 @@
             // 
             this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Content);
             // 
-            // textTDataGridViewTextBoxColumn
-            // 
-            this.textTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.textTDataGridViewTextBoxColumn.DataPropertyName = "TextT";
-            this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
-            this.textTDataGridViewTextBoxColumn.HeaderText = "TextT";
-            this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
-            // 
-            // textDataGridViewTextBoxColumn
-            // 
-            this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
-            this.textDataGridViewTextBoxColumn.FillWeight = 8.835089F;
-            this.textDataGridViewTextBoxColumn.HeaderText = "Text";
-            this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
-            // 
-            // versionDataGridViewTextBoxColumn
-            // 
-            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
-            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
-            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
-            this.versionDataGridViewTextBoxColumn.Visible = false;
-            // 
             // contentuidDataGridViewTextBoxColumn
             // 
             this.contentuidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -370,6 +348,28 @@
             this.contentuidDataGridViewTextBoxColumn.Name = "contentuidDataGridViewTextBoxColumn";
             this.contentuidDataGridViewTextBoxColumn.ReadOnly = true;
             this.contentuidDataGridViewTextBoxColumn.Width = 232;
+            // 
+            // versionDataGridViewTextBoxColumn
+            // 
+            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
+            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
+            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
+            this.versionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // textDataGridViewTextBoxColumn
+            // 
+            this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
+            this.textDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textDataGridViewTextBoxColumn.HeaderText = "Text Original";
+            this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
+            // 
+            // textTDataGridViewTextBoxColumn
+            // 
+            this.textTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.textTDataGridViewTextBoxColumn.DataPropertyName = "TextT";
+            this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
+            this.textTDataGridViewTextBoxColumn.HeaderText = "Text Translation";
+            this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
             // 
             // TranslationForm
             // 
