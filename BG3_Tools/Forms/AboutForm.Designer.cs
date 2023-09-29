@@ -51,6 +51,7 @@
             this.NameApp.BackColor = System.Drawing.Color.Transparent;
             this.NameApp.Cursor = System.Windows.Forms.Cursors.No;
             this.NameApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameApp.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.NameApp.Location = new System.Drawing.Point(5, 9);
             this.NameApp.Name = "NameApp";
             this.NameApp.Size = new System.Drawing.Size(690, 42);
@@ -69,8 +70,10 @@
             // 
             // labelBName
             // 
-            this.labelBName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelBName.Location = new System.Drawing.Point(9, 51);
+            this.labelBName.BackColor = System.Drawing.Color.Transparent;
+            this.labelBName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelBName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelBName.Location = new System.Drawing.Point(8, 368);
             this.labelBName.Name = "labelBName";
             this.labelBName.Size = new System.Drawing.Size(686, 23);
             this.labelBName.TabIndex = 3;
@@ -101,6 +104,7 @@
             this.Name = "AboutForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
+            this.TransparencyKey = System.Drawing.Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

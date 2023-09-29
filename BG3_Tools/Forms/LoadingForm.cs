@@ -20,6 +20,7 @@ namespace BG3_Tools
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+        public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
         public LoadingForm()
         {
             InitializeComponent();

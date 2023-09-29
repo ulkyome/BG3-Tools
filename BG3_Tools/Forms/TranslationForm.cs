@@ -26,7 +26,7 @@ namespace BG3_Tools.Forms
         }
 
         public static string FolderTemp = string.Format(@"{0}\temp\", Environment.CurrentDirectory);
-        public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
+       
         public static string FileNameOpen = "none";
 
         public static ContentList FileOpenUser = new ContentList();
@@ -382,7 +382,7 @@ namespace BG3_Tools.Forms
             {
                 string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
 
-                File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", dataTimeN, FileNameOpen), json);
+                File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", LoadingForm.dataTimeN, FileNameOpen), json);
                 logger.Info("save json file");
             }
             catch(Exception exc)
@@ -396,7 +396,7 @@ namespace BG3_Tools.Forms
         {
             
             XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
-            XElement contentList = new XElement("contentList", new XAttribute("date", dataTimeN));
+            XElement contentList = new XElement("contentList", new XAttribute("date", LoadingForm.dataTimeN));
             try
             {
                 List<XElement> content = dataGridView1.Rows.Cast<DataGridViewRow>()
@@ -418,7 +418,7 @@ namespace BG3_Tools.Forms
             try
             {
                 XDocument doc = new XDocument(new XComment("Freshly baked localization file made with a tool from Ulkyome"));
-                XElement contentList = new XElement("contentList", new XAttribute("date", dataTimeN));
+                XElement contentList = new XElement("contentList", new XAttribute("date", LoadingForm.dataTimeN));
                 try
                 {
                     List<XElement> content = dataGridView1.Rows.Cast<DataGridViewRow>()

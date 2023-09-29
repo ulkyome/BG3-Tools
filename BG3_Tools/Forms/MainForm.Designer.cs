@@ -67,28 +67,28 @@
             // uIDToolStripMenuItem
             // 
             this.uIDToolStripMenuItem.Name = "uIDToolStripMenuItem";
-            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uIDToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.uIDToolStripMenuItem.Text = "uID Generate";
             this.uIDToolStripMenuItem.Click += new System.EventHandler(this.uIDToolStripMenuItem_Click);
             // 
             // translationEditorToolStripMenuItem
             // 
             this.translationEditorToolStripMenuItem.Name = "translationEditorToolStripMenuItem";
-            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.translationEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.translationEditorToolStripMenuItem.Text = "Translation Editor";
             this.translationEditorToolStripMenuItem.Click += new System.EventHandler(this.translationEditorToolStripMenuItem_Click);
             // 
             // metaEditorToolStripMenuItem
             // 
             this.metaEditorToolStripMenuItem.Name = "metaEditorToolStripMenuItem";
-            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.metaEditorToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.metaEditorToolStripMenuItem.Text = "Meta Editor";
             this.metaEditorToolStripMenuItem.Click += new System.EventHandler(this.metaEditorToolStripMenuItem_Click);
             // 
             // pACToolStripMenuItem
             // 
             this.pACToolStripMenuItem.Name = "pACToolStripMenuItem";
-            this.pACToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pACToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.pACToolStripMenuItem.Text = "PAK Editor";
             this.pACToolStripMenuItem.Click += new System.EventHandler(this.pACToolStripMenuItem_Click);
             // 
@@ -119,6 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1588, 892);
             this.Controls.Add(this.menuStripMain);
             this.DoubleBuffered = true;
@@ -127,6 +128,7 @@
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "MainForm";
             this.Text = "BG3 Tools";
+            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.menuStripMain.ResumeLayout(false);
