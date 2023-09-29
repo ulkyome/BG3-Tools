@@ -1,7 +1,13 @@
 ﻿using BG3_Tools.Forms;
+using BG3_Tools.Helpers;
+using BG3_Tools.Models;
 using NLog;
 using System;
+using System.ComponentModel;
 using System.IO;
+using System.Net;
+using System.Reflection.Emit;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace BG3_Tools
@@ -19,37 +25,77 @@ namespace BG3_Tools
         public static TranslationLastOpenForm TranslationLastOpenF;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public static Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+        public static System.Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
+        public static bool nedUpdate = false;
+
+
         public LoadingForm()
         {
+            loadConfig.read();
             InitializeComponent();
+            
+            checkVerCl.cV();
 
+            logger.Info($"last version github: {checkVerCl.ver}");
+            logger.Debug($"last version github url: {checkVerCl.url}");
+            logger.Info($"application build version: {Version}");
             verApp.Text = Version.ToString();
 
             MainF = new MainForm();
-            Directory.CreateDirectory(@".\temp\json\");
-            Directory.CreateDirectory(@".\temp\xml\");
+
+            //loadConfig.cfgApp.ConfigPath.temp.update
+            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.json);
+            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.xml);
+            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.update);
             logger.Info("Create dir temp");
+            nedUpdate = true;
         }
 
         private void Loading_Shown(object sender, EventArgs e)
         {
-            //Thread.Sleep(500);
+            if (loadConfig.cfgApp.ver == checkVerCl.ver)
+            {
+                openApp();
+            }
+            else
+            {
+                startDownload();
+            }
+        }
+
+        public void openApp()
+        {
             MainF.Show();
-
             this.Hide();
-
         }
 
-        private void Loading_Load(object sender, EventArgs e)
+        private void startDownload()
         {
-            
+            Thread thread = new Thread(() => {
+                WebClient client = new WebClient();
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+                client.DownloadFileAsync(new Uri(checkVerCl.url), @".\test.zip");
+            });
+            thread.Start();
         }
-
-        private void Loading_Paint(object sender, PaintEventArgs e)
+        void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            
+            this.BeginInvoke((MethodInvoker)delegate {
+                double bytesIn = double.Parse(e.BytesReceived.ToString());
+                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+                double percentage = bytesIn / totalBytes * 100;
+                status.Text = "Downloaded " + e.BytesReceived + " of " + e.TotalBytesToReceive;
+                progressBar1.Value = int.Parse(Math.Truncate(percentage).ToString());
+            });
+        }
+        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate {
+                status.Text = "Completed";
+                nedUpdate = false;
+            });
         }
     }
 }

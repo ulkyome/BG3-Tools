@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.verApp = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.status = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +53,35 @@
             // verApp
             // 
             this.verApp.AutoSize = true;
-            this.verApp.Location = new System.Drawing.Point(12, 490);
+            this.verApp.Location = new System.Drawing.Point(12, 9);
             this.verApp.Name = "verApp";
-            this.verApp.Size = new System.Drawing.Size(35, 13);
+            this.verApp.Size = new System.Drawing.Size(67, 13);
             this.verApp.TabIndex = 1;
-            this.verApp.Text = "label1";
+            this.verApp.Text = "ver 0.0.0.0.0";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 484);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(877, 16);
+            this.progressBar1.TabIndex = 2;
+            // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Location = new System.Drawing.Point(416, 468);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(50, 13);
+            this.status.TabIndex = 3;
+            this.status.Text = "STATUS";
             // 
             // LoadingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 512);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.verApp);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -69,9 +89,7 @@
             this.Name = "LoadingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loading";
-            this.Load += new System.EventHandler(this.Loading_Load);
             this.Shown += new System.EventHandler(this.Loading_Shown);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Loading_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -82,5 +100,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label verApp;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label status;
     }
 }

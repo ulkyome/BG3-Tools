@@ -64,6 +64,9 @@
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.2.4\lib\net46\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="Octokit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=0be8860aee462442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.8.0.1\lib\netstandard2.0\Octokit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -133,6 +136,7 @@
     <Compile Include="Forms\TranslationLastOpenForm.Designer.cs">
       <DependentUpon>TranslationLastOpenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\checkVerClient.cs" />
     <Compile Include="Helpers\Generate.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +150,8 @@
     <Compile Include="Forms\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\loadConfig.cs" />
+    <Compile Include="Models\configModel.cs" />
     <Compile Include="Models\langModel.cs" />
     <Compile Include="Models\metaModel.cs" />
     <Compile Include="Program.cs" />

@@ -25,7 +25,6 @@ namespace BG3_Tools.Forms
             InitializeComponent();
         }
 
-        public static string FolderTemp = string.Format(@"{0}\temp\", Environment.CurrentDirectory);
        
         public static string FileNameOpen = "none";
 
@@ -237,12 +236,12 @@ namespace BG3_Tools.Forms
             try
             {
                 var resource = LocaUtils.Load(fileO);
-                var format = LocaUtils.ExtensionToFileFormat($@"{FolderTemp}\xml\{FileNameOpen}.xml");
-                LocaUtils.Save(resource, $@"{FolderTemp}\xml\{FileNameOpen}.xml", format);
+                var format = LocaUtils.ExtensionToFileFormat($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml");
+                LocaUtils.Save(resource, $@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml", format);
 
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
-                using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml", FileMode.OpenOrCreate))
                 {
                     logger.Info("Open loca file");
                     FileOpenUser = (ContentList)serializer.Deserialize(fs);
@@ -324,12 +323,12 @@ namespace BG3_Tools.Forms
             try
             {
                 var resource = LocaUtils.Load(file);
-                var format = LocaUtils.ExtensionToFileFormat($@"{FolderTemp}\xml\{FileNameOpen}.xml");
-                LocaUtils.Save(resource, $@"{FolderTemp}\xml\{FileNameOpen}.xml", format);
+                var format = LocaUtils.ExtensionToFileFormat($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml");
+                LocaUtils.Save(resource, $@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml", format);
 
                 XmlSerializer serializer = new XmlSerializer(typeof(ContentList));
 
-                using (FileStream fs = new FileStream($@"{FolderTemp}\xml\{FileNameOpen}.xml", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml", FileMode.OpenOrCreate))
                 {
                     logger.Info("Open loca match file");
                     FileOpenSoft = (ContentList)serializer.Deserialize(fs);
@@ -381,8 +380,8 @@ namespace BG3_Tools.Forms
             try
             {
                 string json = JsonConvert.SerializeObject(_data, Formatting.Indented);
-
-                File.WriteAllText(string.Format(@".\temp\json\{0}_temporary_{1}.json", LoadingForm.dataTimeN, FileNameOpen), json);
+              
+                File.WriteAllText($@"{loadConfig.cfgApp.ConfigPath.temp.json}{LoadingForm.dataTimeN}_temporary_{FileNameOpen}.json", json);
                 logger.Info("save json file");
             }
             catch(Exception exc)
@@ -425,7 +424,7 @@ namespace BG3_Tools.Forms
                     .Select(row => new XElement("content", row.Cells[3].Value.ToString(), new XAttribute("contentuid", row.Cells[0].Value.ToString()), new XAttribute("version", row.Cells[1].Value.ToString()))).ToList();
                     contentList.Add(content);
                     doc.Add(contentList);
-                    doc.Save($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                    doc.Save($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml");
                     logger.Info("save temp xml file");
                 }
                 catch (Exception e)
@@ -434,7 +433,7 @@ namespace BG3_Tools.Forms
                     logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
                 }
 
-                var resource = LocaUtils.Load($@"{FolderTemp}\xml\{FileNameOpen}.xml");
+                var resource = LocaUtils.Load($@"{loadConfig.cfgApp.ConfigPath.temp.xml}{FileNameOpen}.xml");
                 var format = LocaUtils.ExtensionToFileFormat(fileSave);
                 LocaUtils.Save(resource, fileSave, format);
                 logger.Info("save loca file");

@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using BG3_Tools.Helpers;
+using NLog;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -39,14 +40,14 @@ namespace BG3_Tools.Forms
                 return;
             }
             string nameFile = this.listViewLastFile.SelectedItems[0].Text;
-            LoadingForm.TranslationF.open_json($@"{TranslationForm.FolderTemp}\json\{nameFile}");
+            LoadingForm.TranslationF.open_json($@"{loadConfig.cfgApp.ConfigPath.temp.json}{nameFile}");
            // open_json($@"{FolderTemp}\json\{nameFile}");
         }
 
         private void TranslationLastOpenForm_Shown(object sender, EventArgs e)
         {
             LoadingForm.TranslationF.lastFileOpenToolStripMenuItem.Checked = true;
-            lastFileFolder($@"{TranslationForm.FolderTemp}\json\");
+            lastFileFolder(loadConfig.cfgApp.ConfigPath.temp.json);
             this.Focus();
         }
 
@@ -73,7 +74,7 @@ namespace BG3_Tools.Forms
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            lastFileFolder($@"{TranslationForm.FolderTemp}\json\");
+            lastFileFolder(loadConfig.cfgApp.ConfigPath.temp.json);
         }
     }
 }
