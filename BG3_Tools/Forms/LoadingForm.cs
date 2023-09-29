@@ -76,7 +76,7 @@ namespace BG3_Tools
                 WebClient client = new WebClient();
                 client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
                 client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
-                client.DownloadFileAsync(new Uri(checkVerCl.url), @".\test.zip");
+                client.DownloadFileAsync(new Uri(checkVerCl.url), $@"{loadConfig.cfgApp.ConfigPath.temp.update}{checkVerCl.ver}.zip");
             });
             thread.Start();
         }
