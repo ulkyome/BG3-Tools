@@ -1,4 +1,5 @@
 ﻿using BG3_Tools.Forms;
+using BG3_Tools.Forms.TranslationEditor;
 using BG3_Tools.Helpers;
 using BG3_Tools.Models;
 using NLog;
@@ -23,6 +24,7 @@ namespace BG3_Tools
         public static metaEditForm metaEditF;
         public static settingForm settingF;
         public static TranslationLastOpenForm TranslationLastOpenF;
+        public static findForm findF;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static System.Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;

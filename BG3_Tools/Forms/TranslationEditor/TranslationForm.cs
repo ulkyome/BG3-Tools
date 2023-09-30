@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Text.RegularExpressions;
 using LSLib.LS;
 using NLog;
+using BG3_Tools.Forms.TranslationEditor;
 
 namespace BG3_Tools.Forms
 {
@@ -736,7 +737,10 @@ namespace BG3_Tools.Forms
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (this.MdiChildren.Any(f => f.Name == "findForm")) return;
+            LoadingForm.findF = new findForm();
+            LoadingForm.findF.MdiParent = LoadingForm.MainF;
+            LoadingForm.findF.Show();
         }
 
         private void lastFileOpenToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
@@ -750,6 +754,12 @@ namespace BG3_Tools.Forms
             {
                 LoadingForm.TranslationLastOpenF.Hide();
             }
+        }
+
+        public void selectRow(int index)
+        {
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Rows[index].Selected = true;
         }
     }
 }

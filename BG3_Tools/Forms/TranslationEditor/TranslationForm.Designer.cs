@@ -58,11 +58,11 @@
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataSet1 = new System.Data.DataSet();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contentuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panelAddLineTool.SuspendLayout();
@@ -172,7 +172,7 @@
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
@@ -334,10 +334,6 @@
             // 
             this.dataSet1.DataSetName = "NewDataSet";
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Content);
-            // 
             // contentuidDataGridViewTextBoxColumn
             // 
             this.contentuidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -370,6 +366,10 @@
             this.textTDataGridViewTextBoxColumn.FillWeight = 8.835089F;
             this.textTDataGridViewTextBoxColumn.HeaderText = "Text Translation";
             this.textTDataGridViewTextBoxColumn.Name = "textTDataGridViewTextBoxColumn";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(BG3_Tools.Models.Content);
             // 
             // TranslationForm
             // 
