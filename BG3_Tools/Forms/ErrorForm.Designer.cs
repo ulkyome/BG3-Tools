@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bClose = new System.Windows.Forms.Button();
-            this.bSend = new System.Windows.Forms.Button();
-            this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonSkip = new System.Windows.Forms.Button();
+            this.buttonShow = new System.Windows.Forms.Button();
             this.labelDesc = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.bSend = new System.Windows.Forms.Button();
+            this.bClose = new System.Windows.Forms.Button();
             this.panelCode = new System.Windows.Forms.Panel();
             this.richTextBoxCodeErr = new System.Windows.Forms.RichTextBox();
-            this.buttonShow = new System.Windows.Forms.Button();
-            this.buttonSkip = new System.Windows.Forms.Button();
+            this.linkLabelApp = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panelCode.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkLabelApp);
             this.panel1.Controls.Add(this.buttonSkip);
             this.panel1.Controls.Add(this.buttonShow);
             this.panel1.Controls.Add(this.labelDesc);
@@ -55,25 +57,34 @@
             this.panel1.Size = new System.Drawing.Size(454, 121);
             this.panel1.TabIndex = 1;
             // 
-            // bClose
+            // buttonSkip
             // 
-            this.bClose.Location = new System.Drawing.Point(213, 94);
-            this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(75, 23);
-            this.bClose.TabIndex = 0;
-            this.bClose.Text = "Close";
-            this.bClose.UseVisualStyleBackColor = true;
-            this.bClose.Click += new System.EventHandler(this.bClose_Click);
+            this.buttonSkip.Location = new System.Drawing.Point(294, 94);
+            this.buttonSkip.Name = "buttonSkip";
+            this.buttonSkip.Size = new System.Drawing.Size(75, 23);
+            this.buttonSkip.TabIndex = 5;
+            this.buttonSkip.Text = "Skip";
+            this.buttonSkip.UseVisualStyleBackColor = true;
+            this.buttonSkip.Click += new System.EventHandler(this.buttonSkip_Click);
             // 
-            // bSend
+            // buttonShow
             // 
-            this.bSend.Location = new System.Drawing.Point(375, 94);
-            this.bSend.Name = "bSend";
-            this.bSend.Size = new System.Drawing.Size(75, 23);
-            this.bSend.TabIndex = 1;
-            this.bSend.Text = "Send";
-            this.bSend.UseVisualStyleBackColor = true;
-            this.bSend.Click += new System.EventHandler(this.bSend_Click);
+            this.buttonShow.Location = new System.Drawing.Point(6, 94);
+            this.buttonShow.Name = "buttonShow";
+            this.buttonShow.Size = new System.Drawing.Size(75, 23);
+            this.buttonShow.TabIndex = 4;
+            this.buttonShow.Text = "Show";
+            this.buttonShow.UseVisualStyleBackColor = true;
+            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
+            // 
+            // labelDesc
+            // 
+            this.labelDesc.AutoSize = true;
+            this.labelDesc.Location = new System.Drawing.Point(12, 27);
+            this.labelDesc.Name = "labelDesc";
+            this.labelDesc.Size = new System.Drawing.Size(44, 13);
+            this.labelDesc.TabIndex = 3;
+            this.labelDesc.Text = "{DESC}";
             // 
             // labelTitle
             // 
@@ -85,14 +96,25 @@
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "{TITLE}";
             // 
-            // labelDesc
+            // bSend
             // 
-            this.labelDesc.AutoSize = true;
-            this.labelDesc.Location = new System.Drawing.Point(12, 27);
-            this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(44, 13);
-            this.labelDesc.TabIndex = 3;
-            this.labelDesc.Text = "{DESC}";
+            this.bSend.Location = new System.Drawing.Point(375, 94);
+            this.bSend.Name = "bSend";
+            this.bSend.Size = new System.Drawing.Size(75, 23);
+            this.bSend.TabIndex = 1;
+            this.bSend.Text = "Send";
+            this.bSend.UseVisualStyleBackColor = true;
+            this.bSend.Click += new System.EventHandler(this.bSend_Click);
+            // 
+            // bClose
+            // 
+            this.bClose.Location = new System.Drawing.Point(213, 94);
+            this.bClose.Name = "bClose";
+            this.bClose.Size = new System.Drawing.Size(75, 23);
+            this.bClose.TabIndex = 0;
+            this.bClose.Text = "Close";
+            this.bClose.UseVisualStyleBackColor = true;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
             // panelCode
             // 
@@ -112,25 +134,15 @@
             this.richTextBoxCodeErr.TabIndex = 1;
             this.richTextBoxCodeErr.Text = "";
             // 
-            // buttonShow
+            // linkLabelApp
             // 
-            this.buttonShow.Location = new System.Drawing.Point(6, 94);
-            this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(75, 23);
-            this.buttonShow.TabIndex = 4;
-            this.buttonShow.Text = "Show";
-            this.buttonShow.UseVisualStyleBackColor = true;
-            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
-            // 
-            // buttonSkip
-            // 
-            this.buttonSkip.Location = new System.Drawing.Point(294, 94);
-            this.buttonSkip.Name = "buttonSkip";
-            this.buttonSkip.Size = new System.Drawing.Size(75, 23);
-            this.buttonSkip.TabIndex = 5;
-            this.buttonSkip.Text = "Skip";
-            this.buttonSkip.UseVisualStyleBackColor = true;
-            this.buttonSkip.Click += new System.EventHandler(this.buttonSkip_Click);
+            this.linkLabelApp.AutoSize = true;
+            this.linkLabelApp.Location = new System.Drawing.Point(12, 69);
+            this.linkLabelApp.Name = "linkLabelApp";
+            this.linkLabelApp.Size = new System.Drawing.Size(55, 13);
+            this.linkLabelApp.TabIndex = 6;
+            this.linkLabelApp.TabStop = true;
+            this.linkLabelApp.Text = "linkLabel1";
             // 
             // ErrorForm
             // 
@@ -165,5 +177,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxCodeErr;
         private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.Button buttonSkip;
+        private System.Windows.Forms.LinkLabel linkLabelApp;
     }
 }

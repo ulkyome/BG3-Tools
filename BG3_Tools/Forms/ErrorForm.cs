@@ -17,6 +17,7 @@ namespace BG3_Tools.Forms
         public static string titleDesc = "ERROR Desc";
         public static string CodeErr = "string code error app";
         public static string titleWindows = "ERROR#001";
+        public static string linkApp = null;
         public ErrorForm()
         {
             InitializeComponent();
@@ -37,6 +38,13 @@ namespace BG3_Tools.Forms
             labelTitle.Text = titleError;
             labelDesc.Text = titleDesc;
             richTextBoxCodeErr.Text = CodeErr;
+            if (linkApp == null) {
+                linkLabelApp.Visible = false;
+            }
+            else
+            {
+                linkLabelApp.Text = linkApp;
+            }
             this.Text = titleWindows;
 
             panelCode.Enabled = false;
@@ -49,14 +57,14 @@ namespace BG3_Tools.Forms
             Application.Exit();
         }
 
-        public static void openForm(string title, string desc,string titleWin = "Error", string code = "null")
+        public static void openForm(string title, string desc,string titleWin = "Error", string code = "null", string lApp = null)
         {
             titleWindows = titleWin;
 
             titleError = title;
             titleDesc = desc;
             CodeErr = code;
-            
+            linkApp = lApp;
             ErrorF.Show();
         }
 

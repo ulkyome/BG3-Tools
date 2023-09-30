@@ -64,7 +64,7 @@ namespace BG3_Tools
 
         public void openUpdater()
         {
-            ErrorForm.openForm("testTitle","testDesc","ERROR","");
+            ErrorForm.openForm("testTitle",$"donload new version app","ERROR","", checkVerCl.url);
 
             //
         }
