@@ -27,8 +27,6 @@ namespace BG3_Tools
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static System.Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         public static string dataTimeN = DateTime.Now.ToString("MM/dd/yyyy_HH_mm");
-        public static bool nedUpdate = false;
-
 
         public LoadingForm()
         {
@@ -44,13 +42,6 @@ namespace BG3_Tools
             verApp.Text = Version.ToString();
 
             MainF = new MainForm();
-
-            //loadConfig.cfgApp.ConfigPath.temp.update
-            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.json);
-            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.xml);
-            Directory.CreateDirectory(loadConfig.cfgApp.ConfigPath.temp.update);
-            logger.Info("Create dir temp");
-            nedUpdate = true;
         }
 
         private void Loading_Shown(object sender, EventArgs e)
@@ -69,6 +60,12 @@ namespace BG3_Tools
         {
             MainF.Show();
             this.Hide();
+        }
+
+        public void openUpdater()
+        {
+            MessageBox.Show("test");
+            //
         }
 
         private void startDownload()
@@ -95,7 +92,7 @@ namespace BG3_Tools
         {
             this.BeginInvoke((MethodInvoker)delegate {
                 status.Text = "Completed";
-                openApp();
+                openUpdater();
             });
         }
     }

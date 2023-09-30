@@ -35,6 +35,10 @@ namespace BG3_Tools.Helpers
                     readDefalut();
                 }
 
+                Directory.CreateDirectory(cfgApp.ConfigPath.temp.json);
+                Directory.CreateDirectory(cfgApp.ConfigPath.temp.xml);
+                Directory.CreateDirectory(cfgApp.ConfigPath.temp.update);
+                logger.Info("Create dir temp");
             }
             catch (Exception e)
             {

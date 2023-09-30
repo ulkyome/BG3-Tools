@@ -25,7 +25,6 @@ namespace BG3_Tools.Forms
             InitializeComponent();
         }
 
-       
         public static string FileNameOpen = "none";
 
         public static ContentList FileOpenUser = new ContentList();
