@@ -64,6 +64,12 @@ namespace BG3_Tools
 
         public void openUpdater()
         {
+            loadConfig.read();
+            if (loadConfig.cfgApp.ver == checkVerCl.ver)
+            {
+                openApp();
+            }
+
             ErrorForm.openForm("testTitle",$"donload new version app","ERROR","", checkVerCl.url);
 
             //

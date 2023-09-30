@@ -6,7 +6,7 @@
 //
 //  GPLEX Version:  1.2.2
 //  Machine:  ULKYOME-PC
-//  DateTime: 30.09.2023 07:20:31
+//  DateTime: 30.09.2023 07:28:45
 //  UserName: Ulkyome
 //  GPLEX input file <E:\source\repos\BG3_Tran\LSLib\\LS\Stats\Parser\StatProperty.lex - 18.09.2023 11:46:58>
 //  GPLEX frame file <embedded resource>

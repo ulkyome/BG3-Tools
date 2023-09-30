@@ -38,12 +38,15 @@
             this.panelCode = new System.Windows.Forms.Panel();
             this.richTextBoxCodeErr = new System.Windows.Forms.RichTextBox();
             this.linkLabelApp = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.linkLabelApp);
             this.panel1.Controls.Add(this.buttonSkip);
             this.panel1.Controls.Add(this.buttonShow);
@@ -79,12 +82,11 @@
             // 
             // labelDesc
             // 
-            this.labelDesc.AutoSize = true;
-            this.labelDesc.Location = new System.Drawing.Point(12, 27);
+            this.labelDesc.Location = new System.Drawing.Point(81, 22);
             this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(44, 13);
+            this.labelDesc.Size = new System.Drawing.Size(361, 69);
             this.labelDesc.TabIndex = 3;
-            this.labelDesc.Text = "{DESC}";
+            this.labelDesc.Text = "{DESC}\r\n\r\n";
             // 
             // labelTitle
             // 
@@ -137,12 +139,22 @@
             // linkLabelApp
             // 
             this.linkLabelApp.AutoSize = true;
-            this.linkLabelApp.Location = new System.Drawing.Point(12, 69);
+            this.linkLabelApp.Location = new System.Drawing.Point(81, 78);
             this.linkLabelApp.Name = "linkLabelApp";
-            this.linkLabelApp.Size = new System.Drawing.Size(55, 13);
+            this.linkLabelApp.Size = new System.Drawing.Size(31, 13);
             this.linkLabelApp.TabIndex = 6;
             this.linkLabelApp.TabStop = true;
-            this.linkLabelApp.Text = "linkLabel1";
+            this.linkLabelApp.Text = "{link}";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 67);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // ErrorForm
             // 
@@ -163,6 +175,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelCode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +191,6 @@
         private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.Button buttonSkip;
         private System.Windows.Forms.LinkLabel linkLabelApp;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
