@@ -78,6 +78,5 @@ namespace BG3_Tools.Helpers
                 ErrorForm.openForm("ERROR SAVE JSON", $"{e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
-    
     }
 }
