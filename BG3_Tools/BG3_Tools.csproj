@@ -88,10 +88,10 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\editLineTransForm.cs">
+    <Compile Include="Forms\TranslationEditor\editLineTransForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\editLineTransForm.Designer.cs">
+    <Compile Include="Forms\TranslationEditor\editLineTransForm.Designer.cs">
       <DependentUpon>editLineTransForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ErrorForm.cs">
@@ -124,16 +124,16 @@
     <Compile Include="Forms\settingForm.Designer.cs">
       <DependentUpon>settingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TranslationForm.cs">
+    <Compile Include="Forms\TranslationEditor\TranslationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TranslationForm.Designer.cs">
+    <Compile Include="Forms\TranslationEditor\TranslationForm.Designer.cs">
       <DependentUpon>TranslationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TranslationLastOpenForm.cs">
+    <Compile Include="Forms\TranslationEditor\TranslationLastOpenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TranslationLastOpenForm.Designer.cs">
+    <Compile Include="Forms\TranslationEditor\TranslationLastOpenForm.Designer.cs">
       <DependentUpon>TranslationLastOpenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\checkVerClient.cs" />
@@ -165,7 +165,7 @@
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\editLineTransForm.resx">
+    <EmbeddedResource Include="Forms\TranslationEditor\editLineTransForm.resx">
       <DependentUpon>editLineTransForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ErrorForm.resx">
@@ -183,7 +183,7 @@
     <EmbeddedResource Include="Forms\settingForm.resx">
       <DependentUpon>settingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TranslationForm.resx">
+    <EmbeddedResource Include="Forms\TranslationEditor\TranslationForm.resx">
       <DependentUpon>TranslationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadingForm.resx">
@@ -192,7 +192,7 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TranslationLastOpenForm.resx">
+    <EmbeddedResource Include="Forms\TranslationEditor\TranslationLastOpenForm.resx">
       <DependentUpon>TranslationLastOpenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

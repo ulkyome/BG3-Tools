@@ -33,6 +33,7 @@ namespace BG3_Tools
         public LoadingForm()
         {
             loadConfig.read();
+            
             InitializeComponent();
             
             checkVerCl.cV();
@@ -94,7 +95,7 @@ namespace BG3_Tools
         {
             this.BeginInvoke((MethodInvoker)delegate {
                 status.Text = "Completed";
-                nedUpdate = false;
+                openApp();
             });
         }
     }

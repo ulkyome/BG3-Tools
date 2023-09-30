@@ -27,7 +27,8 @@ namespace BG3_Tools.Forms
             {
                 if (fileSI.Extension == ".json" | fileSI.Extension == ".loc")
                 {
-                    listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), "999" }));
+                    long length = new System.IO.FileInfo(fileSI.FullName).Length;
+                    listViewLastFile.Items.Add(new ListViewItem(new string[] { fileSI.Name, fileSI.CreationTime.ToString(), length.ToString() }));
                 }
             }
         }

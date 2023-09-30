@@ -16,6 +16,7 @@ namespace BG3_Tools.Models
     public class ConfigPath
     {
         public temp temp { get; set; }
+        public string root { get; set; }
     }
 
     public class temp

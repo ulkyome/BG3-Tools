@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panelLastOpen = new System.Windows.Forms.Panel();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.listViewLastFile = new System.Windows.Forms.ListView();
             this.nameFile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.panelLastOpen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,16 @@
             this.panelLastOpen.Name = "panelLastOpen";
             this.panelLastOpen.Size = new System.Drawing.Size(1133, 689);
             this.panelLastOpen.TabIndex = 5;
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(849, 624);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(133, 55);
+            this.buttonRefresh.TabIndex = 2;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonOpen
             // 
@@ -67,6 +77,7 @@
             this.dateTime,
             this.size});
             this.listViewLastFile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listViewLastFile.FullRowSelect = true;
             this.listViewLastFile.HideSelection = false;
             this.listViewLastFile.Location = new System.Drawing.Point(0, 0);
             this.listViewLastFile.MultiSelect = false;
@@ -93,16 +104,6 @@
             this.size.Text = "Size";
             this.size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.size.Width = 98;
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(849, 624);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(133, 55);
-            this.buttonRefresh.TabIndex = 2;
-            this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // TranslationLastOpenForm
             // 
