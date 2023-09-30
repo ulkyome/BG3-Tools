@@ -12,6 +12,7 @@ namespace BG3_Tools.Forms
 {
     public partial class ErrorForm : Form
     {
+        public static ErrorForm ErrorF = new ErrorForm();
         public static string titleError = "ERROR#001";
         public static string titleDesc = "ERROR Desc";
         public static string CodeErr = "string code error app";
@@ -48,17 +49,15 @@ namespace BG3_Tools.Forms
             Application.Exit();
         }
 
-        public static void openForm(string title, string desc, string code = "null")
+        public static void openForm(string title, string desc,string titleWin = "Error", string code = "null")
         {
-            LoadingForm.ErrorF = new ErrorForm();
-
-            titleWindows = "Info";
+            titleWindows = titleWin;
 
             titleError = title;
             titleDesc = desc;
             CodeErr = code;
             
-            LoadingForm.ErrorF.Show();
+            ErrorF.Show();
         }
 
         private void buttonShow_Click(object sender, EventArgs e)

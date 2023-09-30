@@ -1,4 +1,5 @@
-﻿using BG3_Tools.Models;
+﻿using BG3_Tools.Forms;
+using BG3_Tools.Models;
 using Newtonsoft.Json;
 using NLog;
 using System;
@@ -42,7 +43,7 @@ namespace BG3_Tools.Helpers
             }
             catch (Exception e)
             {
-                MessageBox.Show($"ERROR OPEN JSON (Markup error or invalid format) {e.Message}");
+                ErrorForm.openForm("ERROR OPEN JSON", $"(Markup error or invalid format) {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
@@ -67,8 +68,15 @@ namespace BG3_Tools.Helpers
 
         public static void save()
         {
-            File.WriteAllText($@"{cfgApp.ConfigPath.root}config.cfg", JsonConvert.SerializeObject(cfgApp, Formatting.Indented));
-            logger.Info("save config file");
+            try
+            {
+                File.WriteAllText($@"{cfgApp.ConfigPath.root}config.cfg", JsonConvert.SerializeObject(cfgApp, Formatting.Indented));
+                logger.Info("save config file");
+            }
+            catch(Exception e)
+            {
+                ErrorForm.openForm("ERROR SAVE JSON", $"{e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+            }
         }
     
     }

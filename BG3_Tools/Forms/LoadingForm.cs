@@ -23,7 +23,6 @@ namespace BG3_Tools
         public static metaEditForm metaEditF;
         public static settingForm settingF;
         public static TranslationLastOpenForm TranslationLastOpenF;
-        public static ErrorForm ErrorF;
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static System.Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
@@ -65,7 +64,7 @@ namespace BG3_Tools
 
         public void openUpdater()
         {
-            ErrorForm.openForm();
+            ErrorForm.openForm("testTitle","testDesc","ERROR","");
 
             //
         }
