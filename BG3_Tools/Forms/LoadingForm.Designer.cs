@@ -61,15 +61,15 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 484);
+            this.progressBar1.Location = new System.Drawing.Point(12, 490);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(877, 16);
+            this.progressBar1.Size = new System.Drawing.Size(877, 10);
             this.progressBar1.TabIndex = 2;
             // 
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(416, 468);
+            this.status.Location = new System.Drawing.Point(428, 474);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(50, 13);
             this.status.TabIndex = 3;

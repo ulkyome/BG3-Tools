@@ -18,7 +18,7 @@ namespace BG3_Tools.Helpers
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public static configModel cfgApp = new configModel();
-        public static string ConfigFileD = $@"{Environment.CurrentDirectory}config.cfg";
+        public static string ConfigFileD = $@"{Environment.CurrentDirectory}\config.cfg";
         public static void read()
         {
             try
@@ -49,7 +49,7 @@ namespace BG3_Tools.Helpers
 
         public static void readDefalut()
         {
-            cfgApp.ver = "0.12";
+            cfgApp.ver = "0.11";
 
             ConfigPath Cp = new ConfigPath();
             Cp.root = $@"{Environment.CurrentDirectory}\";
@@ -62,6 +62,7 @@ namespace BG3_Tools.Helpers
             Cp.temp = pathTemp;
 
             cfgApp.ConfigPath = Cp;
+            save();
         }
 
         public static void save()
