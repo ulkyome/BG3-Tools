@@ -396,6 +396,8 @@
             this.Controls.Add(this.packageProgressLabel);
             this.Controls.Add(this.packageProgress);
             this.Controls.Add(this.label5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PackageForm";
             this.Text = "PAK Tools";
             this.groupBox2.ResumeLayout(false);

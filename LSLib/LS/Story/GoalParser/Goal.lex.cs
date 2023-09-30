@@ -6,7 +6,7 @@
 //
 //  GPLEX Version:  1.2.2
 //  Machine:  ULKYOME-PC
-//  DateTime: 29.09.2023 11:02:03
+//  DateTime: 30.09.2023 07:02:35
 //  UserName: Ulkyome
 //  GPLEX input file <E:\source\repos\BG3_Tran\LSLib\\LS\Story\GoalParser\Goal.lex - 18.09.2023 11:46:58>
 //  GPLEX frame file <embedded resource>

@@ -88,11 +88,12 @@ namespace BG3_Tools.Forms
 
         public void open_xml(string fileO)
         {
+            
             //panelLastOpen.Visible = false;
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
-
+            int textNUl = 0;
             _data.Clear();
 
             FileNameOpen = Path.GetFileNameWithoutExtension(fileO);
@@ -107,12 +108,21 @@ namespace BG3_Tools.Forms
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-                        c.TextT = c.Text; //добавляем в строку translate тот же оригинальный текст
-
-                        if (c.Contentuid == "")
+                        if (c.Text == null)
                         {
-                            uIDNUl++;
-                            FileOpenUser.Content.Remove(c); //чистим строки с пустыми Contentuid
+                            textNUl++;
+                            FileOpenUser.Content.Remove(c);
+                        }
+                        else
+                        {
+
+                            if (c.Contentuid == "")
+                            {
+                                uIDNUl++;
+                                FileOpenUser.Content.Remove(c); //чистим строки с пустыми Contentuid
+                            }
+
+                            c.TextT = c.Text; //добавляем в строку translate тот же оригинальный текст
                         }
                     }
 
@@ -227,6 +237,7 @@ namespace BG3_Tools.Forms
             lastFileOpenToolStripMenuItem.Checked = false;
 
             int uIDNUl = 0;
+            int textNUl = 0;
 
             _data.Clear();
 
@@ -247,12 +258,21 @@ namespace BG3_Tools.Forms
 
                     foreach (var c in FileOpenUser.Content.ToList())
                     {
-                        c.TextT = c.Text;
-
-                        if (c.Contentuid == "")
+                        if (c.Text == null)
                         {
-                            uIDNUl++;
+                            textNUl++;
                             FileOpenUser.Content.Remove(c);
+                        }
+                        else
+                        {
+
+                            if (c.Contentuid == "")
+                            {
+                                uIDNUl++;
+                                FileOpenUser.Content.Remove(c); //чистим строки с пустыми Contentuid
+                            }
+
+                            c.TextT = c.Text; //добавляем в строку translate тот же оригинальный текст
                         }
                     }
 
