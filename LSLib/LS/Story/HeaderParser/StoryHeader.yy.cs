@@ -4,7 +4,7 @@
 
 // GPPG version 1.5.2
 // Machine:  ULKYOME-PC
-// DateTime: 30.09.2023 07:28:45
+// DateTime: 01.10.2023 03:42:25
 // UserName: Ulkyome
 // Input file <E:\source\repos\BG3_Tran\LSLib\\LS\Story\HeaderParser\StoryHeader.yy - 18.09.2023 11:46:58>
 

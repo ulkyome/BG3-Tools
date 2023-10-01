@@ -94,11 +94,11 @@
     <Compile Include="Forms\TranslationEditor\editLineTransForm.Designer.cs">
       <DependentUpon>editLineTransForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ErrorForm.cs">
+    <Compile Include="Forms\activeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
+    <Compile Include="Forms\activeForm.Designer.cs">
+      <DependentUpon>activeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\genGuIDForm.cs">
       <SubType>Form</SubType>
@@ -157,6 +157,7 @@
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\loadConfig.cs" />
+    <Compile Include="Models\activeFormModel.cs" />
     <Compile Include="Models\configModel.cs" />
     <Compile Include="Models\langModel.cs" />
     <Compile Include="Models\metaModel.cs" />
@@ -174,8 +175,8 @@
     <EmbeddedResource Include="Forms\TranslationEditor\editLineTransForm.resx">
       <DependentUpon>editLineTransForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\activeForm.resx">
+      <DependentUpon>activeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\genGuIDForm.resx">
       <DependentUpon>genGuIDForm.cs</DependentUpon>

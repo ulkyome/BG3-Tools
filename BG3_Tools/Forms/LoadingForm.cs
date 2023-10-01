@@ -5,11 +5,13 @@ using BG3_Tools.Models;
 using NLog;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection.Emit;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace BG3_Tools
 {
@@ -54,7 +56,24 @@ namespace BG3_Tools
             }
             else
             {
-                startDownload();
+                bool fileExist = File.Exists($@"{loadConfig.cfgApp.ConfigPath.temp.update}{checkVerCl.ver}.zip");
+                if (fileExist)
+                {
+                    loadConfig.cfgApp.ver = checkVerCl.ver;
+                    loadConfig.save();
+                    startUpdater();
+                }
+                else
+                {
+                    activeForm._data = new activeFormModel();
+                    activeForm._data.title = "New Version";
+                    activeForm._data.description = $"Application update released ver: {checkVerCl.ver}";
+                    activeForm._data.titleWin = "Update";
+                    activeForm._data.link = checkVerCl.url;
+                    activeForm.ErrorF.Show();
+
+                    startDownload();
+                }
             }
         }
 
@@ -71,10 +90,40 @@ namespace BG3_Tools
             {
                 openApp();
             }
+            else
+            {
+                loadConfig.cfgApp.ver = checkVerCl.ver;
+                loadConfig.save();
+                startUpdater();
+            }
+        }
 
-            ErrorForm.openForm("testTitle",$"donload new version app","ERROR","", checkVerCl.url);
+        public void startUpdater()
+        {
+            try
+            {
+                Thread.Sleep(2000);
+                Process _process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
 
-            //
+                startInfo.FileName = "updater.exe";
+                startInfo.Arguments = $"{checkVerCl.ver} {loadConfig.cfgApp.ConfigPath.temp.update}";
+
+                _process.StartInfo = startInfo;
+                _process.Start();
+                Thread.Sleep(2000);
+                Application.Exit();
+            }
+            catch (Exception exc)
+            {
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR open updater";
+                activeForm._data.description = $"Problems with updater. check if it exists in the root {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+            }
         }
 
         private void startDownload()

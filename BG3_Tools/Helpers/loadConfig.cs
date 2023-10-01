@@ -41,10 +41,15 @@ namespace BG3_Tools.Helpers
                 Directory.CreateDirectory(cfgApp.ConfigPath.temp.update);
                 logger.Info("Create dir temp");
             }
-            catch (Exception e)
+            catch (Exception exc)
             {
-                ErrorForm.openForm("ERROR OPEN JSON", $"(Markup error or invalid format) {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
-                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR open json";
+                activeForm._data.description = $"(Markup error or invalid format) {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
+                logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
@@ -73,9 +78,15 @@ namespace BG3_Tools.Helpers
                 File.WriteAllText($@"{cfgApp.ConfigPath.root}config.cfg", JsonConvert.SerializeObject(cfgApp, Formatting.Indented));
                 logger.Info("save config file");
             }
-            catch(Exception e)
+            catch(Exception exc)
             {
-                ErrorForm.openForm("ERROR SAVE JSON", $"{e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR save json";
+                activeForm._data.description = $" {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
             }
         }
     }

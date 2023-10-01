@@ -1,6 +1,6 @@
 ﻿namespace BG3_Tools.Forms
 {
-    partial class ErrorForm
+    partial class activeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabelApp = new System.Windows.Forms.LinkLabel();
             this.buttonSkip = new System.Windows.Forms.Button();
             this.buttonShow = new System.Windows.Forms.Button();
             this.labelDesc = new System.Windows.Forms.Label();
@@ -37,11 +39,9 @@
             this.bClose = new System.Windows.Forms.Button();
             this.panelCode = new System.Windows.Forms.Panel();
             this.richTextBoxCodeErr = new System.Windows.Forms.RichTextBox();
-            this.linkLabelApp = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panelCode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelCode.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,6 +59,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(454, 121);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 67);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // linkLabelApp
+            // 
+            this.linkLabelApp.AutoSize = true;
+            this.linkLabelApp.Location = new System.Drawing.Point(81, 78);
+            this.linkLabelApp.Name = "linkLabelApp";
+            this.linkLabelApp.Size = new System.Drawing.Size(31, 13);
+            this.linkLabelApp.TabIndex = 6;
+            this.linkLabelApp.TabStop = true;
+            this.linkLabelApp.Text = "{link}";
+            this.linkLabelApp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelApp_LinkClicked);
             // 
             // buttonSkip
             // 
@@ -86,7 +107,7 @@
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(361, 69);
             this.labelDesc.TabIndex = 3;
-            this.labelDesc.Text = "{DESC}\r\n\r\n";
+            this.labelDesc.Text = "{Description}\r\n\r\n";
             // 
             // labelTitle
             // 
@@ -136,27 +157,7 @@
             this.richTextBoxCodeErr.TabIndex = 1;
             this.richTextBoxCodeErr.Text = "";
             // 
-            // linkLabelApp
-            // 
-            this.linkLabelApp.AutoSize = true;
-            this.linkLabelApp.Location = new System.Drawing.Point(81, 78);
-            this.linkLabelApp.Name = "linkLabelApp";
-            this.linkLabelApp.Size = new System.Drawing.Size(31, 13);
-            this.linkLabelApp.TabIndex = 6;
-            this.linkLabelApp.TabStop = true;
-            this.linkLabelApp.Text = "{link}";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 67);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ErrorForm
+            // activeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,15 +168,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ErrorForm";
+            this.Name = "activeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Error";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ErrorForm_FormClosed);
             this.Shown += new System.EventHandler(this.ErrorForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelCode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelCode.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -61,7 +61,13 @@ namespace BG3_Tools.Forms
             }
             catch (Exception e)
             {
-                ErrorForm.openForm("ERROR OPEN JSON", $"(Markup error or invalid format) {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR OPEN JSON";
+                activeForm._data.description = $"(Markup error or invalid format) {e.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}";
+                activeForm.ErrorF.Show();
+
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
@@ -143,7 +149,12 @@ namespace BG3_Tools.Forms
             }
             catch (Exception e)
             {
-                ErrorForm.openForm("ERROR OPEN XML", $"(Markup error or invalid format) {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR OPEN xml";
+                activeForm._data.description = $"(Markup error or invalid format) {e.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
@@ -295,7 +306,12 @@ namespace BG3_Tools.Forms
             catch (Exception exc)
             {
                 //MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "Conversion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ErrorForm.openForm("ERROR OPEN loca", $"(Markup error or invalid format) {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR OPEN loca";
+                activeForm._data.description = $"(Markup error or invalid format) {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -332,7 +348,12 @@ namespace BG3_Tools.Forms
             }
             catch (Exception e)
             {
-                ErrorForm.openForm("ERROR OPEN XML", $"(Markup error or invalid format) {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR OPEN JSON";
+                activeForm._data.description = $"(Markup error or invalid format) {e.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
             }
         }
@@ -375,7 +396,12 @@ namespace BG3_Tools.Forms
             }
             catch (Exception exc)
             {
-                ErrorForm.openForm("ERROR OPEN XML", $"(Markup error or invalid format) {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR OPEN JSON";
+                activeForm._data.description = $"(Markup error or invalid format) {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -407,7 +433,12 @@ namespace BG3_Tools.Forms
             }
             catch(Exception exc)
             {
-                ErrorForm.openForm("ERROR Save json", $" {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR save json";
+                activeForm._data.description = $" {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -428,7 +459,12 @@ namespace BG3_Tools.Forms
             }
             catch (Exception exc)
             {
-                ErrorForm.openForm("ERROR SAVE XML", $" {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR save xml";
+                activeForm._data.description = $" {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -450,7 +486,12 @@ namespace BG3_Tools.Forms
                 }
                 catch (Exception e)
                 {
-                    ErrorForm.openForm("ERROR save loca", $" {e.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
+                    activeForm._data = new activeFormModel();
+                    activeForm._data.title = "ERROR save loca";
+                    activeForm._data.description = $" {e.Message}";
+                    activeForm._data.titleWin = "ERROR";
+                    activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}";
+                    activeForm.ErrorF.Show();
                     logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{e}");
                 }
 
@@ -462,7 +503,12 @@ namespace BG3_Tools.Forms
             }
             catch (Exception exc)
             {
-                ErrorForm.openForm("ERROR save loca", $" {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR save loca";
+                activeForm._data.description = $" {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -492,7 +538,11 @@ namespace BG3_Tools.Forms
             }
             else
             {
-                ErrorForm.openForm("ERROR dialog", $"ERR switch format", "ERROR", "NULL");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR dialog";
+                activeForm._data.description = $"err swithc format";
+                activeForm._data.titleWin = "ERROR";
+                activeForm.ErrorF.Show();
             }
         }
 
@@ -512,8 +562,12 @@ namespace BG3_Tools.Forms
                             save_loca(saveFileDialog1.FileName);
                         break;
                     default:
-                            ErrorForm.openForm("ERROR SAVE FORMAT", $"error selected format", "ERROR", "NULL");
-                            logger.Error($"Error format save file select user");
+                            activeForm._data = new activeFormModel();
+                            activeForm._data.title = "ERROR save format";
+                            activeForm._data.description = $"error selected format";
+                            activeForm._data.titleWin = "ERROR";
+                            activeForm.ErrorF.Show();
+                        logger.Error($"Error format save file select user");
                         break;
                 }
 
@@ -524,8 +578,11 @@ namespace BG3_Tools.Forms
             }
             else
             {
-                MessageBox.Show("ERROR#S_01");
-                ErrorForm.openForm("ERROR SAVE DIALOG", $"error dialog");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR save";
+                activeForm._data.description = $"error 01";
+                activeForm._data.titleWin = "ERROR";
+                activeForm.ErrorF.Show();
             }
         }
 
@@ -566,7 +623,12 @@ namespace BG3_Tools.Forms
             catch(Exception exc) 
             {
                 //MessageBox.Show($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}", "cell err", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ErrorForm.openForm("ERROR", $"Internal error {exc.Message}", "ERROR", $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR cell edit";
+                activeForm._data.description = $"internal error {exc.Message}";
+                activeForm._data.titleWin = "ERROR";
+                activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{e}";
+                activeForm.ErrorF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
@@ -602,7 +664,11 @@ namespace BG3_Tools.Forms
                         open_locaMatch(openFileDialog1.FileName);
                         break;
                     default:
-                        ErrorForm.openForm("ERROR", $"error format save");
+                        activeForm._data = new activeFormModel();
+                        activeForm._data.title = "ERROR format";
+                        activeForm._data.description = $"error selected format save";
+                        activeForm._data.titleWin = "ERROR";
+                        activeForm.ErrorF.Show();
                         logger.Error($"Error format save file select user");
                         break;
                 }
@@ -613,8 +679,11 @@ namespace BG3_Tools.Forms
             }
             else
             {
-                MessageBox.Show("ERROR#O_01");
-                ErrorForm.openForm("ERROR open dialog", "error 01");
+                activeForm._data = new activeFormModel();
+                activeForm._data.title = "ERROR";
+                activeForm._data.description = $"open dialog error 02";
+                activeForm._data.titleWin = "ERROR";
+                activeForm.ErrorF.Show();
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BG3_Tools.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +11,11 @@ using System.Windows.Forms;
 
 namespace BG3_Tools.Forms
 {
-    public partial class ErrorForm : Form
+    public partial class activeForm : Form
     {
-        public static ErrorForm ErrorF = new ErrorForm();
-        public static string titleError = "ERROR#001";
-        public static string titleDesc = "ERROR Desc";
-        public static string CodeErr = "string code error app";
-        public static string titleWindows = "ERROR#001";
-        public static string linkApp = null;
-        public ErrorForm()
+        public static activeForm ErrorF = new activeForm();
+        public static activeFormModel _data;
+        public activeForm()
         {
             InitializeComponent();
         }
@@ -35,17 +32,28 @@ namespace BG3_Tools.Forms
 
         private void ErrorForm_Shown(object sender, EventArgs e)
         {
-            labelTitle.Text = titleError;
-            labelDesc.Text = titleDesc;
-            richTextBoxCodeErr.Text = CodeErr;
-            if (linkApp == null) {
+            labelTitle.Text = _data.title;
+            labelDesc.Text = _data.description;
+
+            if (_data.codeError == null)
+            {
+                buttonShow.Visible = false;
+            }
+            else
+            {
+                richTextBoxCodeErr.Text = _data.codeError;
+            }
+            
+
+            if (_data.link == null) {
                 linkLabelApp.Visible = false;
             }
             else
             {
-                linkLabelApp.Text = linkApp;
+                linkLabelApp.Text = _data.link;
             }
-            this.Text = titleWindows;
+
+            this.Text = _data.titleWin;
 
             panelCode.Enabled = false;
             panelCode.Visible = false;
@@ -57,14 +65,9 @@ namespace BG3_Tools.Forms
             Application.Exit();
         }
 
-        public static void openForm(string title, string desc,string titleWin = "Error", string code = "null", string lApp = null)
+        public static void openForm(activeFormModel data)
         {
-            titleWindows = titleWin;
-
-            titleError = title;
-            titleDesc = desc;
-            CodeErr = code;
-            linkApp = lApp;
+            _data = data;
             ErrorF.Show();
         }
 
@@ -87,6 +90,12 @@ namespace BG3_Tools.Forms
         private void buttonSkip_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void linkLabelApp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(_data.link);
+            Application.Exit();
         }
     }
 }
