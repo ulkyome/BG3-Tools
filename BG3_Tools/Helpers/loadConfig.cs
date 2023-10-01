@@ -43,19 +43,20 @@ namespace BG3_Tools.Helpers
             }
             catch (Exception exc)
             {
+                activeForm.activeF = new activeForm();
                 activeForm._data = new activeFormModel();
                 activeForm._data.title = "ERROR open json";
                 activeForm._data.description = $"(Markup error or invalid format) {exc.Message}";
                 activeForm._data.titleWin = "ERROR";
                 activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
-                activeForm.ErrorF.Show();
+                activeForm.activeF.Show();
                 logger.Error($"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}");
             }
         }
 
         public static void readDefalut()
         {
-            cfgApp.ver = "0.13";
+            cfgApp.ver = "0.12";
 
             ConfigPath Cp = new ConfigPath();
             Cp.root = $@"{Environment.CurrentDirectory}\";
@@ -80,13 +81,13 @@ namespace BG3_Tools.Helpers
             }
             catch(Exception exc)
             {
-
+                activeForm.activeF = new activeForm();
                 activeForm._data = new activeFormModel();
                 activeForm._data.title = "ERROR save json";
                 activeForm._data.description = $" {exc.Message}";
                 activeForm._data.titleWin = "ERROR";
                 activeForm._data.codeError = $"Internal error!{Environment.NewLine}{Environment.NewLine}{exc}";
-                activeForm.ErrorF.Show();
+                activeForm.activeF.Show();
             }
         }
     }

@@ -13,8 +13,9 @@ namespace BG3_Tools.Forms
 {
     public partial class activeForm : Form
     {
-        public static activeForm ErrorF = new activeForm();
+        public static activeForm activeF;
         public static activeFormModel _data;
+        
         public activeForm()
         {
             InitializeComponent();
@@ -65,12 +66,6 @@ namespace BG3_Tools.Forms
             Application.Exit();
         }
 
-        public static void openForm(activeFormModel data)
-        {
-            _data = data;
-            ErrorF.Show();
-        }
-
         private void buttonShow_Click(object sender, EventArgs e)
         {
             if (panelCode.Enabled)
@@ -90,6 +85,15 @@ namespace BG3_Tools.Forms
         private void buttonSkip_Click(object sender, EventArgs e)
         {
             this.Hide();
+            if (_data.action == null)
+            {
+
+            }
+            else
+            {
+                _data.action();
+            }
+            
         }
 
         private void linkLabelApp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

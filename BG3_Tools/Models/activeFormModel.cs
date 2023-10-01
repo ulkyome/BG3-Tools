@@ -13,5 +13,6 @@ namespace BG3_Tools.Models
         public string titleWin { get; set; }
         public string codeError { get; set; }
         public string link { get; set; }
+        public Action action { get; set; }
     }
 }

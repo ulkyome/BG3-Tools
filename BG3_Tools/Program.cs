@@ -4,18 +4,20 @@ using System.Windows.Forms;
 
 namespace BG3_Tools
 {
-    internal static class Program
+    public static class Program
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        public static LoadingForm LoadingF;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadingForm());
+            Application.Run(LoadingF = new LoadingForm());
 
             
         }
