@@ -56,7 +56,7 @@ namespace BG3_Tools.Helpers
 
         public static void readDefalut()
         {
-            cfgApp.ver = "0.12";
+            cfgApp.ver = "0.14";
 
             ConfigPath Cp = new ConfigPath();
             Cp.root = $@"{Environment.CurrentDirectory}\";
