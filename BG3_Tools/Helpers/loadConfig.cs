@@ -3,15 +3,7 @@ using BG3_Tools.Models;
 using Newtonsoft.Json;
 using NLog;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace BG3_Tools.Helpers
 {

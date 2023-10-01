@@ -62,7 +62,7 @@ namespace BG3_Tools
                 activeForm._data.description = $"Application update released ver: {checkVerCl.ver}";
                 activeForm._data.titleWin = "Update";
                 activeForm._data.link = checkVerCl.url;
-                activeForm._data.action = LoadingForm.test;
+                activeForm._data.action = LoadingForm.SkipWinUpdate;
                 activeForm.activeF.Show();
             }
         }
@@ -73,13 +73,14 @@ namespace BG3_Tools
             this.Hide();
         }
 
-        public static void test()
+        public static void SkipWinUpdate()
         {
             Program.LoadingF.Hide();
             //MessageBox.Show("test");
             LoadingForm.MainF.Show();
         }
-
+        
+        /*
         private void startDownload()
         {
             Thread thread = new Thread(() => {
@@ -106,6 +107,6 @@ namespace BG3_Tools
                 status.Text = "Completed";
                 //openUpdater();
             });
-        }
+        }*/
     }
 }

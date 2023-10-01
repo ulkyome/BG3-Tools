@@ -65,6 +65,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(877, 10);
             this.progressBar1.TabIndex = 2;
+            this.progressBar1.Visible = false;
             // 
             // status
             // 
@@ -74,6 +75,7 @@
             this.status.Size = new System.Drawing.Size(50, 13);
             this.status.TabIndex = 3;
             this.status.Text = "STATUS";
+            this.status.Visible = false;
             // 
             // LoadingForm
             // 
